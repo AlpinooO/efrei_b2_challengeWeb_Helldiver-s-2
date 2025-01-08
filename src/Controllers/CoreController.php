@@ -9,22 +9,17 @@ class CoreController
 {
     public function notFound()
     {
-        http_response_code(404); // renvois une erreur 404 si la page n'existe pas
+        http_response_code(404); 
         echo "404 - Page Not Found!";
     }
 
-    // Méthode pour inclure une vue
+
     public function render($view, $data = [])
     {
-        // TODO : a enlever lors de la mise en prod
-        // // Transmet les données aux vues
-        // $categoryModel = new categoriesModel;
-        // $categoryHeader = $categoryModel->getAllCategories();
-        // extract($categoryHeader); // data pour le header
+
         extract($data);
 
-        //pwd
-        // Inclut la vue demandée
+
         $viewFile = __DIR__ . '/../../templates/' . $view . '.php';
         if (file_exists($viewFile)) {
             require_once __DIR__ . '/../../templates/partials/header.php';
@@ -35,7 +30,7 @@ class CoreController
         }
     }
 
-    // Si l'utilisateur n'est pas connecté renvoie vers la page de connexion
+   
     public function isConnected()
     {
         if (!$_SESSION['userID']) {
@@ -44,7 +39,6 @@ class CoreController
         }
     }
 
-    // Si l'utilisateur n'est pas admin renvoie vers la page de home
     public function isAdmin()
     {
         $this->isConnected();

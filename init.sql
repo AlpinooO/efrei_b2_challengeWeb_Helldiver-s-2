@@ -3,17 +3,17 @@ CREATE DATABASE divers_helper;
 
 
 CREATE TABLE IF NOT EXISTS roles(
-id_role serial PRIMARY KEY,
-titre varchar(50) NOT NULL
+	id_role serial PRIMARY KEY,
+	titre varchar(50) NOT NULL
 );
 
 
 CREATE TABLE IF NOT EXISTS users(
- id_user serial PRIMARY KEY,
- nom varchar(50) NOT NULL,
- email varchar(100) NOT NULL,
- mdp varchar (100) NOT NULL,
- id_role int REFERENCES roles(id_role)
+	id_user serial PRIMARY KEY,
+	nom varchar(50) NOT NULL,
+	email varchar(100) NOT NULL,
+	mdp varchar (100) NOT NULL,
+	id_role int REFERENCES roles(id_role)
 );
 
 

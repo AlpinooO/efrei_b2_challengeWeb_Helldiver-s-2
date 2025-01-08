@@ -23,6 +23,9 @@
                 <li>
                     <a href="/stratagem">Stratagem</a>
                 </li>
+                <li>
+                    <a href="/species">Species</a>
+                </li>
                 <?php
                 if (isset($_SESSION['userID']) && !empty($_SESSION['userID'])) { ?>
                     <li>

@@ -397,6 +397,7 @@ img {
     background-color: var(--hdBackground);
     color: #fff;
     padding: 0.5em;
+    margin-top: 2rem;
     border: var(--hdYellow) 3px solid;
 }
 
@@ -408,13 +409,14 @@ img {
 
 .tab-content {
   margin-top: 1rem;
+  align-items: right;
 }
 
 .main-container {
-  width: 100%;
+  width:90%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  align-content: flex-start;
   align-items: flex-start;
 }
 
@@ -422,5 +424,9 @@ img {
   width: 100%;
   background-color: var(--hdBackground);
   color: #fff;
+  display: flex;
+  align-items: top;
+  justify-content: top;
   padding: 1rem;
+  
 }

@@ -358,51 +358,46 @@ h2 {
 }
 
 .selected {
-  color: yellow;
-}
-
-[x-cloak] {
-  display: none !important;
-}
-
-.selected {
   color: var(--hdYellow) !important;
 }
 
 .tab-list {
   list-style-type: none;
-  padding: 0;
+  padding-bottom: 2rem;
 }
 
 .tab-item {
   display: inline;
-  margin-right: 1rem;
+  margin-right: 5rem;
 }
 
 .tab-link {
   text-decoration: none;
   color: #fff;
-  transition: color 0.3s;
+  padding: 0.4rem; 
+  border: var(--hdBlack) 3px solid;
+  background-color: var(--hdBlack);
 }
 
 .tab-link:hover {
+  transition: 0.3s ease;
   color: var(--hdYellow);
+  border: var(--hdYellow) 3px solid;
 }
-
+ 
 img {
-  max-width: 100px;
-  height: auto;
+  max-width: 200px;
+  max-height: 150px;
   display: block;
   margin: 0.5rem 0;
 }
 
 .species-container { 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: var(--hdGrey);
+    width: 100%;
+    background-color: var(--hdBackground);
+    color: #fff;
+    padding: 0.5em;
+    border: var(--hdYellow) 3px solid;
 }
 
 .species-title { 
@@ -413,4 +408,19 @@ img {
 
 .tab-content {
   margin-top: 1rem;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.description-faction {
+  width: 100%;
+  background-color: var(--hdBackground);
+  color: #fff;
+  padding: 1rem;
 }

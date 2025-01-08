@@ -48,4 +48,5 @@
       </div>
     </div>
 
-    <a href="home.html">home page</a>
+    
+<script src="/javascripts/script.js"></script>

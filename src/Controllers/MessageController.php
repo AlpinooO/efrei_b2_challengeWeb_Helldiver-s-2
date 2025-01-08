@@ -4,7 +4,6 @@ namespace App\Controllers;
 use App\Controllers\CoreController;
 use App\Models\MessageModel;
 
-
 class MessageController extends CoreController
 {
     // Page "logout"
@@ -13,68 +12,80 @@ class MessageController extends CoreController
         $this->isConnected();
         session_unset(); // Supprime toutes les variables de session
         session_destroy(); // Détruit la session
-        header('Location : /');
+        header('Location: /');
         exit();
     }
-    //page "register"
+
+    // Page "register"
     public function register()
     {
         $this->render('user/register');
     }
 
-    // log l'utilisateur si les données correspondent
+    // Log l'utilisateur si les données correspondent
     public function loginUser()
     {
         if (
-            (isset($_POST['email']) && !empty($_POST['email']))
-            && (isset($_POST['MDP']) && !empty($_POST['MDP']))
+            isset($_POST['email']) && !empty($_POST['email']) &&
+            isset($_POST['MDP']) && !empty($_POST['MDP'])
         ) {
-            $userModel = new UserModel($_POST['email'], $_POST['MDP']); // verrifie si toutes les données existe
-            $userMDP = $userModel->login(); // cherche le MDP depuis l'email
+            $userModel = new UserModel();
+            $userMDP = $userModel->getPasswordByEmail($_POST['email']); // Récupère le MDP depuis l'email
 
-            if ($userMDP['MDP'] == $_POST['MDP']) { // commparre les MDP
-                $userID = $userModel->getUserId();
-                $_SESSION['userID'] = $userID['id_user']; // met dans la session l'id de l'utilisateur
+            if ($userMDP && password_verify($_POST['MDP'], $userMDP['MDP'])) { // Compare les MDP (hashés)
+                $userID = $userModel->getUserIdByEmail($_POST['email']);
+                $_SESSION['userID'] = $userID['id_user']; // Stocke l'ID utilisateur dans la session
 
-                $userRole = $userModel->getRole();
-                $_SESSION['userRole'] = $userRole['titre']; // met dans la session le role de l'utilisateur
-                header('Location : /'); // renvient sur home
+                $userRole = $userModel->getRoleById($userID['id_user']);
+                $_SESSION['userRole'] = $userRole['titre']; // Stocke le rôle utilisateur dans la session
+
+                header('Location: /'); // Redirige vers la page d'accueil
                 exit();
-
             } else {
                 $this->render('user/login');
-                echo '<script>alert("Mot de passe ou identifiant incorrect");</script>'; // envoie une  alert comme quoi le MDP est mauvais
+                echo '<script>alert("Mot de passe ou identifiant incorrect");</script>';
             }
         }
     }
 
-    // enregistre un utilisateur
-    public function registerPost()
+    // Affiche la page pour écrire un message
+    public function createMessage()
     {
+        $this->isConnected(); // Vérifie que l'utilisateur est connecté
+        $this->render('message/create');
+    }
+
+    // Enregistre un nouveau message
+    public function postMessage()
+    {
+        $this->isConnected(); // Vérifie que l'utilisateur est connecté
+
         if (
-            (isset($_POST['auteur']) && !empty($_POST['auteur']))
-            && (isset($_POST['titre']) && !empty($_POST['titre']))
-            && (isset($_POST['message']) && !empty($_POST['message']))
-            
-        ) { // verrification des données
-            $messageModel = new MessageModel($_POST['auteur'], $_POST['titre'], $_POST['message']);
-            if (!$messageModel->getEmail()) { // verrifie si l'email existe déjà
-                echo 'a';
-                $userID = $messageModel->register();
-                $_SESSION['userID'] = $userID['id_user']; // met dans la session l'id de l'utilisateur
+            isset($_POST['auteur']) && !empty($_POST['auteur']) &&
+            isset($_POST['titre']) && !empty($_POST['titre']) &&
+            isset($_POST['message']) && !empty($_POST['message'])
+        ) {
+            $messageModel = new MessageModel();
+            $messageModel->createMessage([
+                'auteur' => $_POST['auteur'],
+                'titre' => $_POST['titre'],
+                'message' => $_POST['message']
+            ]);
 
-                $userRole = $messageModel->getRole();
-                $_SESSION['userRole'] = $userRole['titre']; // met dans la session le role de l'utilisateur
-
-                header("Location : /"); // renvient sur home
-                exit();
-            } else {
-                $this->register(); // renvoie sur la page register
-                echo '<script>alert("l\'email existe déjà");</script>'; // envoie une alert comme quoi l'email existe déjà
-            }
+            header("Location: /messages"); // Redirige vers la liste des messages
+            exit();
         } else {
-            $this->register(); // renvoie sur la page register
-            echo '<script>alert("donné incorecte ou manquante");</script>'; // envoie une alert comme quoi les données sont mauvaise
+            $this->createMessage(); // Retourne au formulaire de création
+            echo '<script>alert("Données incorrectes ou manquantes");</script>';
         }
+    }
+
+    // Liste des messages
+    public function listMessages()
+    {
+        $this->isConnected(); // Vérifie que l'utilisateur est connecté
+        $messageModel = new MessageModel();
+        $messages = $messageModel->getAllMessages();
+        $this->render('message/list', ['messages' => $messages]);
     }
 }

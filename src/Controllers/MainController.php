@@ -20,4 +20,8 @@ class MainController extends CoreController
         $this->render('species');
     }
 
+    public function stratagem()
+    {
+        $this->render('stratagem');
+    }
 }

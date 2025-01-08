@@ -21,7 +21,7 @@
                     <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="/stratagem.php">Stratagem</a>
+                    <a href="/stratagem">Stratagem</a>
                 </li>
                 <?php
                 if (isset($_SESSION['userID']) && !empty($_SESSION['userID'])) { ?>
@@ -42,7 +42,7 @@
                     </li>
                 <?php } else { ?>
                     <li>
-                        <a href="/login">login</a>
+                        <a href="/log">login</a>
                     </li>
                 <?php } ?>
 

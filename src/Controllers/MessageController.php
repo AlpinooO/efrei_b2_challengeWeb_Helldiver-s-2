@@ -2,10 +2,10 @@
 namespace App\Controllers;
 
 use App\Controllers\CoreController;
-use App\Models\UserModel;
+use App\Models\MessageModel;
 
 
-class UserController extends CoreController
+class MessageController extends CoreController
 {
     // Page "logout"
     public function logout()
@@ -49,21 +49,21 @@ class UserController extends CoreController
     }
 
     // enregistre un utilisateur
-    public function registerUser()
+    public function registerPost()
     {
         if (
-            (isset($_POST['email']) && !empty($_POST['email']))
-            && (isset($_POST['MDP']) && !empty($_POST['MDP']))
-            && (isset($_POST['nom']) && !empty($_POST['nom']))
-            && (isset($_POST['prenom']) && !empty($_POST['prenom']))
+            (isset($_POST['auteur']) && !empty($_POST['auteur']))
+            && (isset($_POST['titre']) && !empty($_POST['titre']))
+            && (isset($_POST['message']) && !empty($_POST['message']))
+            
         ) { // verrification des données
-            $userModel = new UserModel($_POST['email'], $_POST['MDP'], $_POST['nom'], $_POST['prenom']);
-            if (!$userModel->getEmail()) { // verrifie si l'email existe déjà
+            $messageModel = new MessageModel($_POST['auteur'], $_POST['titre'], $_POST['message']);
+            if (!$messageModel->getEmail()) { // verrifie si l'email existe déjà
                 echo 'a';
-                $userID = $userModel->register();
+                $userID = $messageModel->register();
                 $_SESSION['userID'] = $userID['id_user']; // met dans la session l'id de l'utilisateur
 
-                $userRole = $userModel->getRole();
+                $userRole = $messageModel->getRole();
                 $_SESSION['userRole'] = $userRole['titre']; // met dans la session le role de l'utilisateur
 
                 header("Location : /"); // renvient sur home

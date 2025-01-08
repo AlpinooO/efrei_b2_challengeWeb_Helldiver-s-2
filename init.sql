@@ -27,3 +27,6 @@ CREATE TABLE IF NOT EXISTS posts(
 );
 
 INSERT INTO roles(titre) VALUES ('admin'), ('utilisateur');
+
+INSERT INTO users(nom, email,mdp,id_role) VALUES ('admin', 'admin@admin.com', 'adminadmin', 1);
+

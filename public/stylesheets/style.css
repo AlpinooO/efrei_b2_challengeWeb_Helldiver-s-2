@@ -154,14 +154,15 @@ h2 {
 /* Login/Register Page */
 
 .container {
+  margin: 2% 0;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
-  width: 768px;
+  width: 950px;
   max-width: 100%;
-  min-height: 480px;
+  min-height: 600px;
 }
 
 .container p {

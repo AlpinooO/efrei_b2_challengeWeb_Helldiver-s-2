@@ -281,3 +281,13 @@ h1 {
 .container.active .toggle-right {
   transform: translateX(200%);
 }
+
+
+[x-cloak] {
+  display: none !important;
+}
+
+.selected {
+  color: yellow;
+}
+

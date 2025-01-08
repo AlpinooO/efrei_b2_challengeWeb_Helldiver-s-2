@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs"></script>
-    <link rel="stylesheet" href="species.css">
 </head>
 
 <div class="" x-cloak x-data="{ tab: 'Automates' }">

@@ -1,3 +1,4 @@
+
 efrei_b2_challengeWeb_helldiver-s-2 <!-- omit in toc -->
 ===
 
@@ -14,20 +15,17 @@ sudo apt-get install composer
 ```
 
 Ensuite, vous pouvez installer les dépendances du projet en exécutant cette commande :
-
 ```bash
 composer install
 ```
 
 ## Start server using php
 
-Lancer DockerDesktop et faites cette commande
-
 ```bash
-docker-compose up --build
+php -S localhost:5001 -t public
 ```
 
-### You can now access the project at `http://localhost:8080` in your browser. <!-- omit in toc -->
+### vous pouvez y acceder sur `http://localhost:5001` dans votre navigateur. <!-- omit in toc -->
 
 # utilisation
 

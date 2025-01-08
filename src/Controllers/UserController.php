@@ -28,7 +28,7 @@ class UserController extends CoreController
         // recuperation des champs des formulaire
         $email = htmlspecialchars($_POST['email']);
         $username = htmlspecialchars($_POST['nom']);
-        $password = htmlspecialchars($_POST['MDP']);
+        $password = htmlspecialchars($_POST['password']);
 
         // Vérification des champs vides
         if (empty($username) || empty($password)) {
@@ -50,14 +50,14 @@ class UserController extends CoreController
     public function registerUser()
     {
         // recuperation des champs des formulaire
-        $username = htmlspecialchars($_POST['nom']);
-        $password = htmlspecialchars($_POST['MDP']);
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
 
         // Vérification des champs vides
-        if (empty($username) || empty($password)) {
+        if (empty($email) || empty($password)) {
             echo "Veuillez remplir tous les champs";
         } else {
-            $user = new UserModel(null, $password, $username, );
+            $user = new UserModel($email, $password);
             if ($user->register()) {
                 $_SESSION['user'] = $user->getUser();
                 header('Location: /');

@@ -15,9 +15,11 @@ $router = new Alterouter();
 // Create a route with the generic method "addRoute"
 $router->addRoute('GET', '/', MainController::class . '@home', 'home');
 $router->addRoute('GET', '/log', UserController::class . '@log', 'log');
+$router->addRoute('POST', '/log', MainController::class . '@log', 'logPost');
 $router->addRoute('GET', '/logout', UserController::class . '@logout', 'logout');
 $router->addRoute('GET', '/post', PostsController::class . '@post', 'post');
-$router->addRoute('GET', '/species', PostsController::class . '@species', 'species');
+$router->addRoute('POST', '/post', PostsController::class . '@poster', 'postPost');
+$router->addRoute('GET', '/species', MainController::class . '@species', 'species');
 
 $route = $router->match(Request::getMethodFromGlobals(), Request::getPathFromGlobals());
 // dump($match);

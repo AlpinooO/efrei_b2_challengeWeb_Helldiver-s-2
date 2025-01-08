@@ -20,4 +20,16 @@ class MainController extends CoreController
         $this->render('species');
     }
 
+    public function log()
+    {
+        $register = $_POST['register'];
+
+        $user = new UserController();
+        if (isset($register) && $register == 'register') {
+            $user->loginUser();
+        } else {
+            $user->registerUser();
+        }
+    }
+
 }

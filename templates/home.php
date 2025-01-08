@@ -8,9 +8,7 @@
         <div class="capture block">
           <!-- new capture -->
         </div>
-        <div class="block">
-          <!-- pub -->
-        </div>
+        
       </div>
       <article>
       <h2>L’appel de la Démocratie</h2>
@@ -41,4 +39,6 @@ Dans <em>Helldivers 2</em>, la démocratie ne se défend pas avec des discours, 
 <p><strong>Super-Terre compte sur vous !</strong></p>
 
       </article>
+      
     </div>
+    <iframe width="60%" height="auto" src="https://www.youtube.com/embed/OEx-6BmiN-c?si=-PkpjhbVtNSt6QtX&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

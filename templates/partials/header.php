@@ -12,7 +12,7 @@
   <body>
     <header id="header">
         <a href="">
-            <img src="https://media.licdn.com/dms/image/v2/D5622AQFs4FKk1eXtmw/feedshare-shrink_800/feedshare-shrink_800/0/1709661228153?e=2147483647&v=beta&t=-5F3xfope_Mo5qnKTXIEhzL16h1REVO6NWRRSqQghQo" class="logo" alt="" />
+            <img src="/assets/Images/Helldivers_2_logo.webp" class="logo" alt="" />
         </a>
 
         <nav>
@@ -20,7 +20,9 @@
                 <li>
                     <a href="/">Home</a>
                 </li>
-                
+                <li>
+                    <a href="/stratagem.php">Stratagem</a>
+                </li>
                 <?php
                 if (isset($_SESSION['userID']) && !empty($_SESSION['userID'])) { ?>
                     <li>

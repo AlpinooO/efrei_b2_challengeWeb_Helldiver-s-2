@@ -291,3 +291,56 @@ h1 {
   color: yellow;
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
+.selected {
+  color: var(--hdYellow) !important;
+}
+
+.tab-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.tab-item {
+  display: inline;
+  margin-right: 1rem;
+}
+
+.tab-link {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.tab-link:hover {
+  color: var(--hdYellow);
+}
+
+img {
+  max-width: 100px;
+  height: auto;
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.species-container { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--hdGrey);
+}
+
+.species-title { 
+  font-size: 2rem;
+  color: var(--hdYellow);
+  margin-bottom: 1rem;
+}
+
+.tab-content {
+  margin-top: 1rem;
+}

@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(155, 185, 211);
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+.selected {
+    color: yellow;
+}
+

@@ -17,7 +17,7 @@ $router->addRoute('GET', '/', MainController::class . '@home', 'home');
 $router->addRoute('GET', '/log', UserController::class . '@log', 'log');
 $router->addRoute('GET', '/logout', UserController::class . '@logout', 'logout');
 $router->addRoute('GET', '/post', PostsController::class . '@post', 'post');
-$router->addRoute('GET', '/species', PostsController::class . '@species', 'species');
+$router->addRoute('GET', '/species', MainController::class . '@species', 'species');
 
 $route = $router->match(Request::getMethodFromGlobals(), Request::getPathFromGlobals());
 // dump($match);

@@ -352,6 +352,7 @@ h2 {
   transform: translateX(200%);
 }
 
+/* Species Page */
 
 [x-cloak] {
   display: none !important;
@@ -396,7 +397,7 @@ img {
   margin: 0.5rem 0;
 }
 
-.species-container { 
+.species-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -405,7 +406,7 @@ img {
   background-color: var(--hdGrey);
 }
 
-.species-title { 
+.species-title {
   font-size: 2rem;
   color: var(--hdYellow);
   margin-bottom: 1rem;
@@ -413,4 +414,35 @@ img {
 
 .tab-content {
   margin-top: 1rem;
+}
+
+/* &Page footer */
+
+footer {
+  background-color: var(--hdBackground);
+  display: flex;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.678);
+  justify-content: space-evenly;
+  text-align-last: center;
+  flex-wrap: wrap;
+  margin-top: 1em;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+footer section {
+  border-right: solid 1px var(--hdBlack);
+  padding: 0.5%;
+  width: 30%;
+}
+
+footer section:last-of-type {
+  border: none;
+}
+
+footer section:first-of-type {
+  border: none;
+  width: 100%;
 }

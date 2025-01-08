@@ -45,17 +45,18 @@ class userModel
     // enregistre les information de l'utilisateur
     public function register()
     {
-        $hashed_password = password_hash($this->MDP, PASSWORD_DEFAULT);
+        // $hashed_password = password_hash($this->MDP, PASSWORD_DEFAULT);
         $pdo = Database::getPDO();
         $membre = 2;
         $sqlQuery = "INSERT into users(email, MDP, nom, id_role) value(:email, :MDP, :nom, $membre)";
         $stmt = $pdo->prepare($sqlQuery);
         $stmt->execute([
             'email' => $this->email,
-            'MDP' => $hashed_password,
+            // 'MDP' => $hashed_password,
+            'MDP' => $this->MDP,
             'nom' => $this->nom,
         ]);
-        return $this->getUserId();
+        return $this->getUser();
     }
 
     // cherche dans la db le mot de passe qui correspond a l'email
@@ -69,7 +70,14 @@ class userModel
         ]);
         $user = $stmt->fetch();
 
-        if ($user && password_verify($this->MDP, $user['MDP'])) {
+        // TODO: A décommenter lorsque le hashage des mots de passe sera effectif meme pour l'admin
+        // if ($user && password_verify($this->MDP, $user['MDP'])) {
+        //     return $user;
+        // } else {
+        //     return false;
+        // }
+
+        if ($user && $this->MDP == $user['MDP']) {
             return $user;
         } else {
             return false;

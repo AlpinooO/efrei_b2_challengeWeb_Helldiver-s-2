@@ -1,4 +1,3 @@
-
 efrei_b2_challengeWeb_helldiver-s-2 <!-- omit in toc -->
 ===
 
@@ -32,5 +31,4 @@ php -S localhost:5001 -t public
 ## admin <!-- omit in toc -->
 
 log : admin@admin.com
-
 password : adminadmin

@@ -9,14 +9,12 @@ class userModel
     private $email;
     private $MDP;
     private $nom;
-    private $prenom;
 
-    public function __construct($email = null, $MDP = null, $nom = null, $prenom = null)
+    public function __construct($email = null, $MDP = null, $nom = null)
     {
         $this->email = $email;
         $this->MDP = $MDP;
         $this->nom = $nom;
-        $this->prenom = $prenom;
     }
 
     // récupère l'id de l'utilisateur depuis son email
@@ -24,38 +22,38 @@ class userModel
     {
         $pdo = Database::getPDO();
         $sqlQuery = "SELECT id_user FROM users WHERE email = :email";
-        $getID = $pdo->prepare($sqlQuery);
-        $getID->execute([
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute([
             'email' => $this->email
         ]);
-        return $getID->fetch();
+        return $stmt->fetch();
     }
 
     // récupère le role de l'utilisateur
-    public function getRole()
+    public function getUser()
     {
         $pdo = Database::getPDO();
-        $sqlQuery = "SELECT titre FROM roles INNER JOIN users ON roles.id_role = users.id_role WHERE id_user = :id_user;";
-        $getRole = $pdo->prepare($sqlQuery);
+        $sqlQuery = "SELECT id_user,nom,email,titre FROM roles INNER JOIN users ON roles.id_role = users.id_role WHERE id_user = :id_user;";
         $userID = $this->getUserId()['id_user'];
-        $getRole->execute([
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute([
             'id_user' => $userID
         ]);
-        return $getRole->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     // enregistre les information de l'utilisateur
     public function register()
     {
+        $hashed_password = password_hash($this->MDP, PASSWORD_DEFAULT);
         $pdo = Database::getPDO();
         $membre = 2;
-        $sqlQuery = "INSERT into users(email, MDP, nom, prenom, id_role) value(:email, :MDP, :nom, :prenom, $membre)";
-        $addUser = $pdo->prepare($sqlQuery);
-        $addUser->execute([
+        $sqlQuery = "INSERT into users(email, MDP, nom, id_role) value(:email, :MDP, :nom, $membre)";
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute([
             'email' => $this->email,
-            'MDP' => $this->MDP,
+            'MDP' => $hashed_password,
             'nom' => $this->nom,
-            'prenom' => $this->prenom
         ]);
         return $this->getUserId();
     }
@@ -65,11 +63,17 @@ class userModel
     {
         $pdo = Database::getPDO();
         $sqlQuery = "SELECT MDP FROM users WHERE email = :email";
-        $loginRequest = $pdo->prepare($sqlQuery);
-        $loginRequest->execute([
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute([
             'email' => $this->email
         ]);
-        return $loginRequest->fetch();
+        $user = $stmt->fetch();
+
+        if ($user && password_verify($this->MDP, $user['MDP'])) {
+            return $user;
+        } else {
+            return false;
+        }
     }
 
     // change le role de l'utilisateur en ADMIN
@@ -78,8 +82,8 @@ class userModel
         $pdo = Database::getPDO();
         $admin = 1;
         $sqlQuery = "UPDATE users SET id_role = $admin WHERE email = :email;";
-        $adminRequest = $pdo->prepare($sqlQuery);
-        $adminRequest->execute(
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute(
             [
                 'email' => $this->email
             ]
@@ -91,10 +95,10 @@ class userModel
     {
         $pdo = Database::getPDO();
         $sqlQuery = 'SELECT email FROM users WHERE email = :email';
-        $emailRequest = $pdo->prepare($sqlQuery);
-        $emailRequest->execute([
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute([
             'email' => $this->email
         ]);
-        return $emailRequest;
+        return $stmt->fetch();
     }
 }

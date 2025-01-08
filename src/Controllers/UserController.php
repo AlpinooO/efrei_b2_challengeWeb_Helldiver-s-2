@@ -17,33 +17,31 @@ class UserController extends CoreController
         exit();
     }
     //page "register"
-    public function register()
+    public function log()
     {
-        $this->render('user/register');
+        $this->render('user/log');
     }
 
     // log l'utilisateur si les données correspondent
     public function loginUser()
     {
-        if (
-            (isset($_POST['email']) && !empty($_POST['email']))
-            && (isset($_POST['MDP']) && !empty($_POST['MDP']))
-        ) {
-            $userModel = new UserModel($_POST['email'], $_POST['MDP']); // verrifie si toutes les données existe
-            $userMDP = $userModel->login(); // cherche le MDP depuis l'email
+        // recuperation des champs des formulaire
+        $email = htmlspecialchars($_POST['email']);
+        $username = htmlspecialchars($_POST['nom']);
+        $password = htmlspecialchars($_POST['MDP']);
 
-            if ($userMDP['MDP'] == $_POST['MDP']) { // commparre les MDP
-                $userID = $userModel->getUserId();
-                $_SESSION['userID'] = $userID['id_user']; // met dans la session l'id de l'utilisateur
-
-                $userRole = $userModel->getRole();
-                $_SESSION['userRole'] = $userRole['titre']; // met dans la session le role de l'utilisateur
-                header('Location : /'); // renvient sur home
+        // Vérification des champs vides
+        if (empty($username) || empty($password)) {
+            $error = "Veuillez remplir tous les champs";
+        } else {
+            $user = new UserModel($email, $password, $username);
+            $loggedUser = $user->login();
+            if ($loggedUser) {
+                $_SESSION['user'] = $user->getUser();
+                header('Location: /');
                 exit();
-
             } else {
-                $this->render('user/login');
-                echo '<script>alert("Mot de passe ou identifiant incorrect");</script>'; // envoie une  alert comme quoi le MDP est mauvais
+                echo "Mot de passe incorrect";
             }
         }
     }
@@ -51,30 +49,20 @@ class UserController extends CoreController
     // enregistre un utilisateur
     public function registerUser()
     {
-        if (
-            (isset($_POST['email']) && !empty($_POST['email']))
-            && (isset($_POST['MDP']) && !empty($_POST['MDP']))
-            && (isset($_POST['nom']) && !empty($_POST['nom']))
-            && (isset($_POST['prenom']) && !empty($_POST['prenom']))
-        ) { // verrification des données
-            $userModel = new UserModel($_POST['email'], $_POST['MDP'], $_POST['nom'], $_POST['prenom']);
-            if (!$userModel->getEmail()) { // verrifie si l'email existe déjà
-                echo 'a';
-                $userID = $userModel->register();
-                $_SESSION['userID'] = $userID['id_user']; // met dans la session l'id de l'utilisateur
+        // recuperation des champs des formulaire
+        $username = htmlspecialchars($_POST['nom']);
+        $password = htmlspecialchars($_POST['MDP']);
 
-                $userRole = $userModel->getRole();
-                $_SESSION['userRole'] = $userRole['titre']; // met dans la session le role de l'utilisateur
-
-                header("Location : /"); // renvient sur home
-                exit();
-            } else {
-                $this->register(); // renvoie sur la page register
-                echo '<script>alert("l\'email existe déjà");</script>'; // envoie une alert comme quoi l'email existe déjà
-            }
+        // Vérification des champs vides
+        if (empty($username) || empty($password)) {
+            echo "Veuillez remplir tous les champs";
         } else {
-            $this->register(); // renvoie sur la page register
-            echo '<script>alert("donné incorecte ou manquante");</script>'; // envoie une alert comme quoi les données sont mauvaise
+            $user = new UserModel(null, $password, $username, );
+            if ($user->register()) {
+                $_SESSION['user'] = $user->getUser();
+                header('Location: /');
+                exit();
+            }
         }
     }
 }

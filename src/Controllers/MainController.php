@@ -40,10 +40,9 @@ class MainController extends CoreController
 
     public function publier()
     {
-        $parent = $_POST['parent'];
-
+        $this->isConnected();
         $publication = new PublicationController();
-        if (isset($parent)) {
+        if (isset($_POST['parent'])) {
             $publication->commenter();
         } else {
             $publication->publier();

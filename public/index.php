@@ -19,7 +19,7 @@ $router->addRoute('GET', '/log', UserController::class . '@log', 'log');
 $router->addRoute('POST', '/log', MainController::class . '@log', 'logPost');
 $router->addRoute('GET', '/logout', UserController::class . '@logout', 'logout');
 $router->addRoute('GET', '/forum', MainController::class . '@publication', 'publication');
-$router->addRoute('POST', '/forum', PublicationController::class . '@publier', 'publier ');
+$router->addRoute('POST', '/forum', MainController::class . '@publier', 'publier ');
 $router->addRoute('POST', '/forum/supprimer', PublicationController::class . '@supprimer', 'supprimerPublication');
 $router->addRoute('GET', '/stratagem', MainController::class . '@stratagem', 'stratagem');
 $router->addRoute('GET', '/species', MainController::class . '@species', 'species');

@@ -26,9 +26,9 @@ class PublicationModel
     {
         $date = date('Y-m-d H:i:s');
         $pdo = Database::getPDO();
-        $sql = "INSERT INTO publication (message, auteur, titre, date) VALUES (:message, :auteur, :titre, $date)";
-        $query = $pdo->prepare($sql);
-        $query->execute([
+        $sql = "INSERT INTO publication (message, auteur, titre, publication) VALUES (:message, :auteur, :titre, '$date')";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
             ':message' => $this->message,
             ':auteur' => $this->auteur,
             ':titre' => $this->titre
@@ -39,9 +39,9 @@ class PublicationModel
     {
         $date = date('Y-m-d H:i:s');
         $pdo = Database::getPDO();
-        $sql = "INSERT INTO publication (message, auteur, date, parent) VALUES (:message, :auteur, $date , :parent)";
-        $query = $pdo->prepare($sql);
-        $query->execute([
+        $sql = "INSERT INTO publication (message, auteur, publication, parent) VALUES (:message, :auteur, '$date' , :parent)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
             ':message' => $this->message,
             ':titre' => $this->titre,
             ':auteur' => $this->auteur,
@@ -52,9 +52,12 @@ class PublicationModel
     public function getAll()
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM publication inner join user on publication.auteur = user.id_user inner join role on user.role_id = role.id_role";
-        $query = $pdo->query($sql);
-        $publications = $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\publicationModel');
+        $sql = "SELECT * FROM publication
+            INNER JOIN users ON publication.auteur = users.id_user
+            INNER JOIN roles ON users.id_role = roles.id_role";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $publications = $stmt->fetchAll(PDO::FETCH_CLASS);
         return $publications;
     }
 
@@ -62,9 +65,9 @@ class PublicationModel
     {
         $pdo = Database::getPDO();
         $sql = "SELECT * FROM publication WHERE id = :id";
-        $query = $pdo->prepare($sql);
-        $query->execute([':id' => $this->id]);
-        $publication = $query->fetchObject('App\Models\publicationModel');
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $this->id]);
+        $publication = $stmt->fetchObject('App\Models\publicationModel');
         return $publication;
     }
 
@@ -72,16 +75,16 @@ class PublicationModel
     {
         $pdo = Database::getPDO();
         $sql = "DELETE FROM publication WHERE id = :id";
-        $query = $pdo->prepare($sql);
-        $query->execute([':id' => $this->id]);
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $this->id]);
     }
 
     public function update()
     {
         $pdo = Database::getPDO();
         $sql = "UPDATE publication SET message = :message, auteur = :auteur WHERE id = :id";
-        $query = $pdo->prepare($sql);
-        $query->execute([
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
             ':message' => $this->message,
             ':id' => $this->id
         ]);
@@ -91,9 +94,9 @@ class PublicationModel
     {
         $pdo = Database::getPDO();
         $sql = "SELECT * FROM publication WHERE parent = :id";
-        $query = $pdo->prepare($sql);
-        $query->execute([':id' => $this->id]);
-        $commentaires = $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\publicationModel');
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $this->id]);
+        $commentaires = $stmt->fetchAll(PDO::FETCH_CLASS, 'App\Models\publicationModel');
         return $commentaires;
     }
 }

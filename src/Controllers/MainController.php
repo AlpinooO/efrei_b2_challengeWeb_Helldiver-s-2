@@ -33,9 +33,9 @@ class MainController extends CoreController
         }
     }
 
-    public function stratagem()
+    public function map()
     {
-        $this->render('stratagem');
+        $this->render('map');
     }
 
     public function publier()

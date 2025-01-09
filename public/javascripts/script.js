@@ -19,15 +19,9 @@ async function fetchNewsData() {
     }
     const newsData = await response.json();
 
-    console.log("Réponse de l'API:", newsData);
-
     const campaignContainer = document.getElementById("campaign-container");
 
     // Vérifiez que l'élément container est bien trouvé
-    if (!campaignContainer) {
-      console.error("Element #campaign-container non trouvé");
-      return;
-    }
 
     // Effacez le contenu de campaignContainer pour éviter les doublons
     campaignContainer.innerHTML = `<h3>Dernières Nouveautés</h3>`;
@@ -70,3 +64,68 @@ async function fetchNewsData() {
 }
 
 fetchNewsData();
+const mapContainer = document.getElementById("map-container"); // Déclaration en haut du script
+
+mapContainer.innerHTML = "<h3>Fetching data...</h3>";
+// Appel à l'API pour récupérer les planètes
+fetch("https://helldiverstrainingmanual.com/api/v1/planets")
+  .then((response) => {
+    console.log("Response received:", response);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json(); // Parse la réponse en JSON
+  })
+  .then((data) => {
+    console.log("Parsed data:", data);
+
+    // Convertir les données en tableau (si nécessaire)
+    const planets = Object.values(data);
+
+    // Vérifier si les données sont valides
+    if (planets && planets.length > 0) {
+      // Affichage des données
+      mapContainer.innerHTML = `
+          <h3>Latest War Updates</h3>
+          <ul>
+            ${planets
+              .map(
+                (planet) => `
+              <li>
+                <strong>${planet.name}</strong>: 
+                ${
+                  planet.biome
+                    ? planet.biome.description
+                    : "No biome information"
+                }
+                <br>
+                Sector: ${planet.sector}
+                <br>
+                Environmental Hazards:
+                <ul>
+                  ${
+                    planet.environmentals.length > 0
+                      ? planet.environmentals
+                          .map(
+                            (env) =>
+                              `<li><strong>${env.name}</strong>: ${env.description}</li>`
+                          )
+                          .join("")
+                      : "<li>None</li>"
+                  }
+                </ul>
+              </li>
+            `
+              )
+              .join("")}
+          </ul>
+        `;
+    } else {
+      console.warn("No data available to display.");
+      mapContainer.innerHTML = "<h3>No data available</h3>";
+    }
+  })
+  .catch((error) => {
+    console.error("An error occurred:", error);
+    mapContainer.innerHTML = "<h3>Failed to load data</h3>";
+  });

@@ -2,12 +2,15 @@
 
 <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
 
+
+
 <div class="container-main">
   <div class="container-col">
     <div class="capture">
       <div id="campaign-container" class="campaign-info">
         <h3>Loading campaign information...</h3>
       </div>
+
     </div>
 
   </div>

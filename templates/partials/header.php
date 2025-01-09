@@ -34,7 +34,7 @@ if (isset($_SESSION['user'])) {
                 <?php
                 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) { ?>
                     <?php
-                    if ($_SESSION['user'] === 'admin') {
+                    if ($userRole === 'admin') {
                         ?>
                         <li>
                             <a href="/admin">Admin</a>

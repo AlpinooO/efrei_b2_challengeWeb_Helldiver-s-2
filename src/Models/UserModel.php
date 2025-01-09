@@ -42,6 +42,17 @@ class userModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function isUser()
+    {
+        $pdo = Database::getPDO();
+        $sqlQuery = "SELECT * FROM users WHERE email = :email";
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute([
+            'email' => $this->email
+        ]);
+        return $stmt->fetch();
+    }
+
     // enregistre les information de l'utilisateur
     public function register()
     {
@@ -69,7 +80,6 @@ class userModel
             'email' => $this->email
         ]);
         $user = $stmt->fetch();
-
         // TODO: A décommenter lorsque le hashage des mots de passe sera effectif meme pour l'admin
         // if ($user && password_verify($this->MDP, $user['MDP'])) {
         //     return $user;

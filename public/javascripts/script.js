@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function fetchNewsData() {
   try {
-    const response = await fetch("https://helldiverstrainingmanual.com/api/v1/war/news");
+    const response = await fetch(
+      "https://helldiverstrainingmanual.com/api/v1/war/news"
+    );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -61,74 +63,130 @@ async function fetchNewsData() {
     console.error("Error fetching news data:", error);
     const campaignContainer = document.getElementById("campaign-container");
     if (campaignContainer) {
-      campaignContainer.innerHTML = "<h3>Error loading news. Please try again later.</h3>";
+      campaignContainer.innerHTML =
+        "<h3>Error loading news. Please try again later.</h3>";
     }
   }
 }
 
 fetchNewsData();
-const mapContainer = document.getElementById("map-container"); // Déclaration en haut du script
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Le DOM est chargé, le script va commencer.");
 
-mapContainer.innerHTML = "<h3>Fetching data...</h3>";
-// Appel à l'API pour récupérer les planètes
-fetch("https://helldiverstrainingmanual.com/api/v1/planets")
-  .then((response) => {
-    console.log("Response received:", response);
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json(); // Parse la réponse en JSON
-  })
-  .then((data) => {
-    console.log("Parsed data:", data);
+  async function fetchPlanets() {
+    try {
+      const response = await fetch("/assets/json/Planet.json");
 
-    // Convertir les données en tableau (si nécessaire)
-    const planets = Object.values(data);
+      if (!response.ok) {
+        throw new Error(`Erreur HTTP ! Statut: ${response.status}`);
+      }
 
-    // Vérifier si les données sont valides
-    if (planets && planets.length > 0) {
-      // Affichage des données
-      mapContainer.innerHTML = `
-          <h3>Latest War Updates</h3>
-          <ul>
+      const planetsData = await response.json();
+
+      console.log("Réponse de l'API:", planetsData);
+
+      const mapContainer = document.getElementById("map-container");
+
+      if (!mapContainer) {
+        console.error("Élément #map-container non trouvé.");
+        return;
+      }
+
+      mapContainer.innerHTML = `<h3>Planets List</h3>`;
+
+      const planets = Object.values(planetsData);
+
+      if (planets && planets.length > 0) {
+        mapContainer.innerHTML += `
+          <ul class="planet-list">
             ${planets
               .map(
                 (planet) => `
-              <li>
-                <strong>${planet.name}</strong>: 
-                ${
-                  planet.biome
-                    ? planet.biome.description
-                    : "No biome information"
-                }
-                <br>
-                Sector: ${planet.sector}
-                <br>
-                Environmental Hazards:
-                <ul>
-                  ${
-                    planet.environmentals.length > 0
-                      ? planet.environmentals
+                  <li class="planet-item">
+                    <h4>${planet.name}</h4>
+                    <p><strong>Sector:</strong> ${planet.sector}</p>
+                    ${
+                      planet.biome
+                        ? `<p><strong>Biome:</strong> ${planet.biome.description}</p>`
+                        : ""
+                    }
+                    ${
+                      planet.environmentals.length > 0
+                        ? `
+                      <ul>
+                        ${planet.environmentals
                           .map(
                             (env) =>
                               `<li><strong>${env.name}</strong>: ${env.description}</li>`
                           )
-                          .join("")
-                      : "<li>None</li>"
-                  }
-                </ul>
-              </li>
-            `
+                          .join("")}
+                      </ul>
+                    `
+                        : ""
+                    }
+                    ${
+                      planet.image
+                        ? `<img src="${planet.image}" alt="${planet.name} image" class="planet-image">`
+                        : ""
+                    }
+                  </li>
+                `
               )
               .join("")}
           </ul>
         `;
-    } else {
-      console.warn("No data available to display.");
-      mapContainer.innerHTML = "<h3>No data available</h3>";
+      } else {
+        console.warn("No data available to display.");
+        mapContainer.innerHTML = "<h3>No data available</h3>";
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+      const mapContainer = document.getElementById("map-container");
+      if (mapContainer) {
+        mapContainer.innerHTML =
+          "<h3>Erreur lors du chargement des données. Veuillez réessayer plus tard.</h3>";
+      }
     }
-  })
-  .catch((error) => {
-    console.error("An error occurred:", error);
-    mapContainer.innerHTML = "<h3>Failed to load data</h3>";
-  });
+  }
+
+  fetchPlanets();
+});
+
+function planetSearch() {
+  return {
+    planets: [], // Liste des planètes
+    searchQuery: "", // Requête de recherche
+    filteredPlanets: [], // Résultats filtrés
+
+    async fetchPlanets() {
+      try {
+        const response = await fetch(
+          "https://helldiverstrainingmanual.com/api/v1/planets"
+        );
+        if (!response.ok) {
+          throw new Error(`Erreur HTTP : ${response.status}`);
+        }
+
+        // Charger les données et les convertir en tableau
+        const data = await response.json();
+        this.planets = Object.values(data);
+        this.filteredPlanets = this.planets; // Initialiser les résultats
+      } catch (error) {
+        console.error("Erreur lors du chargement des planètes :", error);
+      }
+    },
+
+    search() {
+      const query = this.searchQuery.toLowerCase();
+      this.filteredPlanets = this.planets.filter(
+        (planet) =>
+          planet.name.toLowerCase().includes(query) ||
+          planet.sector.toLowerCase().includes(query)
+      );
+    },
+
+    init() {
+      this.fetchPlanets(); // Charger les planètes lors de l'initialisation
+    },
+  };
+}

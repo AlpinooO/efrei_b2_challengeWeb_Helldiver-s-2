@@ -630,3 +630,82 @@ footer section:first-of-type {
   color: var(--hdOrange);
   text-decoration: none;
 }
+
+/* page des planetes */
+
+
+.planet-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.planet-item {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column; /* Les informations sont empilées */
+  background-color: #fff; /* Fond blanc */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour donner un effet de cadre */
+  color: black; /* Texte noir pour tout le contenu de l'élément */
+}
+
+.planet-item p {
+
+  color: black;
+}
+
+.planet-header {
+  display: flex;
+  justify-content: space-between; /* Aligne les éléments sur une ligne */
+  align-items: center;
+  border-bottom: 1px solid #ddd; /* Ligne séparatrice */
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  color: black; /* Texte noir pour l'en-tête */
+}
+
+.planet-header h4 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black; /* Texte noir pour le titre */
+}
+
+.planet-header .planet-sector {
+  font-size: 0.9em;
+  color: black; /* Texte noir pour les secteurs */
+}
+
+.planet-body {
+  display: flex;
+  flex-direction: column; /* Par défaut, on empile les éléments */
+  gap: 10px; /* Espacement entre les éléments */
+  color: black; /* Texte noir pour le contenu principal */
+}
+
+.planet-environmentals {
+  margin-top: 10px;
+  color: black; /* Texte noir pour les dangers environnementaux */
+}
+
+.planet-environmentals h5 {
+  margin: 0 0 5px;
+  font-size: 1em;
+  font-weight: bold;
+  color: black; /* Texte noir pour le sous-titre */
+}
+
+.planet-environmentals ul {
+  color: black; /* Texte noir pour la liste des dangers */
+}
+
+.planet-image {
+  width: 100px;
+  height: auto;
+  margin-left: auto;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  color: black; /* Même si ce n'est pas nécessaire ici */
+}

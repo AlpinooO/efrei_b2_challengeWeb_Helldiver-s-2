@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\CoreController;
+use App\Controllers\PublicationController;
 
 class MainController extends CoreController
 {
@@ -35,5 +36,28 @@ class MainController extends CoreController
     public function stratagem()
     {
         $this->render('stratagem');
+    }
+
+    public function publier()
+    {
+        $parent = $_POST['parent'];
+
+        $publication = new PublicationController();
+        if (isset($parent)) {
+            $publication->commenter();
+        } else {
+            $publication->publier();
+        }
+    }
+
+    public function publication()
+    {
+        $id = htmlspecialchars($_GET['id']);
+        $publication = new PublicationController();
+        if (isset($id)) {
+            $publication->aPublication();
+        } else {
+            $publication->publication();
+        }
     }
 }

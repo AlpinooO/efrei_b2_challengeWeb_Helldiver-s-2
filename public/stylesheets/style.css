@@ -487,11 +487,10 @@ h2 {
 
 .description-faction {
   width: 100%;
+  height: max-content;
   background-color: var(--hdBackground);
   color: #fff;
   display: flex;
-  align-items: top;
-  justify-content: top;
   padding: 1rem;
 }
 

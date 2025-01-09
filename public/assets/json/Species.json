@@ -7,16 +7,16 @@
           "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/72/AutomatonoutposticonHD.png"
         },
         "units": [
-          { "name": "Trooper", "description": "Mechant Robot 1", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/d/da/Trooper_Raider_Enemy_Icon.png" },
-          { "name": "Commissar", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/d/dc/Commissar_Enemy_Icon.png" },
-          { "name": "Scout Strider", "description": "Squidsssss", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/2/2f/Scout_Strider_Enemy_Icon.png" },
-          { "name": "Berserker", "description": "Mechant Robot 1", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/e/e4/Berserker_Enemy_Icon.png" },
-          { "name": "Devastator", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/9a/Devastator_Enemy_Icon.png" },
-          { "name": "Gunship", "description": "Squidsssss", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/9e/Gunship_Enemy_Icon.png" },
-          { "name": "Hulk", "description": "Mechant Robot 1", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/8/85/Hulk_Enemy_Icon.png" },
-          { "name": "Tank", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/6/61/Annihilator_Tank_Enemy_Icon.png" },
-          { "name": "Factory Strider", "description": "Squidsssss", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/c/c6/Factory_Strider_Enemy_Icon.png" },
-          { "name": "Dropship", "description": "Squidsssss", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/b/b7/Dropship_Enemy_Icon.png" }
+          { "name": "Trooper", "description": "Standard infantry unit armed with basic weaponry and light armor. Several variants.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/d/da/Trooper_Raider_Enemy_Icon.png" },
+          { "name": "Commissar", "description": "Elite Trooper variant that boosts the morale of nearby allies and coordinates attacks.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/d/dc/Commissar_Enemy_Icon.png" },
+          { "name": "Scout Strider", "description": "Fast and nimble reconnaissance unit, capable of detecting enemy positions and weak spots. Several variants.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/2/2f/Scout_Strider_Enemy_Icon.png" },
+          { "name": "Berserker", "description": "Frenzied melee unit that charges at enemies with reckless abandon. Often found in groups.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/e/e4/Berserker_Enemy_Icon.png" },
+          { "name": "Devastator", "description": "Heavy weapons specialist armed with devastating firepower, capable of suppressing enemy positions. Several variants", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/9a/Devastator_Enemy_Icon.png" },
+          { "name": "Gunship", "description": "Similar in design to the Dropship, the Gunship is an aerial scout machine that can detect and neutralize Helldivers. Usually found in a group of two or three.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/9e/Gunship_Enemy_Icon.png" },
+          { "name": "Hulk", "description": "Massive and heavily-armored enemy, capable of dealing and absorbing tremendous amounts of damage. Several variants.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/8/85/Hulk_Enemy_Icon.png" },
+          { "name": "Tank", "description": "Armored vehicle equipped with powerful weaponry, posing a significant threat on the battlefield. Several variants.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/6/61/Annihilator_Tank_Enemy_Icon.png" },
+          { "name": "Factory Strider", "description": "Mobile Factory that can deploy Devastators in the field. Has several destructive weaponry on its sleeve, posing great threat.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/c/c6/Factory_Strider_Enemy_Icon.png" },
+          { "name": "Dropship", "description": "Aerial transport unit used for deploying reinforcements.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/b/b7/Dropship_Enemy_Icon.png" }
         ]
       },
       {
@@ -26,20 +26,20 @@
           "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/0/04/TerminidNestIcon.png"
         },
         "units": [
-          { "name": "Scavenger", "description": "Mechant Carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/1/18/Scavenger.png" },
-          { "name": "Pouncer", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/4/47/Pouncer_1.png" },
-          { "name": "Bile Spitter", "description": "Gros carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/71/Bile_Spitter_II.webp" },
-          { "name": "Warrior", "description": "Mechant Carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/c/cb/Warrior_Enemy_Icon.png" },
-          { "name": "Hive Guard", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/b/b2/Terminid_Hive_Guard_Updated.png" },
-          { "name": "Hunter", "description": "Gros carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/79/Hunter_Enemy_Icon.png" },
-          { "name": "Brood Commander", "description": "Mechant Carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/a/aa/Brood_Commander_Enemy_Icon.png" },
-          { "name": "Stalker", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/1/16/Stalker_Enemy_Icon.png" },
-          { "name": "Shrieker", "description": "Gros carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/92/ShriekerRender.png" },
-          { "name": "Bile Spewer", "description": "Mechant Carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/8/8f/Bile_Spewer_Enemy_Icon.png" },
-          { "name": "Nursing Spewer", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/5/5d/Nursing_Spewer_1.png" },
-          { "name": "Charger", "description": "Gros carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/98/Behemoth_Charger_Enemy_Icon.png" },
-          { "name": "Impaler", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/3/31/Impaler.png" },
-          { "name": "Bile Titan", "description": "Gros carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/9e/Bile_Titan_II.webp" }
+          { "name": "Scavenger", "description": "Agile and scavenging Terminid, often found in packs.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/1/18/Scavenger.png" },
+          { "name": "Pouncer", "description": "A juvenile version of the Hunter, weak but jumps up close from vast distance.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/4/47/Pouncer_1.png" },
+          { "name": "Bile Spitter", "description": "A juvenile version of the Bile Spewer, spits bile that slows down Helldivers and explodes upon death.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/71/Bile_Spitter_II.webp" },
+          { "name": "Warrior", "description": "Terminid warrior capable of devastating close-quarters combat and quick movement. Several Variants.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/c/cb/Warrior_Enemy_Icon.png" },
+          { "name": "Hive Guard", "description": "A medium sized Terminid with thick frontal armor-can often be found guarding Bug holes.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/b/b2/Terminid_Hive_Guard_Updated.png" },
+          { "name": "Hunter", "description": "Stealthy and agile Terminid, specialized in ambush tactics.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/79/Hunter_Enemy_Icon.png" },
+          { "name": "Brood Commander", "description": "Leadership-class Terminid capable of coordinating attacks and deploying reinforcements.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/a/aa/Brood_Commander_Enemy_Icon.png" },
+          { "name": "Stalker", "description": "Ambush Terminid specialized in hit-and-run tactics. Able to camouflage within its surroundings and deal tremendous burst damage, will retreat when injured.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/1/16/Stalker_Enemy_Icon.png" },
+          { "name": "Shrieker", "description": "Flying Terminids specialized in swarm tactics, will hover around Helldivers and swoop in to attack, not difficult to dodge individually.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/92/ShriekerRender.png" },
+          { "name": "Bile Spewer", "description": "Terminid with medium armor, capable of spewing corrosive bile over a wide area. They can also rain down volleys of bile akin to a mortar.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/8/8f/Bile_Spewer_Enemy_Icon.png" },
+          { "name": "Nursing Spewer", "description": "Terminid with light armor, capable of spewing corrosive bile over a wide area.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/5/5d/Nursing_Spewer_1.png" },
+          { "name": "Charger", "description": "Fast-moving, heavily armored Terminid specialized in charging attacks. Several variants.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/98/Behemoth_Charger_Enemy_Icon.png" },
+          { "name": "Impaler", "description": "Terminid with heavy armor that uses bladed tentacles to significantly disrupt retreats.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/3/31/Impaler.png" },
+          { "name": "Bile Titan", "description": "Massive Terminid with a potent bile attack and heavy armor.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/9e/Bile_Titan_II.webp" }
         ]
       },
       {
@@ -49,12 +49,12 @@
           "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/2/22/Illuminate_Icon.png"
         },
         "units": [
-          { "name": "Voteless", "description": "Mechant citoyen", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/5/5f/Voteless_Enemy_Icon.png" },
-          { "name": "Overseer", "description": "tentacu Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eaque reiciendis libero atque minus...", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/c/c7/Overseer_Enemy_Icon.png" },
-          { "name": "Elevetad Overseer", "description": "Bad squids", "image": "https://helldivers.wiki.gg/images/thumb/0/04/Elevated_Overseer_Enemy_Icon.png/800px-Elevated_Overseer_Enemy_Icon.png" },
-          { "name": "Harvester", "description": "Mechant citoyen", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/6/62/Harvester_HD2.png" },
-          { "name": "Watcher", "description": "tentacu Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eaque reiciendis libero atque minus...", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/70/Watcher_Enemy_Icon.png" },
-          { "name": "Warp Ship", "description": "Bad squids", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/70/Warpship.png" }
+          { "name": "Voteless", "description": "Once the citizens of Super Earth, they were transformed into mind-controlled zombies by the Illuminate. Often found in hordes.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/5/5f/Voteless_Enemy_Icon.png" },
+          { "name": "Overseer", "description": "Illuminate infantry units specialized in melee and ranged attacks with its staff. Can deploy a shield for protection.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/c/c7/Overseer_Enemy_Icon.png" },
+          { "name": "Elevetad Overseer", "description": "Overseers equipped with a jet pack for mobility. Able to fire consecutive shots from its gun.", "image": "https://helldivers.wiki.gg/images/thumb/0/04/Elevated_Overseer_Enemy_Icon.png/800px-Elevated_Overseer_Enemy_Icon.png" },
+          { "name": "Harvester", "description": "Large tripod-like mech armed with a force field. Can vaporize its enemies with laser beam or stun targets with electric bolt.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/6/62/Harvester_HD2.png" },
+          { "name": "Watcher", "description": "Surveillance drone that can call forth reinforcements.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/70/Watcher_Enemy_Icon.png" },
+          { "name": "Warp Ship", "description": "Disc-shaped shuttle that deploy Illuminate troops.", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/70/Warpship.png" }
         ]
       }
     ]

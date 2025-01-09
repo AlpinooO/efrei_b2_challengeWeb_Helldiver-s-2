@@ -1,11 +1,10 @@
-<h1>Welcome to DiversHelper!</h1>
+<h1>Bienvenue sur DiversHelper!</h1>
 
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>4
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
 
 <div class="container-main">
   <div class="container-col">
-    <div class="capture block">
-      <p>Espace captures</p>
+    <div class="capture">
       <div id="campaign-container" class="campaign-info">
         <h3>Loading campaign information...</h3>
       </div>

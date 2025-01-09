@@ -13,7 +13,7 @@
       <input type="email" name="email" placeholder="email" />
       <input type="text" name="name" placeholder="name" />
       <input type="password" name="password" placeholder="password" />
-      <input type="submit" value="Sign Up" />
+      <input type="submit" class="submit" value="Sign Up" />
     </form>
   </div>
   <div class="form-container sign-in">
@@ -30,7 +30,7 @@
       <input type="email" name="email" placeholder="email" />
       <input type="password" name="password" placeholder="password" />
       <a href="#">Forget Your Password?</a>
-      <input type="submit" value="Sign In" />
+      <input type="submit" class="submit" value="Sign In" />
     </form>
   </div>
   <div class="toggle-container">

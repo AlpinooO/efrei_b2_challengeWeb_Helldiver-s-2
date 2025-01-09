@@ -14,13 +14,13 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS publication (
     id_post serial PRIMARY KEY,
     auteur int NOT NULL REFERENCES users(id_user),
-    titre_publi varchar(50),
+    titre_post varchar(50),
     message varchar(255) NOT NULL,
     parent int,
     publication date NOT NULL DEFAULT CURRENT_DATE
 );
 
-INSERT INTO roles(titre) VALUES ('admin'), ('utilisateur');
+INSERT INTO roles(titre_role) VALUES ('admin'), ('utilisateur');
 
 -- Note: Replace 'adminadmin' with a hashed password for security
 INSERT INTO users(nom, email, mdp, id_role) VALUES ('admin', 'admin@admin.com', 'adminadmin', 1);

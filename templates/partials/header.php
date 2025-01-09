@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['user'])) {
-    $userRole = $_SESSION['user']['titre'];
+    $userRole = $_SESSION['user']['titre_role'];
 }
 ?>
 <!DOCTYPE html>

@@ -26,7 +26,7 @@ class PublicationModel
     {
         $date = date('Y-m-d H:i:s');
         $pdo = Database::getPDO();
-        $sql = "INSERT INTO publication (message, auteur, titre, publication) VALUES (:message, :auteur, :titre, '$date')";
+        $sql = "INSERT INTO publication (message, auteur, titre_post, publication) VALUES (:message, :auteur, :titre, '$date')";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':message' => $this->message,

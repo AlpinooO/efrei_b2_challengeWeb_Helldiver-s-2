@@ -10,7 +10,7 @@ class PublicationController extends CoreController
     {
         $publication = new publicationModel();
         $publications = $publication->getAll();
-        $this->render('forum', ['publications' => $publications]);
+        $this->render('forum/forum', ['publications' => $publications]);
     }
 
     public function aPublication()
@@ -21,7 +21,7 @@ class PublicationController extends CoreController
         $comments = $publication->getCommentaires();
         $data = ['publications' => $publications];
         $data = ['comments' => $comments];
-        $this->render('publication', $data);
+        $this->render('forum/publication', $data);
     }
 
     public function publier()

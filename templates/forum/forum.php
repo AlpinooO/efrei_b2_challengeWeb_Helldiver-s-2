@@ -12,7 +12,7 @@ $publications = $data['publications'];
 
     <?php foreach ($publications as $publication): ?>
         <article>
-            <h2><?= $publication->titre ?></h2>
+            <h2><?= $publication->titre_post ?></h2>
             <p><?= $publication->message ?></p>
             <p><?= $publication->publication ?></p>
             <p><?= $publication->auteur ?></p>

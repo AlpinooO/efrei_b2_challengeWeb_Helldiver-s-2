@@ -9,7 +9,20 @@
     <div id="map-container" class="map-info">
         <h3>Loading latest news...</h3>
     </div>
-    
+    <?php if (isset($data) && count($data) > 0): ?>
+            <ul>
+                <?php foreach ($data as $planet): ?>
+                    <li>
+                        <strong><?= htmlspecialchars($planet['name']); ?></strong>: <?= htmlspecialchars($planet['status']); ?>
+                        <br>
+                        Coordinates: <?= htmlspecialchars($planet['coordinates']); ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <h3>No data available</h3>
+        <?php endif; ?>
+    </div>
 </div>
 </body>
 </html>

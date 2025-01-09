@@ -75,12 +75,12 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("https://helldiverstrainingmanual.com/api/v1/planets")
     .then((response) => response.json()) // Parse the response as JSON
     .then((data) => {
-      console.log(data); // Log the fetched data for debugging
+      console.log("Response Data:", data); // Log the raw data for debugging
 
       const mapContainer = document.getElementById("map-container");
 
-      if (data && data.length > 0) {
-        // Display data on the map container (for example, showing planet info)
+      if (data && Array.isArray(data) && data.length > 0) {
+        // Display data on the map container
         mapContainer.innerHTML = `
                     <h3>Latest War Updates</h3>
                     <ul>

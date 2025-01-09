@@ -35,6 +35,9 @@ if (isset($_SESSION['user'])) {
                 <li>
                     <a href="/forum">Forums</a>
                 </li>
+                <li>
+                    <a href="/order">Ordre Prioritaire</a>
+                </li>
                 <?php
                 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) { ?>
                     <?php

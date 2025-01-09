@@ -8,10 +8,10 @@
           <p>Espace captures</p>
           <div id="campaign-container" class="campaign-info">
     <h3>Loading campaign information...</h3>
+  </div>
 </div>
-        </div>
         
-      </div>
+</div>
       <article>
       <h2>L’appel de la Démocratie</h2>
 <p>

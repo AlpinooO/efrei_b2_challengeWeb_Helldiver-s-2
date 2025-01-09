@@ -6,7 +6,10 @@
 </head>
 <body>
     <h1>Status de la guerre</h1>
-    <div id="status-container">
+    <div id="map-container" class="map-info">
+        <h3>Loading latest news...</h3>
     </div>
+    
+</div>
 </body>
 </html>

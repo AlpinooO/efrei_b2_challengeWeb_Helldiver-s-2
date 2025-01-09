@@ -26,10 +26,6 @@ async function fetchNewsData() {
     const campaignContainer = document.getElementById("campaign-container");
 
     // Vérifiez que l'élément container est bien trouvé
-    if (!campaignContainer) {
-      console.error("Element #campaign-container non trouvé");
-      return;
-    }
 
     // Effacez le contenu de campaignContainer pour éviter les doublons
     campaignContainer.innerHTML = `<h3>Latest News</h3>`;
@@ -75,54 +71,39 @@ async function fetchNewsData() {
 
 fetchNewsData();
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("Le script est bien chargé.");
+  // Fetch the latest news from the API
+  fetch("https://helldiverstrainingmanual.com/api/v1/planets")
+    .then((response) => response.json()) // Parse the response as JSON
+    .then((data) => {
+      console.log(data); // Log the fetched data for debugging
 
-  async function fetchWarStatus() {
-    try {
-      const response = await fetch(
-        "https://helldiverstrainingmanual.com/api/v1/war/status"
-      );
+      const mapContainer = document.getElementById("map-container");
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const statusData = await response.json();
-
-      console.log("Réponse de l'API:", statusData);
-
-      // Utilisez l'ID correct, ici c'est "status-container" par exemple
-      const statusContainer = document.getElementById("status-container");
-
-      if (!statusContainer) {
-        console.error("Element #status-container non trouvé");
-        return;
-      }
-
-      statusContainer.innerHTML = `<h3>Status de la guerre</h3>`;
-
-      if (statusData && statusData.status) {
-        statusContainer.innerHTML += `
-          <p><strong>Status:</strong> ${statusData.status}</p>
-          <p><strong>Timestamp:</strong> ${new Date(
-            statusData.timestamp
-          ).toLocaleString()}</p>
-        `;
+      if (data && data.length > 0) {
+        // Display data on the map container (for example, showing planet info)
+        mapContainer.innerHTML = `
+                    <h3>Latest War Updates</h3>
+                    <ul>
+                        ${data
+                          .map(
+                            (planet) => `
+                            <li>
+                                <strong>${planet.name}</strong>: ${planet.status} 
+                                <br>
+                                Coordinates: ${planet.coordinates}
+                            </li>
+                        `
+                          )
+                          .join("")}
+                    </ul>
+                `;
       } else {
-        statusContainer.innerHTML += "<p>Aucune donnée disponible.</p>";
+        mapContainer.innerHTML = "<h3>No data available</h3>";
       }
-    } catch (error) {
-      console.error(
-        "Erreur lors de la récupération du statut de la guerre:",
-        error
-      );
-      const statusContainer = document.getElementById("status-container");
-      if (statusContainer) {
-        statusContainer.innerHTML =
-          "<h3>Erreur lors du chargement du statut de la guerre. Essayez de nouveau plus tard.</h3>";
-      }
-    }
-  }
-
-  fetchWarStatus();
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+      const mapContainer = document.getElementById("map-container");
+      mapContainer.innerHTML = "<h3>Failed to load data</h3>";
+    });
 });

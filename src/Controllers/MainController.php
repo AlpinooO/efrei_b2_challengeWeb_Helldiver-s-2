@@ -26,9 +26,9 @@ class MainController extends CoreController
 
         $user = new UserController();
         if (isset($register) && $register == 'register') {
-            $user->loginUser();
-        } else {
             $user->registerUser();
+        } else {
+            $user->loginUser();
         }
     }
 

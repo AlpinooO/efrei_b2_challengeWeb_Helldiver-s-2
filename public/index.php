@@ -4,6 +4,7 @@ session_start();
 require_once __DIR__ . "/../vendor/autoload.php";
 // Change the path according to your project
 use App\Controllers\MainController;
+use App\Controllers\CoreController;
 use App\Controllers\UserController;
 use App\Controllers\PostsController;
 use Alterouter\Alterouter;
@@ -17,8 +18,8 @@ $router->addRoute('GET', '/', MainController::class . '@home', 'home');
 $router->addRoute('GET', '/log', UserController::class . '@log', 'log');
 $router->addRoute('POST', '/log', MainController::class . '@log', 'logPost');
 $router->addRoute('GET', '/logout', UserController::class . '@logout', 'logout');
-$router->addRoute('GET', '/post', PostsController::class . '@post', 'post');
-$router->addRoute('POST', '/post', PostsController::class . '@poster', 'postPost');
+$router->addRoute('GET', '/forum', PostsController::class . '@post', 'post');
+$router->addRoute('POST', '/forum', PostsController::class . '@poster', 'postPost');
 $router->addRoute('GET', '/stratagem', MainController::class . '@stratagem', 'stratagem');
 $router->addRoute('GET', '/species', MainController::class . '@species', 'species');
 
@@ -33,4 +34,8 @@ if ($route !== null) {
     } else {
         call_user_func_array($route->getHandler(), $route->getMatches());
     }
+} else {
+    // Handle 404
+    $controller = new CoreController();
+    $controller->notFound();
 }

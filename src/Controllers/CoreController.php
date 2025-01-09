@@ -9,8 +9,8 @@ class CoreController
 {
     public function notFound()
     {
-        http_response_code(404); 
-        echo "404 - Page Not Found!";
+        require_once __DIR__ . '/../../templates/404.php';
+
     }
 
 
@@ -30,10 +30,10 @@ class CoreController
         }
     }
 
-   
+
     public function isConnected()
     {
-        if (!$_SESSION['userID']) {
+        if (!$_SESSION['user']) {
             header('Location: /login');
             exit();
         }
@@ -42,7 +42,7 @@ class CoreController
     public function isAdmin()
     {
         $this->isConnected();
-        if (!($_SESSION['userRole'] == 'ADMIN')) {
+        if (!($_SESSION['user']['titre'] == 'admin')) {
             header('Location: /');
             exit();
         }

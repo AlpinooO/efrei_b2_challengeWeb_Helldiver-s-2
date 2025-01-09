@@ -1,15 +1,20 @@
+<?php
+if (isset($_SESSION['user'])) {
+    $userRole = $_SESSION['user']['titre'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>DiversHelper</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <header id="header">
         <a href="/">
             <img src="/assets/Images/Helldivers_2_logo.webp" class="logo" alt="" />
@@ -27,19 +32,17 @@
                     <a href="/species">Species</a>
                 </li>
                 <?php
-                if (isset($_SESSION['userID']) && !empty($_SESSION['userID'])) { ?>
-                    <li>
-                        <a href="/panier?id=<?= $_SESSION['userID'] ?>" id='panierLink'>
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </a>
-                    </li>
+                if (isset($_SESSION['user']) && !empty($_SESSION['user'])) { ?>
                     <?php
-                    if ($_SESSION['userRole'] === 'ADMIN') {
+                    if ($userRole === 'admin') {
                         ?>
                         <li>
                             <a href="/admin">Admin</a>
                         </li>
                     <?php } ?>
+                    <li>
+                        <a href="/forum">Forums</a>
+                    </li>
                     <li>
                         <a href="/logout" id="logout">Déconnexion</a>
                     </li>

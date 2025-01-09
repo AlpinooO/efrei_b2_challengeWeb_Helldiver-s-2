@@ -1,0 +1,278 @@
+{
+    "mainContainer": {
+      "xData": "{ tab: 'Automates' }",
+      "speciesContainer": [
+        {
+          "title": "Enemies de la démocracie",
+          "tabs": [
+            {
+              "name": "Automates",
+              "selected": true,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/72/AutomatonoutposticonHD.png",
+                "text": "Robots Cyborgs communiste Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quia in repellendus, minus error dolorem culpa eaque impedit, eum delectus itaque nemo natus illum veniam esse? Impedit hic quae facere!Loreml lo"
+              }
+            },
+            {
+              "name": "Terminides",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/0/04/TerminidNestIcon.png",
+                "text": "Carburant Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias atque delectus sit quo, quae laudantium est non ducimus earum, excepturi optio praesentium recusandae eligendi quidem fuga obcaecati voluptates, aliquam possimus."
+              }
+            },
+            {
+              "name": "Illuminates",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/2/22/Illuminate_Icon.png",
+                "text": "Squids Lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta quos doloremque corporis quia, porro nostrum temporibus corrupti aperiam sapiente, eius optio alias similique neque sequi deleniti ipsum mollitia magnam quod?"
+              }
+            }
+          ]
+        }
+      ],
+      "subSpeciesContainer": [
+        {
+          "tab": "Automates",
+          "title": "Enemies de la démocracie",
+          "xCloak": true,
+          "xData": "{ tabTypes: 'Auto1' }",
+          "tabs": [
+            {
+              "name": "Trooper",
+              "selected": true,
+              "description": {
+                "image": "",
+                "text": "Mechant Robot 1"
+              }
+            },
+            {
+              "name": "Commissar",
+              "selected": false,
+              "description": {
+                "image": "",
+                "text": "CarburantAAA"
+              }
+            },
+            {
+              "name": "Scout Strider",
+              "selected": false,
+              "description": {
+                "image": "",
+                "text": "Squidsssss"
+              }
+            },
+            {
+              "name": "Berserker",
+              "selected": false,
+              "description": {
+                "image": "",
+                "text": "Mechant Robot 1"
+              }
+            },
+            {
+              "name": "Devastator",
+              "selected": false,
+              "description": {
+                "image": "",
+                "text": "CarburantAAA"
+              }
+            },
+            {
+              "name": "Gunship",
+              "selected": false,
+              "description": {
+                "image": "",
+                "text": "Squidsssss"
+              }
+            },
+            {
+              "name": "Hulk",
+              "selected": false,
+              "description": {
+                "image": "",
+                "text": "Mechant Robot 1"
+              }
+            },
+            {
+              "name": "Tank",
+              "selected": false,
+              "description": {
+                "image": "",
+                "text": "CarburantAAA"
+              }
+            },
+            {
+              "name": "Factory Strider",
+              "selected": false,
+              "description": {
+                "image": "",
+                "text": "Squidsssss"
+              }
+            },
+            {
+              "name": "Dropship",
+              "selected": false,
+              "description": {
+                "image": "",
+                "text": "Squidsssss"
+              }
+            }
+          ]
+        },
+        {
+          "tab": "Terminides",
+          "title": "Enemies de la démocracie",
+          "xCloak": true,
+          "xData": "{ tabTypes: 'Termi1' }",
+          "tabs": [
+            {
+              "name": "Scavenger",
+              "selected": true,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/1/18/Scavenger.png",
+                "text": "Mechant Carburant"
+              }
+            },
+            {
+              "name": "Pouncer",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/4/47/Pouncer_1.png",
+                "text": "CarburantAAA"
+              }
+            },
+            {
+              "name": "Bile Spitter",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/71/Bile_Spitter_II.webp",
+                "text": "Gros carburant"
+              }
+            },
+            {
+              "name": "Warrior",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/c/cb/Warrior_Enemy_Icon.png",
+                "text": "Mechant Carburant"
+              }
+            },
+            {
+              "name": "Hive Guard",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/b/b2/Terminid_Hive_Guard_Updated.png",
+                "text": "CarburantAAA"
+              }
+            },
+            {
+              "name": "Hunter",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/79/Hunter_Enemy_Icon.png",
+                "text": "Gros carburant"
+              }
+            },
+            {
+              "name": "Brood Commander",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/a/aa/Brood_Commander_Enemy_Icon.png",
+                "text": "Mechant Carburant"
+              }
+            },
+            {
+              "name": "Stalker",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/1/16/Stalker_Enemy_Icon.png",
+                "text": "CarburantAAA"
+              }
+            },
+            {
+              "name": "Shrieker",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/92/ShriekerRender.png",
+                "text": "Gros carburant"
+              }
+            },
+            {
+              "name": "Bile Spewer",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/8/8f/Bile_Spewer_Enemy_Icon.png",
+                "text": "Mechant Carburant"
+              }
+            },
+            {
+              "name": "Nursing Spewer",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/5/5d/Nursing_Spewer_1.png",
+                "text": "CarburantAAA"
+              }
+            },
+            {
+              "name": "Charger",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/98/Behemoth_Charger_Enemy_Icon.png",
+                "text": "Gros carburant"
+              }
+            },
+            {
+              "name": "Impaler",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/3/31/Impaler.png",
+                "text": "CarburantAAA"
+              }
+            },
+            {
+              "name": "Bile Titan",
+              "selected": false,
+              "description": {
+                "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/9e/Bile_Titan_II.webp",
+                "text": "Gros carburant"
+              }
+            }
+          ]
+        },
+        {
+          "tab": "Illuminates",
+          "title": "Enemies de la démocracie",
+          "xCloak": true,
+          "xData": "{ tabTypes: 'Illumi1' }",
+          "tabs": [
+            {
+              "name": "Illumi1",
+              "selected": true,
+              "description": {
+                "image": "",
+                "text": "Mechant citoyen"
+              }
+            },
+            {
+              "name": "Illumi2",
+              "selected": false,
+              "description": {
+                "image": "",
+                "text": "tentacu Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eaque reiciendis libero atque minus, necessitatibus sed eum dicta fugiat! Possimus sed quasi ut, ipsam dolorem enim quos dolorum deleniti laudantium? Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolores quisquam veritatis ipsam vero quis recusandae! Nemo consequuntur excepturi dolorem animi laboriosam dolores sint ipsa. Ratione magnam dignissimos ipsa blanditiis.lo Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dignissimos beatae perspiciatis voluptate quaerat illo veniam voluptatibus, harum at eum reprehenderit, autem velit quia magni maxime. Ullam numquam sit fugit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ex nobis pariatur non reiciendis explicabo repellat ratione, beatae vero optio amet, accusantium tempore excepturi mollitia facilis recusandae, maxime laudantium quas? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam repellat in asperiores error aspernatur saepe necessitatibus libero non eligendi, sit placeat illum commodi sunt aut corporis omnis doloremque consequatur at? tentacu Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eaque reiciendis libero atque minus, necessitatibus sed eum dicta fugiat! Possimus sed quasi ut, ipsam dolorem enim quos dolorum deleniti laudantium? Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolores quisquam veritatis ipsam vero quis recusandae! Nemo consequuntur excepturi dolorem animi laboriosam dolores sint ipsa. Ratione magnam dignissimos ipsa blanditiis.lo Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dignissimos beatae perspiciatis voluptate quaerat illo veniam voluptatibus, harum at eum reprehenderit, autem velit quia magni maxime. Ullam numquam sit fugit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ex nobis pariatur non reiciendis explicabo repellat ratione, beatae vero optio amet, accusantium tempore excepturi mollitia facilis recusandae, maxime laudantium quas? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam repellat in asperiores error aspernatur saepe necessitatibus libero non eligendi, sit placeat illum commodi sunt aut corporis omnis doloremque consequatur at? tentacu Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eaque reiciendis libero atque minus, necessitatibus sed eum dicta fugiat! Possimus sed quasi ut, ipsam dolorem enim quos dolorum deleniti laudantium? Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolores quisquam veritatis ipsam vero quis recusandae! Nemo consequuntur excepturi dolorem animi laboriosam dolores sint ipsa. Ratione magnam dignissimos ipsa blanditiis.lo Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dignissimos beatae perspiciatis voluptate quaerat illo veniam voluptatibus, harum at eum reprehenderit, autem velit quia magni maxime. Ullam numquam sit fugit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ex nobis pariatur non reiciendis explicabo repellat ratione, beatae vero optio amet, accusantium tempore excepturi mollitia facilis recusandae, maxime laudantium quas? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam repellat in asperiores error aspernatur saepe necessitatibus libero non eligendi, sit placeat illum commodi sunt aut corporis omnis doloremque consequatur at? tentacu Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eaque reiciendis libero atque minus, necessitatibus sed eum dicta fugiat! Possimus sed quasi ut, ipsam dolorem enim quos dolorum deleniti laudantium? Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolores quisquam veritatis ipsam vero quis recusandae! Nemo consequuntur excepturi dolorem animi laboriosam dolores sint ipsa. Ratione magnam dignissimos ipsa blanditiis.lo Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dignissimos beatae perspiciatis voluptate quaerat illo veniam voluptatibus, harum at eum reprehenderit, autem velit quia magni maxime. Ullam numquam sit fugit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ex nobis pariatur non reiciendis explicabo repellat ratione, beatae vero optio amet, accusantium tempore excepturi mollitia facilis recusandae, maxime laudantium quas? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam repellat in asperiores error aspernatur saepe necessitatibus libero non eligendi, sit placeat illum commodi sunt aut corporis omnis doloremque consequatur at?"
+              }
+            },
+            {
+              "name": "Illumi3",
+              "selected": false,
+              "description": {
+                "image": "",
+                "text": "Bad squids"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }

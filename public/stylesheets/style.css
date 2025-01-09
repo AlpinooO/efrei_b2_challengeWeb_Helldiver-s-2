@@ -410,6 +410,16 @@ h3 {
   margin-bottom: 10px;
 }
 
+.success {
+  border: 1px solid rgb(166, 255, 33);
+  color: var(--hdBlack);
+  font-weight: 900;
+  font-size: 1.4em;
+  background-color: rgba(166, 255, 33, 0.762);
+  padding: 5px 15px;
+  margin-bottom: 10px;
+}
+
 /* Species Page */
 
 [x-cloak] {

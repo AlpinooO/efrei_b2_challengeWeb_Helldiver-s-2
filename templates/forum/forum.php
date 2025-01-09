@@ -1,7 +1,3 @@
-<?php
-dump($data);
-$publications = $data['publications'];
-?>
 <section>
     <h1>Forum</h1>
     <form action="/forum" method="post">
@@ -10,13 +6,23 @@ $publications = $data['publications'];
         <input type="submit" value="Publier">
     </form>
 
-    <?php foreach ($publications as $publication): ?>
+    <?php
+    $publications = $data['publications'];
+    foreach ($publications as $publication) { ?>
         <article>
             <h2><?= $publication->titre_post ?></h2>
             <p><?= $publication->message ?></p>
-            <p><?= $publication->publication ?></p>
-            <p><?= $publication->auteur ?></p>
+            <p>publié le <?= $publication->publication ?> par <?= $publication->auteur ?></p>
             <a href="/forum?id=<?= $publication->id_post ?>">Voir la publication</a>
+            <?php
+            if (isset($_SESSION['user'])) {
+                $userRole = $_SESSION['user']['titre_role'];
+                $userId = $_SESSION['user']['id_user'];
+                if ($userRole === 'admin' || $userId == $publication->id_user) { ?>
+                    <a href="/forum/supprimer?id=<?= $publication->id_post ?>">supprimer</a>
+                <?php }
+            }
+            ?>
         </article>
-    <?php endforeach; ?>
+    <?php } ?>
 </section>

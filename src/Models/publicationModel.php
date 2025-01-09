@@ -64,7 +64,9 @@ class PublicationModel
     public function getOne()
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM publication WHERE id_post = :id";
+        $sql = "SELECT * FROM publication
+            INNER JOIN users ON publication.auteur = users.id_user
+            INNER JOIN roles ON users.id_role = roles.id_role WHERE id_post = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([':id' => $this->id]);
         $publication = $stmt->fetch();
@@ -74,7 +76,7 @@ class PublicationModel
     public function delete()
     {
         $pdo = Database::getPDO();
-        $sql = "DELETE FROM publication WHERE id = :id";
+        $sql = "DELETE FROM publication WHERE id_post = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([':id' => $this->id]);
     }

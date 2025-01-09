@@ -492,15 +492,23 @@ h2 {
 
 .description-faction {
   background-color: var(--hdBackground);
+  width: 80vw;
   color: #fff;
   display: flex;
   padding: 1rem;
+  margin-bottom: 2rem;
+
 }
 
 .Enemies-image {
   width: 15%;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   max-height: 300px;
+}
+
+.description-units {
+  width: 80%;
+  margin-left: 5%;
 }
 
 /* Page Footer */

@@ -55,7 +55,7 @@ if ($data === null) {
                 
                     <?php foreach ($faction['units'] as $unit): ?>
                         <div class="description-faction" x-show="tabTypes === '<?= $unit['name'] ?>'">
-                            <img class="Enemies-image" src="<?= $unit['image'] ?>"/> <?= $unit['description'] ?>
+                            <img class="Enemies-image" src="<?= $unit['image'] ?>"/> <p class="description-units"><?= $unit['description'] ?></p>
                         </div>
                     <?php endforeach; ?>
                 

@@ -365,54 +365,50 @@ h2 {
 }
 
 .selected {
-  color: yellow;
-}
-
-[x-cloak] {
-  display: none !important;
-}
-
-.selected {
   color: var(--hdYellow) !important;
 }
 
 .tab-list {
   list-style-type: none;
-  padding: 0;
+  padding-bottom: 2rem;
 }
 
 .tab-item {
   display: inline;
-  margin-right: 1rem;
+  margin-right: 1%;
 }
 
 .tab-link {
   text-decoration: none;
   color: #fff;
-  transition: color 0.3s;
+  padding: 0.4rem; 
+  border: var(--hdBlack) 3px solid;
+  background-color: var(--hdBlack);
 }
 
 .tab-link:hover {
+  transition: 0.3s ease;
   color: var(--hdYellow);
+  border: var(--hdYellow) 3px solid;
 }
-
-img {
-  max-width: 100px;
-  height: auto;
+ 
+.faction-logo {
+  max-width: 200px;
+  max-height: 150px;
   display: block;
   margin: 0.5rem 0;
 }
 
-.species-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: var(--hdGrey);
+.species-container { 
+    width: 100%;
+    background-color: var(--hdBackground);
+    color: #fff;
+    padding: 0.5em;
+    margin-top: 2rem;
+    border: var(--hdYellow) 3px solid;
 }
 
-.species-title {
+.species-title { 
   font-size: 2rem;
   color: var(--hdYellow);
   margin-bottom: 1rem;
@@ -420,6 +416,34 @@ img {
 
 .tab-content {
   margin-top: 1rem;
+  align-items: right;
+}
+
+.main-container {
+  width:90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.description-faction {
+  width: 100%;
+  background-color: var(--hdBackground);
+  color: #fff;
+  display: flex;
+  align-items: top;
+  justify-content: top;
+  padding: 1rem;
+  
+}
+
+.Enemies-image { 
+  margin: 20rem;
+  display: block;
+  margin: 0.5rem 0;
 }
 
 /* &Page footer */

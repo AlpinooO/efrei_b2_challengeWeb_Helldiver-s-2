@@ -41,19 +41,19 @@
             <div  x-cloak x-data="{ tabTypes: 'Auto1' }">
                 <ul class="tab-list">
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Auto1' }" href="#"
                             @click.prevent="tabTypes = 'Auto1'">Auto1</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Auto2' }" href="#"
                             @click.prevent="tabTypes = 'Auto2'">Auto2</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Auto3' }" href="#"
                             @click.prevent="tabTypes = 'Auto3'">Auto3</a>
                     </li>
@@ -79,85 +79,85 @@
             <div  x-cloak x-data="{ tabTypes: 'Termi1' }">
                 <ul class="tab-list">
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi1' }" href="#"
                             @click.prevent="tabTypes = 'Termi1'">Scavenger</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi2' }" href="#"
                             @click.prevent="tabTypes = 'Termi2'">Pouncer</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi3' }" href="#"
                             @click.prevent="tabTypes = 'Termi3'">Bile Spitter</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi4' }" href="#"
                             @click.prevent="tabTypes = 'Termi4'">Warrior</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi5' }" href="#"
                             @click.prevent="tabTypes = 'Termi5'">Hive Guard</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi6' }" href="#"
                             @click.prevent="tabTypes = 'Termi6'">Hunter</a>
                     </li>
                     
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi7' }" href="#"
                             @click.prevent="tabTypes = 'Termi7'">Brood Commander</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi8' }" href="#"
                             @click.prevent="tabTypes = 'Termi8'">Stalker</a>
                     </li>
                     
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi9' }" href="#"
                             @click.prevent="tabTypes = 'Termi9'">Shrieker</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi10' }" href="#"
                             @click.prevent="tabTypes = 'Termi10'">Bile Spewer</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi11' }" href="#"
                             @click.prevent="tabTypes = 'Termi11'">Nursing Spewer</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi12' }" href="#"
                             @click.prevent="tabTypes = 'Termi12'">Charger</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi11' }" href="#"
                             @click.prevent="tabTypes = 'Termi11'">Impaler</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Termi12' }" href="#"
                             @click.prevent="tabTypes = 'Termi12'">Bile Titan</a>
                     </li>
@@ -231,13 +231,13 @@
             <div  x-cloak x-data="{ tabTypes: 'Illumi1' }">
                 <ul class="tab-list">
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Illumi1' }" href="#"
                             @click.prevent="tabTypes = 'Illumi1'">Illumi1</a>
                     </li>
 
                     <li class="tab-item">
-                        <a class="tab-link tab-link:hover"
+                        <a class="tab-link"
                             :class="{ 'selected' : tabTypes === 'Illumi2' }" href="#"
                             @click.prevent="tabTypes = 'Illumi2'">Illumi2</a>
                     </li>

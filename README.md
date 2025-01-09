@@ -20,11 +20,15 @@ composer install
 
 ## Start server using php
 
+lancer dockerDeskstop
+
+aller dans le dossier **efrei_b2_challengeWeb_Helldiver-s-2**
+
 ```bash
-php -S localhost:5001 -t public
+docker-compose up --build
 ```
 
-### vous pouvez y acceder sur `http://localhost:5001` dans votre navigateur. <!-- omit in toc -->
+### vous pouvez y acceder sur `http://localhost:8080` dans votre navigateur. <!-- omit in toc -->
 
 # utilisation
 

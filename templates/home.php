@@ -41,4 +41,4 @@ Dans <em>Helldivers 2</em>, la démocratie ne se défend pas avec des discours, 
       </article>
       
     </div>
-    <iframe width="60%" height="auto" src="https://www.youtube.com/embed/OEx-6BmiN-c?si=-PkpjhbVtNSt6QtX&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="854" height="480" src="https://www.youtube.com/embed/OEx-6BmiN-c?si=-PkpjhbVtNSt6QtX&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

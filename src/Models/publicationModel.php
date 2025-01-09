@@ -64,10 +64,10 @@ class PublicationModel
     public function getOne()
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM publication WHERE id = :id";
+        $sql = "SELECT * FROM publication WHERE id_post = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([':id' => $this->id]);
-        $publication = $stmt->fetchObject('App\Models\publicationModel');
+        $publication = $stmt->fetch();
         return $publication;
     }
 

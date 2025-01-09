@@ -461,16 +461,17 @@ h3 {
 .tab-list {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   width: 100%;
   list-style-type: none;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
+  max-width: 90%;
 }
 
 .tab-item {
-  margin: 0.5em 1em;
-  padding: 0.2em;
-
+  margin: 0.5em 0.5em;
+  padding: 0.1em;
   width: 15%;
   height: 10%;
   border: var(--hdBlack) 3px solid;
@@ -491,7 +492,7 @@ h3 {
   max-width: 200px;
   max-height: 150px;
   display: block;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0.5rem;
 }
 
 .description-faction {
@@ -501,6 +502,8 @@ h3 {
   display: flex;
   padding: 1rem;
   margin-bottom: 2rem;
+  border: var(--hdBackground) 3px solid;
+
 }
 
 .Enemies-image {

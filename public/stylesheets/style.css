@@ -30,11 +30,16 @@ body {
   min-height: 100vh;
 }
 
+p {
+  color: #fff;
+}
+
 h1 {
   color: var(--hdYellow);
 }
 
-h2 {
+h2,
+h3 {
   color: var(--hdOrange);
 }
 
@@ -97,11 +102,10 @@ h2 {
   height: 6vh;
 }
 
-.textRight {
+.textToRight {
   color: var(--hdBlue);
   text-align: right;
 }
-
 /* Home Page */
 
 .container-main {

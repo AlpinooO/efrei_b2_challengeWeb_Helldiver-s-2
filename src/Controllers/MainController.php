@@ -52,9 +52,8 @@ class MainController extends CoreController
 
     public function publication()
     {
-        $id = htmlspecialchars($_GET['id']);
         $publication = new PublicationController();
-        if (isset($id)) {
+        if (isset($_GET['id'])) {
             $publication->aPublication();
         } else {
             $publication->publication();

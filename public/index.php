@@ -17,8 +17,8 @@ $router->addRoute('GET', '/', MainController::class . '@home', 'home');
 $router->addRoute('GET', '/log', UserController::class . '@log', 'log');
 $router->addRoute('POST', '/log', MainController::class . '@log', 'logPost');
 $router->addRoute('GET', '/logout', UserController::class . '@logout', 'logout');
-$router->addRoute('GET', '/post', PostsController::class . '@post', 'post');
-$router->addRoute('POST', '/post', PostsController::class . '@poster', 'postPost');
+$router->addRoute('GET', '/forum', PostsController::class . '@post', 'post');
+$router->addRoute('POST', '/forum', PostsController::class . '@poster', 'postPost');
 $router->addRoute('GET', '/stratagem', MainController::class . '@stratagem', 'stratagem');
 $router->addRoute('GET', '/species', MainController::class . '@species', 'species');
 

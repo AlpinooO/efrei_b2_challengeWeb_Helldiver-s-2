@@ -9,9 +9,9 @@
   --hdGrey: #686868;
   --hdOrange: #ffb400;
   --hdYellow: #ffe900;
-  --hdBlue: #0092a6;
+  --hdBlue: #405ffd;
   --hdBrown: #ba6d00;
-  --hdBackground: #68686892;
+  --hdBackground: #6868686b;
 }
 
 body {
@@ -95,6 +95,11 @@ h2 {
 
 .logo {
   height: 6vh;
+}
+
+.textRight {
+  color: var(--hdBlue);
+  text-align: right;
 }
 
 /* Home Page */

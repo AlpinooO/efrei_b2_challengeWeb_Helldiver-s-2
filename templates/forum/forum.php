@@ -1,6 +1,8 @@
 <section class="forum-container">
     <h1>Forum</h1>
-    <form class="ajout-pub" action="/forum" method="post">
+    <button id="new-pub">Publier</button>
+    <form id="ajout-pub" class="ajout-pub" action="/forum" method="post">
+        <h2>Ajouter une publication</h2>
         <input type="text" name="titre" maxlength="50" placeholder="Titre de publication">
         <textarea name="message" maxlength="255" style="resize: none;" placeholder="Contenu de la publication" rows="4"
             cols="50"></textarea>

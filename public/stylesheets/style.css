@@ -219,7 +219,8 @@ h3 {
 
 .forum-container .ajout-pub input,
 .forum-container .ajout-pub textarea {
-  background-color: #eee;
+  background-color: var(--hdBlack);
+  color: #fff;
   border: none;
   margin: 8px 0;
   padding: 10px 15px;
@@ -227,10 +228,6 @@ h3 {
   border-radius: 8px;
   width: 100%;
   outline: none;
-}
-
-.hide {
-  display: none;
 }
 
 .forum-container .ajout-pub .submit {

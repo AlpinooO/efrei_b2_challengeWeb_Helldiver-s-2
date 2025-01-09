@@ -420,7 +420,7 @@ h2 {
 .tab-item {
   margin: 0.5em 1em;
   width: 10%;
-
+  height: 10%;
   border: var(--hdBlack) 3px solid;
   background-color: var(--hdBlack);
 }
@@ -428,14 +428,18 @@ h2 {
 .tab-link {
   text-decoration: none;
   color: #fff;
+  width: 100%;
+}
+
+.tab-item:hover {
+  transition: 0.3s ease;
+  border: var(--hdYellow) 3px solid;
 }
 
 .tab-link:hover {
   transition: 0.3s ease;
   color: var(--hdYellow);
-  border: var(--hdYellow) 3px solid;
 }
-
 .faction-logo {
   max-width: 200px;
   max-height: 150px;
@@ -457,6 +461,7 @@ h2 {
   margin: 20rem;
   display: block;
   margin: 0.5rem 0;
+  max-height: 300px;
 }
 
 /* &Page footer */

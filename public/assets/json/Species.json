@@ -1,0 +1,62 @@
+{
+    "factions": [
+      {
+        "name": "Automates",
+        "description": {
+          "text": "Robots Cyborgs communiste Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quia in repellendus, minus error dolorem culpa eaque impedit, eum delectus itaque nemo natus illum veniam esse? Impedit hic quae facere!Loreml lo",
+          "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/72/AutomatonoutposticonHD.png"
+        },
+        "units": [
+          { "name": "Trooper", "description": "Mechant Robot 1", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/d/da/Trooper_Raider_Enemy_Icon.png" },
+          { "name": "Commissar", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/d/dc/Commissar_Enemy_Icon.png" },
+          { "name": "Scout Strider", "description": "Squidsssss", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/2/2f/Scout_Strider_Enemy_Icon.png" },
+          { "name": "Berserker", "description": "Mechant Robot 1", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/e/e4/Berserker_Enemy_Icon.png" },
+          { "name": "Devastator", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/9a/Devastator_Enemy_Icon.png" },
+          { "name": "Gunship", "description": "Squidsssss", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/9e/Gunship_Enemy_Icon.png" },
+          { "name": "Hulk", "description": "Mechant Robot 1", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/8/85/Hulk_Enemy_Icon.png" },
+          { "name": "Tank", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/6/61/Annihilator_Tank_Enemy_Icon.png" },
+          { "name": "Factory Strider", "description": "Squidsssss", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/c/c6/Factory_Strider_Enemy_Icon.png" },
+          { "name": "Dropship", "description": "Squidsssss", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/b/b7/Dropship_Enemy_Icon.png" }
+        ]
+      },
+      {
+        "name": "Terminides",
+        "description": {
+          "text": "Carburant Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias atque delectus sit quo, quae laudantium est non ducimus earum, excepturi optio praesentium recusandae eligendi quidem fuga obcaecati voluptates, aliquam possimus.",
+          "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/0/04/TerminidNestIcon.png"
+        },
+        "units": [
+          { "name": "Scavenger", "description": "Mechant Carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/1/18/Scavenger.png" },
+          { "name": "Pouncer", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/4/47/Pouncer_1.png" },
+          { "name": "Bile Spitter", "description": "Gros carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/71/Bile_Spitter_II.webp" },
+          { "name": "Warrior", "description": "Mechant Carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/c/cb/Warrior_Enemy_Icon.png" },
+          { "name": "Hive Guard", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/b/b2/Terminid_Hive_Guard_Updated.png" },
+          { "name": "Hunter", "description": "Gros carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/79/Hunter_Enemy_Icon.png" },
+          { "name": "Brood Commander", "description": "Mechant Carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/a/aa/Brood_Commander_Enemy_Icon.png" },
+          { "name": "Stalker", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/1/16/Stalker_Enemy_Icon.png" },
+          { "name": "Shrieker", "description": "Gros carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/92/ShriekerRender.png" },
+          { "name": "Bile Spewer", "description": "Mechant Carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/8/8f/Bile_Spewer_Enemy_Icon.png" },
+          { "name": "Nursing Spewer", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/5/5d/Nursing_Spewer_1.png" },
+          { "name": "Charger", "description": "Gros carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/98/Behemoth_Charger_Enemy_Icon.png" },
+          { "name": "Impaler", "description": "CarburantAAA", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/3/31/Impaler.png" },
+          { "name": "Bile Titan", "description": "Gros carburant", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/9/9e/Bile_Titan_II.webp" }
+        ]
+      },
+      {
+        "name": "Illuminates",
+        "description": {
+          "text": "Squids Lorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta quos doloremque corporis quia, porro nostrum temporibus corrupti aperiam sapiente, eius optio alias similique neque sequi deleniti ipsum mollitia magnam quod?",
+          "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/2/22/Illuminate_Icon.png"
+        },
+        "units": [
+          { "name": "Voteless", "description": "Mechant citoyen", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/5/5f/Voteless_Enemy_Icon.png" },
+          { "name": "Overseer", "description": "tentacu Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eaque reiciendis libero atque minus...", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/c/c7/Overseer_Enemy_Icon.png" },
+          { "name": "Elevetad Overseer", "description": "Bad squids", "image": "https://helldivers.wiki.gg/images/thumb/0/04/Elevated_Overseer_Enemy_Icon.png/800px-Elevated_Overseer_Enemy_Icon.png" },
+          { "name": "Harvester", "description": "Mechant citoyen", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/6/62/Harvester_HD2.png" },
+          { "name": "Watcher", "description": "tentacu Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eaque reiciendis libero atque minus...", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/70/Watcher_Enemy_Icon.png" },
+          { "name": "Warp Ship", "description": "Bad squids", "image": "https://static.wikia.nocookie.net/helldivers_gamepedia/images/7/70/Warpship.png" }
+        ]
+      }
+    ]
+  }
+  

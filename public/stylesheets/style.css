@@ -183,7 +183,8 @@ h2 {
   margin: 15px 0 10px;
 }
 
-.container button {
+.container button,
+.container input[type="submit"] {
   background-color: var(--hdYellow);
   color: black;
   font-size: 12px;

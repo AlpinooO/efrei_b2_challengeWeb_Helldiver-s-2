@@ -51,6 +51,9 @@
 <?php if (isset($data['error'])) {
   echo '<p class="error">' . $data['error'] . '</p>';
 }
+if (isset($data['success'])) {
+  echo '<p class="success">' . $data['success'] . '</p>';
+}
 
 ?>
 

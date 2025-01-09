@@ -27,21 +27,23 @@ class UserController extends CoreController
     {
         // recuperation des champs des formulaire
         $email = htmlspecialchars($_POST['email']);
-        $username = htmlspecialchars($_POST['nom']);
         $password = htmlspecialchars($_POST['password']);
+
 
         // Vérification des champs vides
         if (empty($username) || empty($password)) {
             $error = "Veuillez remplir tous les champs";
+            $this->render('user/log', ['error' => $error]);
         } else {
-            $user = new UserModel($email, $password, $username);
+            $user = new UserModel($email, $password, );
             $loggedUser = $user->login();
             if ($loggedUser) {
                 $_SESSION['user'] = $user->getUser();
                 header('Location: /');
                 exit();
             } else {
-                echo "Mot de passe incorrect";
+                $error = "Mot de passe incorrect";
+                $this->render('user/log', ['error' => $error]);
             }
         }
     }
@@ -51,13 +53,14 @@ class UserController extends CoreController
     {
         // recuperation des champs des formulaire
         $email = htmlspecialchars($_POST['email']);
+        $username = htmlspecialchars($_POST['name']);
         $password = htmlspecialchars($_POST['password']);
 
         // Vérification des champs vides
         if (empty($email) || empty($password)) {
             echo "Veuillez remplir tous les champs";
         } else {
-            $user = new UserModel($email, $password);
+            $user = new UserModel($email, $password, $username);
             if ($user->register()) {
                 $_SESSION['user'] = $user->getUser();
                 header('Location: /');

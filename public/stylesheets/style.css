@@ -156,6 +156,39 @@ h2 {
   margin-bottom: 1em;
 }
 
+.campaign-info {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+.news-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.news-item h4 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.news-item small {
+  font-size: 0.9em;
+  color: #777;
+  display: block;
+  margin-top: 10px;
+}
+
 /* Login/Register Page */
 
 .container {
@@ -468,6 +501,7 @@ h2 {
   max-height: 300px;
 }
 
+/* Page Footer */
 
 footer {
   background-color: var(--hdBackground);
@@ -498,36 +532,59 @@ footer section:first-of-type {
   width: 100%;
 }
 
-.campaign-info {
-  margin: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  max-height: 400px;
-  overflow-y: scroll; 
-  padding-right: 10px; 
+/* Page 404 */
+
+.rouge {
+  color: red;
+  font-size: 1.5em;
 }
 
-.news-item {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+.container-404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 40vh;
+  border: 3px solid var(--hdYellow);
+  border-radius: 10px;
+  background: var(--hdBackground);
 }
 
-.news-item h4 {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
+.container-404 h1 {
+  font-size: 2em;
 }
 
-/* Format de la date */
-.news-item small {
-  font-size: 0.9em;
-  color: #777;
-  display: block;
-  margin-top: 10px;
+.container-404 .message-404 {
+  width: 80%;
+  text-align: center;
+  margin-top: 0.75em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-404 .message-404 .url-404 {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid black;
+  border-radius: 20px;
+  min-width: 60%;
+  max-width: 90%;
+  min-height: 8vh;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+.url-404,
+.message-404 p {
+  color: #fff;
+}
+
+.message-404 a {
+  color: var(--hdOrange);
+  text-decoration: none;
 }

@@ -34,11 +34,19 @@ body {
 ::-webkit-scrollbar {
   width: 1em;
   background: var(--hdGrey);
+  background: linear-gradient(var(--hdBlack), var(--hdBlack), var(--hdBlack), var(--hdOrange), var(--hdYellow), var(--hdBlue));
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--hdOrange); 
-  border-radius: 20px;
+  border-radius: 8px;
+  background: 
+    linear-gradient(transparent,rgb(236, 108, 48)), /* Dégradé de couleur */
+    url('https://cdn.discordapp.com/attachments/1160949561502748823/1326926387210358857/Design_sans_titre-removebg-preview.png?ex=678133ff&is=677fe27f&hm=d03e707ca848634247987ef4eb9f7d7fde3175b5893ac97ee4c8b5b01d99c360&'); /* Your image */
+  background-repeat: no-repeat; /* No repeat */
+  background-size: 46px 46px; /* Keep proportion */
+  background-position: bottom 
 }
+
 p {
   color: #fff;
 }

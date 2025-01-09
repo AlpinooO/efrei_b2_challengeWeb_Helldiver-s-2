@@ -7,6 +7,7 @@
     </section>
     <p>&copy; 2025 Tous droits réservés.</p>
 </footer>
+<script src="/assets/javascripts/script.js"></script>
 </body>
 
 </html>

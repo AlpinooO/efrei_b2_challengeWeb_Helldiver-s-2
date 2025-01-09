@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     container.classList.remove("active");
   });
 });
+
+
+
 async function fetchNewsData() {
   try {
     const response = await fetch("https://helldiverstrainingmanual.com/api/v1/war/news");

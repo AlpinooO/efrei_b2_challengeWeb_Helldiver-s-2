@@ -21,10 +21,10 @@ if ($data === null) {
 <div class="main-container" x-cloak x-data="{ tab: 'Automates' }">
     <div class="species-container">
         <h2 class="species-title">Enemies de la démocracie</h2>
-        <ul class="tab-list">
+        <ul class="tab-list-fac">
             <?php foreach ($data['factions'] as $faction): ?>
                 <li class="tab-item">
-                    <button class="tab-link tab-link:hover"
+                    <button class="tab-link"
                         :class="{ 'selected' : tab === '<?= $faction['name'] ?>' }"
                         @click.prevent="tab = '<?= $faction['name'] ?>'"><?= $faction['name'] ?></button>
                 </li>
@@ -46,7 +46,7 @@ if ($data === null) {
                 <ul class="tab-list">
                     <?php foreach ($faction['units'] as $unit): ?>
                         <li class="tab-item">
-                            <button class="tab-link tab-link:hover"
+                            <button class="tab-link"
                                 :class="{ 'selected' : tabTypes === '<?= $unit['name'] ?>' }"
                                 @click.prevent="tabTypes = '<?= $unit['name'] ?>'"><?= $unit['name'] ?></button>
                         </li>

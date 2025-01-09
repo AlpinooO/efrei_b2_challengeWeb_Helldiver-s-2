@@ -4,6 +4,7 @@ session_start();
 require_once __DIR__ . "/../vendor/autoload.php";
 // Change the path according to your project
 use App\Controllers\MainController;
+use App\Controllers\CoreController;
 use App\Controllers\UserController;
 use App\Controllers\PostsController;
 use Alterouter\Alterouter;
@@ -35,6 +36,6 @@ if ($route !== null) {
     }
 } else {
     // Handle 404
-    $controller = new MainController();
+    $controller = new CoreController();
     $controller->notFound();
 }

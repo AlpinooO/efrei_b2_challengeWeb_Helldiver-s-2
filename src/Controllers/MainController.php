@@ -36,10 +36,4 @@ class MainController extends CoreController
     {
         $this->render('stratagem');
     }
-
-    public function notFound()
-    {
-        http_response_code(404);
-        $this->render('404');
-    }
 }

@@ -1,10 +1,11 @@
-<section>
+<section class="forum-container">
     <h1>Forum</h1>
-    <form action="/forum" method="post">
+    <form class="ajout-pub" action="/forum" method="post">
         <input type="text" name="titre" placeholder="Titre de publication">
         <input type="text" name="message" placeholder="Contenu de la publication">
         <input type="submit" value="Publier">
     </form>
+    <h2>Toutes les publications</h2>
 
     <?php
     $publications = $data['publications'];

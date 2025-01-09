@@ -193,6 +193,23 @@ h3 {
   margin-top: 10px;
 }
 
+/* Forum Page */
+
+.forum-container {
+  width: 90%;
+  margin: 2em;
+  display: flex;
+  text-align: center;
+}
+
+.forum-container .ajout-pub {
+  padding: 0 1em;
+  background-color: var(--hdBackground);
+  width: 35%;
+  border-left: 3px solid var(--hdYellow);
+  margin: 1, 5em 3em;
+}
+
 /* Login/Register Page */
 
 .container {
@@ -501,7 +518,6 @@ h3 {
   display: flex;
   padding: 1rem;
   margin-bottom: 2rem;
-
 }
 
 .Enemies-image {

@@ -74,3 +74,55 @@ async function fetchNewsData() {
 }
 
 fetchNewsData();
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Le script est bien chargé.");
+
+  async function fetchWarStatus() {
+    try {
+      const response = await fetch(
+        "https://helldiverstrainingmanual.com/api/v1/war/status"
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const statusData = await response.json();
+
+      console.log("Réponse de l'API:", statusData);
+
+      // Utilisez l'ID correct, ici c'est "status-container" par exemple
+      const statusContainer = document.getElementById("status-container");
+
+      if (!statusContainer) {
+        console.error("Element #status-container non trouvé");
+        return;
+      }
+
+      statusContainer.innerHTML = `<h3>Status de la guerre</h3>`;
+
+      if (statusData && statusData.status) {
+        statusContainer.innerHTML += `
+          <p><strong>Status:</strong> ${statusData.status}</p>
+          <p><strong>Timestamp:</strong> ${new Date(
+            statusData.timestamp
+          ).toLocaleString()}</p>
+        `;
+      } else {
+        statusContainer.innerHTML += "<p>Aucune donnée disponible.</p>";
+      }
+    } catch (error) {
+      console.error(
+        "Erreur lors de la récupération du statut de la guerre:",
+        error
+      );
+      const statusContainer = document.getElementById("status-container");
+      if (statusContainer) {
+        statusContainer.innerHTML =
+          "<h3>Erreur lors du chargement du statut de la guerre. Essayez de nouveau plus tard.</h3>";
+      }
+    }
+  }
+
+  fetchWarStatus();
+});

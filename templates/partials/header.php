@@ -23,10 +23,10 @@ if (isset($_SESSION['user'])) {
         <nav>
             <ul id="headerMenu" class="navbar">
                 <li>
-                    <a href="/">Home</a>
+                    <a href="/">Acceuil</a>
                 </li>
                 <li>
-                    <a href="/stratagem">Stratagem</a>
+                    <a href="/map">Carte</a>
                 </li>
                 <li>
                     <a href="/species">Species</a>

@@ -36,16 +36,4 @@ class MainController extends CoreController
     {
         $this->render('stratagem');
     }
-
-    public function publier()
-    {
-        $this->isConnected();
-        $comment = $_POST['parent'];
-        $publication = new publicationController();
-        if (isset($comment)) {
-            $publication->commenter();
-        } else {
-            $publication->publier();
-        }
-    }
 }

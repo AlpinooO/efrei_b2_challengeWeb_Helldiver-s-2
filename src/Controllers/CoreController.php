@@ -34,7 +34,7 @@ class CoreController
     public function isConnected()
     {
         if (!$_SESSION['user']) {
-            header('Location: /log');
+            header('Location: /login');
             exit();
         }
     }

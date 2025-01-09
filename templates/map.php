@@ -7,8 +7,15 @@
 <body>
     <h1>Status de la guerre</h1>
     <div id="map-container">
-        <h3>Loading latest news...</h3>
+        <h3>Le programmeur est parti se battre pour la démocratie</h3>
+
+
+        <h1>La carte intéractive remplacant fait par le ministère de la vérité</h1>
+
+        <a href="https://hd2galaxy.com/">La carte intéractive démocrate.</a></h2>
     </div>
+
+    
 
     </div>
 </div>

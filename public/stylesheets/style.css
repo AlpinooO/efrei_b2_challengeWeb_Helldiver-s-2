@@ -97,11 +97,10 @@ h2 {
   height: 6vh;
 }
 
-.textRight {
+.textToRight {
   color: var(--hdBlue);
   text-align: right;
 }
-
 /* Home Page */
 
 .container-main {

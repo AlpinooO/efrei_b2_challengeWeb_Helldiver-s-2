@@ -48,6 +48,11 @@
     </div>
   </div>
 </div>
+<?php if (isset($data['error'])){
+  echo '<p class="error">'.$data['error'].'</p>';
+}
+
+?>
 
 
 <script src="/javascripts/script.js"></script>

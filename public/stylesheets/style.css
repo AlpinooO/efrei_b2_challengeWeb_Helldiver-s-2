@@ -419,8 +419,7 @@ h2 {
   flex-wrap: wrap;
   align-content: flex-start;
   align-items: flex-start;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin: 5rem;
 }
 
 .species-container {
@@ -443,10 +442,10 @@ h2 {
 }
 
 .selected {
-  color: var(--hdYellow) !important;
+  color: var(--hdOrange) !important;
 }
 
-.tab-list {
+.tab-list-fac {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -455,9 +454,20 @@ h2 {
   padding-bottom: 2rem;
 }
 
+.tab-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  list-style-type: none;
+  padding-bottom: 2rem;
+}
+
 .tab-item {
   margin: 0.5em 1em;
-  width: 10%;
+  padding: 0.2em;
+
+  width: 15%;
   height: 10%;
   border: var(--hdBlack) 3px solid;
   background-color: var(--hdBlack);
@@ -469,14 +479,9 @@ h2 {
   width: 100%;
 }
 
-.tab-item:hover {
-  transition: 0.3s ease;
-  border: var(--hdYellow) 3px solid;
-}
-
 .tab-link:hover {
   transition: 0.3s ease;
-  color: var(--hdYellow);
+  color: var(--hdOrange);
 }
 .faction-logo {
   max-width: 200px;
@@ -486,8 +491,6 @@ h2 {
 }
 
 .description-faction {
-  width: 100%;
-  height: max-content;
   background-color: var(--hdBackground);
   color: #fff;
   display: flex;
@@ -495,8 +498,7 @@ h2 {
 }
 
 .Enemies-image {
-  margin: 20rem;
-  display: block;
+  width: 15%;
   margin: 0.5rem 0;
   max-height: 300px;
 }

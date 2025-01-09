@@ -1,13 +1,14 @@
 <h1>Welcome to DiversHelper!</h1>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-    <div class="container-main">
-      <div class="container-col">
-      <div class="capture block">
-        <p>Espace captures</p>
-        <div id="campaign-container" class="campaign-info">
-          <h3>Loading campaign information...</h3>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>4
+
+      <div class="container-main">
+        <div class="container-col">
+        <div class="capture block">
+          <p>Espace captures</p>
+          <div id="campaign-container" class="campaign-info">
+    <h3>Loading campaign information...</h3>
+</div>
         </div>
-      </div>
         
       </div>
       <article>
@@ -45,4 +46,4 @@ Dans <em>Helldivers 2</em>, la démocratie ne se défend pas avec des discours, 
 
       
 
-<script src="../public/javascripts/script.js"></script>
+<script src="/javascripts/script.js"></script>

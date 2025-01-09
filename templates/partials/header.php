@@ -11,7 +11,7 @@
   </head>
   <body>
     <header id="header">
-        <a href="">
+        <a href="/">
             <img src="/assets/Images/Helldivers_2_logo.webp" class="logo" alt="" />
         </a>
 
@@ -45,7 +45,7 @@
                     </li>
                 <?php } else { ?>
                     <li>
-                        <a href="/log">login</a>
+                        <a href="/log">Login</a>
                     </li>
                 <?php } ?>
 

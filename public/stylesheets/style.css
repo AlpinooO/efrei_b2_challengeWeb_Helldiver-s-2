@@ -198,6 +198,10 @@ h2 {
   cursor: pointer;
 }
 
+.container .submit {
+  width: 40%;
+}
+
 .container button.hidden {
   background-color: #68686892;
   border-color: #fff;

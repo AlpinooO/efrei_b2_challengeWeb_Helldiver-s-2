@@ -31,6 +31,9 @@ if (isset($_SESSION['user'])) {
                 <li>
                     <a href="/species">Species</a>
                 </li>
+                <li>
+                    <a href="/forum">Forums</a>
+                </li>
                 <?php
                 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) { ?>
                     <?php
@@ -41,12 +44,10 @@ if (isset($_SESSION['user'])) {
                         </li>
                     <?php } ?>
                     <li>
-                        <a href="/forum">Forums</a>
-                    </li>
-                    <li>
                         <a href="/logout" id="logout">Déconnexion</a>
                     </li>
                 <?php } else { ?>
+
                     <li>
                         <a href="/log">Login</a>
                     </li>

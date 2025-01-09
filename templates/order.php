@@ -43,6 +43,8 @@ if ($majorOrders) {
     echo "</ul>";
 } else {
     echo "Pas d'ordre prioritaire pour le moment.";
+    echo "<br>";
+    echo "<img src='https://www.weareplaystation.fr/api/upload/media/post/0004/17/thumb_316916_post_big.jpg' alt='Helldivers Logo'width='1000'/>";
 }
 
 ?>

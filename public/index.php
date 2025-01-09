@@ -33,4 +33,8 @@ if ($route !== null) {
     } else {
         call_user_func_array($route->getHandler(), $route->getMatches());
     }
+} else {
+    // Handle 404
+    $controller = new MainController();
+    $controller->notFound();
 }

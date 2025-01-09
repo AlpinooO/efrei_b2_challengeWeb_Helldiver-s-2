@@ -19,8 +19,7 @@ class PublicationController extends CoreController
         $publication = new PublicationModel($id);
         $publications = $publication->getOne();
         $comments = $publication->getCommentaires();
-        $data = ['publications' => $publications];
-        $data = ['comments' => $comments];
+        $data = ['publication' => $publications, 'comments' => $comments];
         $this->render('forum/publication', $data);
     }
 

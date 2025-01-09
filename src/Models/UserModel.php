@@ -8,13 +8,13 @@ class userModel
 {
     private $email;
     private $MDP;
-    private $nom;
+    private $name;
 
-    public function __construct($email = null, $MDP = null, $nom = null)
+    public function __construct($email = null, $MDP = null, $name = null)
     {
         $this->email = $email;
         $this->MDP = $MDP;
-        $this->nom = $nom;
+        $this->name = $name;
     }
 
     // récupère l'id de l'utilisateur depuis son email
@@ -42,19 +42,30 @@ class userModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function isUser()
+    {
+        $pdo = Database::getPDO();
+        $sqlQuery = "SELECT * FROM users WHERE email = :email";
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute([
+            'email' => $this->email
+        ]);
+        return $stmt->fetch();
+    }
+
     // enregistre les information de l'utilisateur
     public function register()
     {
         // $hashed_password = password_hash($this->MDP, PASSWORD_DEFAULT);
         $pdo = Database::getPDO();
         $membre = 2;
-        $sqlQuery = "INSERT into users(email, MDP, nom, id_role) value(:email, :MDP, :nom, $membre)";
+        $sqlQuery = "INSERT INTO users(nom, email, mdp, id_role) values(:name, :email, :mdp, $membre)";
         $stmt = $pdo->prepare($sqlQuery);
         $stmt->execute([
+            'name' => $this->name,
             'email' => $this->email,
             // 'MDP' => $hashed_password,
-            'MDP' => $this->MDP,
-            'nom' => $this->nom,
+            'mdp' => $this->MDP,
         ]);
         return $this->getUser();
     }
@@ -63,13 +74,12 @@ class userModel
     public function login()
     {
         $pdo = Database::getPDO();
-        $sqlQuery = "SELECT MDP FROM users WHERE email = :email";
+        $sqlQuery = "SELECT mdp FROM users WHERE email = :email";
         $stmt = $pdo->prepare($sqlQuery);
         $stmt->execute([
             'email' => $this->email
         ]);
         $user = $stmt->fetch();
-
         // TODO: A décommenter lorsque le hashage des mots de passe sera effectif meme pour l'admin
         // if ($user && password_verify($this->MDP, $user['MDP'])) {
         //     return $user;
@@ -77,7 +87,7 @@ class userModel
         //     return false;
         // }
 
-        if ($user && $this->MDP == $user['MDP']) {
+        if ($user && $this->MDP == $user['mdp']) {
             return $user;
         } else {
             return false;

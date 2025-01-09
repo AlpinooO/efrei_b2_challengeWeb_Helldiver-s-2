@@ -4,14 +4,13 @@ CREATE TABLE IF NOT EXISTS roles(
 );
 
 
-CREATE TABLE IF NOT EXISTS users(
-	id_user serial PRIMARY KEY,
-	nom varchar(50) NOT NULL,
-	email varchar(100) NOT NULL,
-	mdp varchar (100) NOT NULL,
-	id_role int REFERENCES roles(id_role)
+CREATE TABLE IF NOT EXISTS users (
+    id_user SERIAL PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    mdp VARCHAR(100) NOT NULL,
+    id_role INT REFERENCES roles(id_role)
 );
-
 
 CREATE TABLE IF NOT EXISTS posts(
 	id_post serial PRIMARY KEY,

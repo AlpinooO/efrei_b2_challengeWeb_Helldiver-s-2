@@ -9,7 +9,7 @@
         <a href="#" class="icon"><i class="fa-brands fa-steam"></i></a>
       </div>
       <span>or use your email for registeration</span>
-      <input type="hidden" name="register" value="login" />
+      <input type="hidden" name="register" value="register" />
       <input type="email" name="email" placeholder="email" />
       <input type="text" name="name" placeholder="name" />
       <input type="password" name="password" placeholder="password" />
@@ -26,7 +26,7 @@
         <a href="#" class="icon"><i class="fa-brands fa-steam"></i></a>
       </div>
       <span>or use your email password</span>
-      <input type="hidden" name="register" value="register" />
+      <input type="hidden" name="register" value="login" />
       <input type="email" name="email" placeholder="email" />
       <input type="password" name="password" placeholder="password" />
       <a href="#">Forget Your Password?</a>
@@ -48,6 +48,11 @@
     </div>
   </div>
 </div>
+<?php if (isset($data['error'])) {
+  echo '<p class="error">' . $data['error'] . '</p>';
+}
+
+?>
 
 
 <script src="/javascripts/script.js"></script>

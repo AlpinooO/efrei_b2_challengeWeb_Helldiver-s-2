@@ -1,7 +1,3 @@
-DROP DATABASE divers_helper;
-CREATE DATABASE divers_helper;
-
-
 CREATE TABLE IF NOT EXISTS roles(
 	id_role serial PRIMARY KEY,
 	titre varchar(50) NOT NULL

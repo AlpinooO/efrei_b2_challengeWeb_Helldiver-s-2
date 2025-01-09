@@ -6,23 +6,14 @@
 </head>
 <body>
     <h1>Status de la guerre</h1>
-    <div id="map-container" class="map-info">
+    <div id="map-container">
         <h3>Loading latest news...</h3>
     </div>
-    <?php if (isset($data) && count($data) > 0): ?>
-            <ul>
-                <?php foreach ($data as $planet): ?>
-                    <li>
-                        <strong><?= htmlspecialchars($planet['name']); ?></strong>: <?= htmlspecialchars($planet['status']); ?>
-                        <br>
-                        Coordinates: <?= htmlspecialchars($planet['coordinates']); ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        <?php else: ?>
-            <h3>No data available</h3>
-        <?php endif; ?>
+
     </div>
 </div>
+<script src="javascripts/script.js"></script>
 </body>
 </html>
+
+

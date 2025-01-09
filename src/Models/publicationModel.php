@@ -52,7 +52,7 @@ class PublicationModel
     public function getAll()
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM publication";
+        $sql = "SELECT * FROM publication inner join user on publication.auteur = user.id_user inner join role on user.role_id = role.id_role";
         $query = $pdo->query($sql);
         $publications = $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\publicationModel');
         return $publications;

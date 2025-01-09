@@ -44,4 +44,12 @@ class PublicationController extends CoreController
         $messageModel->commentaire();
         header('Location: /forum');
     }
+
+    public function supprimer()
+    {
+        $id = $_GET['id'];
+        $publication = new PublicationModel($id);
+        $publication->delete();
+        header('Location: /forum');
+    }
 }

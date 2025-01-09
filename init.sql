@@ -12,13 +12,13 @@ CREATE TABLE IF NOT EXISTS users (
     id_role INT REFERENCES roles(id_role)
 );
 
-CREATE TABLE IF NOT EXISTS posts(
+CREATE TABLE IF NOT EXISTS publication(
 	id_post serial PRIMARY KEY,
-	auteur varchar(100) NOT NULL,
+	auteur int NOT NULL REFERENCES users,
 	titre varchar(50),
 	message varchar(255) NOT NULL,
 	parent int,
-	id_user int NOT NULL REFERENCES users
+	publication date not null,
 );
 
 INSERT INTO roles(titre) VALUES ('admin'), ('utilisateur');

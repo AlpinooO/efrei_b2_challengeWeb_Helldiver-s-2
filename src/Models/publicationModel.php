@@ -43,18 +43,17 @@ class PublicationModel
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':message' => $this->message,
-            ':titre' => $this->titre,
             ':auteur' => $this->auteur,
             ':parent' => $this->parent
         ]);
     }
 
-    public function getAll()
+    public function getAllPubli()
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM publication
+        $sql = "SELECT titre_post,message,publication,id_post,nom,id_user FROM publication
             INNER JOIN users ON publication.auteur = users.id_user
-            INNER JOIN roles ON users.id_role = roles.id_role";
+            INNER JOIN roles ON users.id_role = roles.id_role where parent is null";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $publications = $stmt->fetchAll(PDO::FETCH_CLASS);
@@ -64,7 +63,7 @@ class PublicationModel
     public function getOne()
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM publication
+        $sql = "SELECT titre_post,message,publication,id_post,nom,id_user FROM publication
             INNER JOIN users ON publication.auteur = users.id_user
             INNER JOIN roles ON users.id_role = roles.id_role WHERE id_post = :id";
         $stmt = $pdo->prepare($sql);
@@ -95,10 +94,12 @@ class PublicationModel
     public function getCommentaires()
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM publication WHERE parent = :id";
+        $sql = "SELECT titre_post,message,publication,id_post,nom,id_user FROM publication
+            INNER JOIN users ON publication.auteur = users.id_user
+            INNER JOIN roles ON users.id_role = roles.id_role WHERE parent = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([':id' => $this->id]);
-        $commentaires = $stmt->fetchAll(PDO::FETCH_CLASS, 'App\Models\publicationModel');
+        $commentaires = $stmt->fetchAll(PDO::FETCH_CLASS);
         return $commentaires;
     }
 }

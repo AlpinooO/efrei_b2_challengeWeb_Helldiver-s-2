@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS publication (
     id_post serial PRIMARY KEY,
     auteur int NOT NULL REFERENCES users(id_user),
     titre_post varchar(50),
-    message varchar(255) NOT NULL,
+    message text NOT NULL,
     parent int,
     publication date NOT NULL DEFAULT CURRENT_DATE
 );

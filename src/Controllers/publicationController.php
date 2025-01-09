@@ -9,7 +9,7 @@ class PublicationController extends CoreController
     public function publication()
     {
         $publication = new publicationModel();
-        $publications = $publication->getAll();
+        $publications = $publication->getAllPubli();
         $this->render('forum/forum', ['publications' => $publications]);
     }
 
@@ -29,19 +29,20 @@ class PublicationController extends CoreController
         $auteur = $_SESSION['user']['id_user'];
         $titre = htmlspecialchars($_POST['titre']);
 
-        $messageModel = new PublicationModel(null, $message, $auteur, $titre);
-        $messageModel->create();
+        $PublicationModel = new PublicationModel(null, $message, $auteur, $titre);
+        $PublicationModel->create();
         header('Location: /forum');
     }
 
     public function commenter()
     {
         $message = htmlspecialchars($_POST['message']);
-        $auteur = $_SESSION['user']['id'];
+        $parent = htmlspecialchars($_POST['parent']);
+        $auteur = $_SESSION['user']['id_user'];
 
-        $messageModel = new PublicationModel(null, $message, $auteur);
-        $messageModel->commentaire();
-        header('Location: /forum');
+        $PublicationModel = new PublicationModel(null, $message, $auteur, null, $parent);
+        $PublicationModel->commentaire();
+        header('Location: /forum?id=' . $parent);
     }
 
     public function supprimer()

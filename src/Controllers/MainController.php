@@ -37,6 +37,10 @@ class MainController extends CoreController
     {
         $this->render('stratagem');
     }
+    public function post()
+    {
+        $this->render('post');
+    }
 
     public function publier()
     {

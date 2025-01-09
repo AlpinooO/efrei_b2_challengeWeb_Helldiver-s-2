@@ -148,3 +148,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fetchPlanets();
 });
+
+function planetSearch() {
+  return {
+    planets: [], // Liste des planètes
+    searchQuery: "", // Requête de recherche
+    filteredPlanets: [], // Résultats filtrés
+
+    async fetchPlanets() {
+      try {
+        const response = await fetch(
+          "https://helldiverstrainingmanual.com/api/v1/planets"
+        );
+        if (!response.ok) {
+          throw new Error(`Erreur HTTP : ${response.status}`);
+        }
+
+        // Charger les données et les convertir en tableau
+        const data = await response.json();
+        this.planets = Object.values(data);
+        this.filteredPlanets = this.planets; // Initialiser les résultats
+      } catch (error) {
+        console.error("Erreur lors du chargement des planètes :", error);
+      }
+    },
+
+    search() {
+      const query = this.searchQuery.toLowerCase();
+      this.filteredPlanets = this.planets.filter(
+        (planet) =>
+          planet.name.toLowerCase().includes(query) ||
+          planet.sector.toLowerCase().includes(query)
+      );
+    },
+
+    init() {
+      this.fetchPlanets(); // Charger les planètes lors de l'initialisation
+    },
+  };
+}

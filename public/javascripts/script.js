@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
 async function fetchNewsData() {
   try {
     const response = await fetch(
@@ -190,3 +188,42 @@ function planetSearch() {
     },
   };
 }
+const apiUrl = "https://helldiverstrainingmanual.com/api/v1/war/major-orders";
+
+// Fonction pour récupérer les données de l'API
+async function fetchMajorOrders() {
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    displayOrders(data);
+  } catch (error) {
+    document.getElementById(
+      "orders"
+    ).innerHTML = `<p class="error">Error: ${error.message}</p>`;
+  }
+}
+
+// Fonction pour afficher les "major orders"
+function displayOrders(orders) {
+  const ordersContainer = document.getElementById("orders");
+  if (orders.length === 0) {
+    ordersContainer.innerHTML = "<p>Aucun ordre Prioritaire</p>";
+    return;
+  }
+
+  const list = document.createElement("ul");
+  orders.forEach((order) => {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `<strong>${order.name}</strong>: ${order.description}`;
+    list.appendChild(listItem);
+  });
+
+  ordersContainer.innerHTML = "";
+  ordersContainer.appendChild(list);
+}
+
+// Charger les données de l'API
+fetchMajorOrders();

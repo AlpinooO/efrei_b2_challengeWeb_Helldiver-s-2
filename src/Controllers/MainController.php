@@ -14,6 +14,11 @@ class MainController extends CoreController
         $this->render('home');
     }
 
+
+    public function order()
+    {
+        $this->render('order');
+    }
     // Page des especes
     public function species()
     {

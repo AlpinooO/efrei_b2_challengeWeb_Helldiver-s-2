@@ -13,9 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 async function fetchNewsData() {
   try {
-    const response = await fetch(
-      "https://helldiverstrainingmanual.com/api/v1/war/news"
-    );
+    const response = await fetch("https://helldiverstrainingmanual.com/api/v1/war/news");
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -26,13 +24,13 @@ async function fetchNewsData() {
     // Vérifiez que l'élément container est bien trouvé
 
     // Effacez le contenu de campaignContainer pour éviter les doublons
-    campaignContainer.innerHTML = `<h3>Latest News</h3>`;
+    campaignContainer.innerHTML = `<h3>Dernières Nouveautés</h3>`;
 
     // Trier les articles par date décroissante (les plus récents en premier)
     const sortedNewsData = newsData.sort((a, b) => b.published - a.published);
 
     // Limiter à 3 articles
-    const latestNews = sortedNewsData.slice(0, 3);
+    const latestNews = sortedNewsData.slice(0, 7);
 
     // Si nous avons des articles, les afficher
     if (latestNews && latestNews.length > 0) {
@@ -48,7 +46,6 @@ async function fetchNewsData() {
 
         newsItem.innerHTML = `
             <h4>${message}</h4>
-            <p>${message}</p>
             <small><strong>Date:</strong> ${formattedDate}</small>
         `;
 
@@ -61,8 +58,7 @@ async function fetchNewsData() {
     console.error("Error fetching news data:", error);
     const campaignContainer = document.getElementById("campaign-container");
     if (campaignContainer) {
-      campaignContainer.innerHTML =
-        "<h3>Error loading news. Please try again later.</h3>";
+      campaignContainer.innerHTML = "<h3>Error loading news. Please try again later.</h3>";
     }
   }
 }

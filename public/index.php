@@ -6,7 +6,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 use App\Controllers\MainController;
 use App\Controllers\CoreController;
 use App\Controllers\UserController;
-use App\Controllers\PostsController;
+use App\Controllers\publicationController;
 use Alterouter\Alterouter;
 use Alterouter\Request;
 
@@ -18,9 +18,11 @@ $router->addRoute('GET', '/', MainController::class . '@home', 'home');
 $router->addRoute('GET', '/log', UserController::class . '@log', 'log');
 $router->addRoute('POST', '/log', MainController::class . '@log', 'logPost');
 $router->addRoute('GET', '/logout', UserController::class . '@logout', 'logout');
+
 $router->addRoute('GET', '/forum', PostsController::class . '@post', 'post');
 $router->addRoute('POST', '/forum', PostsController::class . '@poster', 'postPost');
 $router->addRoute('GET', '/map', MainController::class . '@map', 'map');
+
 $router->addRoute('GET', '/species', MainController::class . '@species', 'species');
 
 $route = $router->match(Request::getMethodFromGlobals(), Request::getPathFromGlobals());

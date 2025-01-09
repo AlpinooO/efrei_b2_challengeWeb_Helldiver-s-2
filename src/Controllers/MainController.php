@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\CoreController;
+use App\Controllers\PublicationController;
 
 class MainController extends CoreController
 {
@@ -35,5 +36,27 @@ class MainController extends CoreController
     public function map()
     {
         $this->render('map');
+    }
+
+    public function publier()
+    {
+        $parent = $_POST['parent'];
+
+        $publication = new PublicationController();
+        if (isset($parent)) {
+            $publication->commenter();
+        } else {
+            $publication->publier();
+        }
+    }
+
+    public function publication()
+    {
+        $publication = new PublicationController();
+        if (isset($_GET['id'])) {
+            $publication->aPublication();
+        } else {
+            $publication->publication();
+        }
     }
 }

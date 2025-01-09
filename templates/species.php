@@ -20,7 +20,7 @@ if ($data === null) {
 
 <div class="main-container" x-cloak x-data="{ tab: 'Automates' }">
     <div class="species-container">
-        <h2 class="species-title">Enemies de la démocracie</h2>
+        <h2 class="species-title">Factions enemies de la démocracie</h2>
         <ul class="tab-list-fac">
             <?php foreach ($data['factions'] as $faction): ?>
                 <li class="tab-item">
@@ -41,7 +41,7 @@ if ($data === null) {
     </div>
     <?php foreach ($data['factions'] as $faction): ?>
         <div class="species-container" x-show="tab === '<?= $faction['name'] ?>'">
-            <h2 class="species-title">Enemies de la démocracie</h2>
+            <h2 class="species-title">Unités enemies de la démocracie</h2>
             <div x-cloak x-data="{ tabTypes: '<?= $faction['units'][0]['name'] ?>' }">
                 <ul class="tab-list">
                     <?php foreach ($faction['units'] as $unit): ?>

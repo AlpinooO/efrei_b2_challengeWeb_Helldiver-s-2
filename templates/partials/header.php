@@ -11,7 +11,7 @@
   </head>
   <body>
     <header id="header">
-        <a href="">
+        <a href="/">
             <img src="/assets/Images/Helldivers_2_logo.webp" class="logo" alt="" />
         </a>
 
@@ -21,7 +21,10 @@
                     <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="/stratagem.php">Stratagem</a>
+                    <a href="/stratagem">Stratagem</a>
+                </li>
+                <li>
+                    <a href="/species">Species</a>
                 </li>
                 <?php
                 if (isset($_SESSION['userID']) && !empty($_SESSION['userID'])) { ?>
@@ -42,7 +45,7 @@
                     </li>
                 <?php } else { ?>
                     <li>
-                        <a href="/login">login</a>
+                        <a href="/log">Login</a>
                     </li>
                 <?php } ?>
 

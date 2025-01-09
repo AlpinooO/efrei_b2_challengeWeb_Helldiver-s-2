@@ -4,6 +4,8 @@ session_start();
 require_once __DIR__ . "/../vendor/autoload.php";
 // Change the path according to your project
 use App\Controllers\MainController;
+use App\Controllers\UserController;
+use App\Controllers\PostsController;
 use Alterouter\Alterouter;
 use Alterouter\Request;
 
@@ -12,6 +14,13 @@ $router = new Alterouter();
 
 // Create a route with the generic method "addRoute"
 $router->addRoute('GET', '/', MainController::class . '@home', 'home');
+$router->addRoute('GET', '/log', UserController::class . '@log', 'log');
+$router->addRoute('POST', '/log', MainController::class . '@log', 'logPost');
+$router->addRoute('GET', '/logout', UserController::class . '@logout', 'logout');
+$router->addRoute('GET', '/post', PostsController::class . '@post', 'post');
+$router->addRoute('POST', '/post', PostsController::class . '@poster', 'postPost');
+$router->addRoute('GET', '/stratagem', MainController::class . '@stratagem', 'stratagem');
+$router->addRoute('GET', '/species', MainController::class . '@species', 'species');
 
 $route = $router->match(Request::getMethodFromGlobals(), Request::getPathFromGlobals());
 // dump($match);

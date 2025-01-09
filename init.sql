@@ -1,7 +1,3 @@
-DROP DATABASE divers_helper;
-CREATE DATABASE divers_helper;
-
-
 CREATE TABLE IF NOT EXISTS roles(
 	id_role serial PRIMARY KEY,
 	titre varchar(50) NOT NULL
@@ -24,4 +20,9 @@ CREATE TABLE IF NOT EXISTS posts(
 	message varchar(255) NOT NULL,
 	parent int,
 	id_user int NOT NULL REFERENCES users
-)
+);
+
+INSERT INTO roles(titre) VALUES ('admin'), ('utilisateur');
+
+INSERT INTO users(nom, email,mdp,id_role) VALUES ('admin', 'admin@admin.com', 'adminadmin', 1);
+

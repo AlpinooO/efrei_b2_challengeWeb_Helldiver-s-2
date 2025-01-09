@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\productModel;
 use App\Controllers\CoreController;
 
 class MainController extends CoreController
@@ -21,4 +20,20 @@ class MainController extends CoreController
         $this->render('species');
     }
 
+    public function log()
+    {
+        $register = $_POST['register'];
+
+        $user = new UserController();
+        if (isset($register) && $register == 'register') {
+            $user->loginUser();
+        } else {
+            $user->registerUser();
+        }
+    }
+
+    public function stratagem()
+    {
+        $this->render('stratagem');
+    }
 }

@@ -52,13 +52,13 @@ if ($data === null) {
                         </li>
                     <?php endforeach; ?>
                 </ul>
-                <div>
+                
                     <?php foreach ($faction['units'] as $unit): ?>
                         <div class="description-faction" x-show="tabTypes === '<?= $unit['name'] ?>'">
                             <img class="Enemies-image" src="<?= $unit['image'] ?>"/> <?= $unit['description'] ?>
                         </div>
                     <?php endforeach; ?>
-                </div>
+                
             </div>
         </div>
     <?php endforeach; ?>

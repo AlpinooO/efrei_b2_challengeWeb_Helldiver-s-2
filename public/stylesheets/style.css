@@ -193,9 +193,9 @@ h3 {
 }
 
 .campaign-info {
-  margin: 13px;
-  padding: 20px;
-  max-height: 85vh;
+  margin: 0.5%;
+  padding: 2%;
+  max-height: 95vh;
   background-color: var(--hdBackground);
   border: 3px solid var(--hdYellow);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

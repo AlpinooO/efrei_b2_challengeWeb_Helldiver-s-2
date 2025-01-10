@@ -518,8 +518,7 @@ h3 {
   background-color: var(--hdYellow);
   color: black;
   font-size: 12px;
-  padding: 10px 45px;
-  padding: 10px 45px;
+  padding: 10px 20px;
   border: 1px solid transparent;
   border-radius: 8px;
   font-weight: 600;
@@ -926,7 +925,7 @@ footer section:first-of-type {
   background-color: var(--hdYellow);
   color: black;
   font-size: 12px;
-  padding: 10px 45px;
+  padding: 10px 20px;
   border: 1px solid transparent;
   border-radius: 8px;
   font-weight: 600;
@@ -1038,9 +1037,8 @@ footer section:first-of-type {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 1.5em 0 ;
+  margin: 1.5em 0;
 }
-
 
 .link {
   text-decoration: none;

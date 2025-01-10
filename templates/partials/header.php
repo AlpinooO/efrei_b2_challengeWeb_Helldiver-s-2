@@ -25,7 +25,7 @@ if (isset($_SESSION['user'])) {
         <nav>
             <ul id="headerMenu" class="navbar">
                 <li>
-                    <a href="/">Acceuil</a>
+                    <a href="/">Accueil</a>
                 </li>
                 <li>
                     <a href="/map">Carte</a>

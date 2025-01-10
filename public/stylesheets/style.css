@@ -721,9 +721,16 @@ footer section:first-of-type {
 
 /* page des planetes */
 
+#map-container {
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 10px;
+}
 .planet-list {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .planet-item {
@@ -732,10 +739,12 @@ footer section:first-of-type {
   padding: 10px;
   border-radius: 5px;
   display: flex;
-  flex-direction: column; /* Les informations sont empilées */
-  background-color: #fff; /* Fond blanc */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour donner un effet de cadre */
-  color: black; /* Texte noir pour tout le contenu de l'élément */
+  flex-direction: column; 
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  color: black; 
+  width: 100%; 
+  box-sizing: border-box;
 }
 
 .planet-item p {
@@ -744,47 +753,47 @@ footer section:first-of-type {
 
 .planet-header {
   display: flex;
-  justify-content: space-between; /* Aligne les éléments sur une ligne */
+  justify-content: space-between; 
   align-items: center;
-  border-bottom: 1px solid #ddd; /* Ligne séparatrice */
+  border-bottom: 1px solid #ddd; 
   padding-bottom: 5px;
   margin-bottom: 10px;
-  color: black; /* Texte noir pour l'en-tête */
+  color: black; 
 }
 
 .planet-header h4 {
   margin: 0;
   font-size: 1.2em;
   font-weight: bold;
-  color: black; /* Texte noir pour le titre */
+  color: black; 
 }
 
 .planet-header .planet-sector {
   font-size: 0.9em;
-  color: black; /* Texte noir pour les secteurs */
+  color: black; 
 }
 
 .planet-body {
   display: flex;
-  flex-direction: column; /* Par défaut, on empile les éléments */
-  gap: 10px; /* Espacement entre les éléments */
-  color: black; /* Texte noir pour le contenu principal */
+  flex-direction: column; 
+  gap: 10px; 
+  color: black; 
 }
 
 .planet-environmentals {
   margin-top: 10px;
-  color: black; /* Texte noir pour les dangers environnementaux */
+  color: black; 
 }
 
 .planet-environmentals h5 {
   margin: 0 0 5px;
   font-size: 1em;
   font-weight: bold;
-  color: black; /* Texte noir pour le sous-titre */
+  color: black;
 }
 
 .planet-environmentals ul {
-  color: black; /* Texte noir pour la liste des dangers */
+  color: black;
 }
 
 .planet-image {
@@ -793,5 +802,23 @@ footer section:first-of-type {
   margin-left: auto;
   border-radius: 5px;
   border: 1px solid #ddd;
-  color: black; /* Même si ce n'est pas nécessaire ici */
+  color: black;
+}
+
+.see-more{
+  background-color: var(--hdYellow);
+  color: black;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }

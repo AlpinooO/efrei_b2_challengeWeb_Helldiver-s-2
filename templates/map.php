@@ -1,3 +1,25 @@
+<?php
+$jsonData = file_get_contents('assets/json/Planet.json'); 
+$planets = json_decode($jsonData, true);
+
+$searchQuery = isset($_GET['search']) ? strtolower($_GET['search']) : ''; 
+$filteredPlanets = [];
+
+
+foreach ($planets as $planet) {
+    if (
+        strpos(strtolower($planet['name']), $searchQuery) !== false ||
+        strpos(strtolower($planet['sector']), $searchQuery) !== false ||
+        (!empty($planet['biome']['description']) && strpos(strtolower($planet['biome']['description']), $searchQuery) !== false) ||
+        (!empty($planet['environmentals']) && array_filter($planet['environmentals'], function ($env) use ($searchQuery) {
+            return strpos(strtolower($env['name']), $searchQuery) !== false ||
+            strpos(strtolower($env['description']), $searchQuery) !== false;
+        }))
+    ) {
+        $filteredPlanets[] = $planet;
+    }
+}
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -5,57 +27,47 @@
     <script src="javascripts/script.js"></script>
 </head>
 <body>
-<div x-data="sectorSearch">
-        <input 
-            type="text" 
-            placeholder="Rechercher un secteur..." 
-            x-model="searchQuery" 
-            @input="filterSectors" />
+<div>
+<h1>Rechercher une planète</h1>
+    <form method="get">
+        <input type="text" name="search" placeholder="Rechercher une planète..." value="<?= htmlspecialchars($searchQuery) ?>">
+        <button type="submit">Rechercher</button>
+    </form>
 
-        <ul>
-            <template x-if="filteredSectors.length > 0">
-                <template x-for="sector in filteredSectors" :key="sector.id">
-                    <li x-text="sector.name + ' - ' + sector.description"></li>
-                </template>
-            </template>
-            <template x-if="filteredSectors.length === 0">
-                <li>Aucun secteur trouvé.</li>
-            </template>
-        </ul>
-    </div>
-
-
-         <ul class="planet-list">
-            <template x-for="planet in filteredPlanets" :key="planet.name">
+    <ul>
+        <?php if (!empty($filteredPlanets)): ?>
+            <?php foreach ($filteredPlanets as $planet): ?>
                 <li class="planet-item">
-                    <div>
-                        <h4 x-text="planet.name"></h4>
-                        <p>Secteur : <span x-text="planet.sector"></span></p>
-                        <p x-text="planet.biome ? planet.biome.description : 'Aucune information sur le biome'"></p>
-                        <div>
-                            <h5>Dangers environnementaux :</h5>
-                            <ul>
-                                <template x-for="env in planet.environmentals" :key="env.name">
-                                    <li>
-                                        <strong x-text="env.name"></strong>: 
-                                        <span x-text="env.description"></span>
-                                    </li>
-                                </template>
-                            </ul>
-                        </div>
-                    </div>
+                    <strong><?= htmlspecialchars($planet['name']) ?></strong> 
+                    <p><strong>Sector : </strong><?= htmlspecialchars($planet['sector']) ?></p>
+                    <?php if (!empty($planet['biome'])): ?>
+                        <p><strong>Biome : </strong><?= htmlspecialchars($planet['biome']['slug']) ?></p>
+                    <?php endif; ?>
+                    <?php if (!empty($planet['environmentals'])): ?>
+                        <ul>
+                            <?php foreach ($planet['environmentals'] as $env): ?>
+                                <li>
+                                    <strong><?= htmlspecialchars($env['name']) ?></strong>: <?= htmlspecialchars($env['description']) ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
                 </li>
-            </template>
-        </ul>
+            <?php endforeach; ?>    
+        <?php else: ?>
+            <li>Aucune planète trouvée.</li>
+        <?php endif; ?>
+    </ul>
+</div>
+
     <div id="map-container">
         <h3>Le programmeur est parti se battre pour la démocratie</h3>
     </div>
 
     
     <h1>La carte intéractive remplacant fait par le ministère de la vérité</h1>
-
-<a href="https://hd2galaxy.com/">La carte intéractive démocrate.</a></h2>
-    </div>
+<div>
+    <a href="https://hd2galaxy.com/">La carte intéractive démocrate.</a></h2>
 </div>
 <script src="javascripts/script.js"></script>
 </body>

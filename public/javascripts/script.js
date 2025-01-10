@@ -150,78 +150,47 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchPlanets();
 });
 
-const apiPlanetsUrl = "https://helldiverstrainingmanual.com/api/v1/planets";
+function planetSearch() {
+  return {
+    planets: [], // Liste des planètes
+    searchQuery: "", // Requête de recherche
+    filteredPlanets: [], // Résultats filtrés
 
-// Variable pour stocker les planètes récupérées
-let planets = [];
-
-// Fonction pour récupérer les données de l'API
-async function fetchPlanets() {
-  try {
-    const response = await fetch(apiPlanetsUrl);
-    if (!response.ok) {
-      throw new Error("Erreur lors de la récupération des données");
-    }
-    planets = await response.json();
-    displayPlanets(planets); // Afficher toutes les planètes au chargement
-  } catch (error) {
-    console.error("Erreur :", error);
-    document.getElementById(
-      "planetList"
-    ).innerHTML = `<li>Impossible de récupérer les données des planètes.</li>`;
-  }
-}
-
-// Fonction pour afficher les planètes
-function displayPlanets(planetsToDisplay) {
-  const planetList = document.getElementById("planetList");
-  planetList.innerHTML = ""; // Nettoyer la liste
-  if (planetsToDisplay.length > 0) {
-    planetsToDisplay.forEach((planet) => {
-      const listItem = document.createElement("li");
-      listItem.textContent = `${planet.name} - ${planet.description}`;
-      planetList.appendChild(listItem);
-    });
-  } else {
-    planetList.innerHTML = `<li>Aucune planète trouvée.</li>`;
-  }
-}
-// fonction de recherche
-document.addEventListener("alpine:init", () => {
-  Alpine.data("sectorSearch", () => ({
-    sectors: [], // Données brutes des secteurs
-    filteredSectors: [], // Résultats filtrés
-    searchQuery: "", // Chaîne de recherche
-
-    // Chargement des données depuis l'API
-    async init() {
+    async fetchPlanets() {
       try {
         const response = await fetch(
-          "https://helldiverstrainingmanual.com/api/v1/sectors"
+          "https://helldiverstrainingmanual.com/api/v1/planets"
         );
-        if (!response.ok)
-          throw new Error("Erreur lors de la récupération des données");
-        this.sectors = await response.json();
-        this.filteredSectors = this.sectors; // Afficher tous les secteurs par défaut
+        if (!response.ok) {
+          throw new Error(`Erreur HTTP : ${response.status}`);
+        }
+
+        // Charger les données et les convertir en tableau
+        const data = await response.json();
+        this.planets = Object.values(data);
+        this.filteredPlanets = this.planets; // Initialiser les résultats
       } catch (error) {
-        console.error(error);
-        this.filteredSectors = [];
+        console.error("Erreur lors du chargement des planètes :", error);
       }
     },
 
-    // Filtrage des secteurs
-    filterSectors() {
+    search() {
       const query = this.searchQuery.toLowerCase();
-      this.filteredSectors = this.sectors.filter((sector) =>
-        sector.name.toLowerCase().includes(query)
+      this.filteredPlanets = this.planets.filter(
+        (planet) =>
+          planet.name.toLowerCase().includes(query) ||
+          planet.sector.toLowerCase().includes(query)
       );
     },
-  }));
-});
 
-fetchPlanets();
+    init() {
+      this.fetchPlanets(); // Charger les planètes lors de l'initialisation
+    },
+  };
+}
 const apiUrl = "https://helldiverstrainingmanual.com/api/v1/war/major-orders";
 
+// Fonction pour récupérer les données de l'API
 async function fetchMajorOrders() {
   try {
     const response = await fetch(apiUrl);

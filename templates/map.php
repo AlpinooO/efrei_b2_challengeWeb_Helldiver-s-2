@@ -2,11 +2,12 @@
 $jsonData = file_get_contents('assets/json/Planet.json'); 
 $planets = json_decode($jsonData, true);
 
-$searchQuery = isset($_GET['search']) ? strtolower($_GET['search']) : ''; 
+$searchQuery = isset($_GET['search']) ? trim($_GET['search']) : ''; 
 $filteredPlanets = [];
 
 
-foreach ($planets as $planet) {
+if ($searchQuery !== '') {
+    foreach ($planets as $planet) {
     if (
         strpos(strtolower($planet['name']), $searchQuery) !== false ||
         strpos(strtolower($planet['sector']), $searchQuery) !== false ||
@@ -19,6 +20,8 @@ foreach ($planets as $planet) {
         $filteredPlanets[] = $planet;
     }
 }
+}
+
 ?>
 <head>
     <meta charset="UTF-8">
@@ -30,8 +33,8 @@ foreach ($planets as $planet) {
 <div>
 <h1>Rechercher une planète</h1>
     <form method="get">
-        <input type="text" name="search" placeholder="Rechercher une planète..." value="<?= htmlspecialchars($searchQuery) ?>">
-        <button type="submit">Rechercher</button>
+        <input class="search" type="text" name="search" placeholder="Rechercher une planète..." value="<?= htmlspecialchars($searchQuery) ?>">
+        <button class="search-button" type="submit">Rechercher</button>
     </form>
 
     <ul>

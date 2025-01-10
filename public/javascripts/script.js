@@ -11,19 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     container.classList.remove("active");
   });
 });
-document.getElementById("new-pub").addEventListener("click", function () {
-  var form = document.getElementById("ajout-pub");
-  if (form.style.display === "none" || form.style.display === "") {
-    form.style.display = "block";
-    this.textContent = "Hide Form";
-  } else {
-    form.style.display = "none";
-    this.textContent = "Show Form";
-  }
-});
 async function fetchNewsData() {
   try {
-    const response = await fetch("https://helldiverstrainingmanual.com/api/v1/war/news");
+    const response = await fetch(
+      "https://helldiverstrainingmanual.com/api/v1/war/news"
+    );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -75,7 +67,8 @@ async function fetchNewsData() {
     console.error("Error fetching news data:", error);
     const campaignContainer = document.getElementById("campaign-container");
     if (campaignContainer) {
-      campaignContainer.innerHTML = "<h3>Error loading news. Please try again later.</h3>";
+      campaignContainer.innerHTML =
+        "<h3>Error loading news. Please try again later.</h3>";
     }
   }
 }

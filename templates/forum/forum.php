@@ -1,7 +1,7 @@
 <section class="forum-container">
+    <button id="toggleButton">Montrer Form</button>
     <h1>Forum</h1>
-    <button id="new-pub">Publier</button>
-    <form id="ajout-pub" class="ajout-pub" action="/forum" method="post">
+    <form id="myForm" class="ajout-pub" action="/forum" method="post">
         <h2>Ajouter une publication</h2>
         <input type="text" name="titre" maxlength="50" placeholder="Titre de publication">
         <textarea name="message" maxlength="255" style="resize: none;" placeholder="Contenu de la publication" rows="4"
@@ -30,4 +30,5 @@
 
         </article>
     <?php } ?>
+    <script src="/javascripts/show.js"></script>
 </section>

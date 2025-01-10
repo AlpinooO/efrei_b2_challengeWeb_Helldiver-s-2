@@ -206,7 +206,7 @@ h3 {
 
 .forum-container .ajout-pub {
   padding: 0 1em;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   background-color: var(--hdBackground);

@@ -7,7 +7,7 @@ dump($commentaires);
     <div class="publication">
             <h2><?= $publication['titre_post'] ?></h2>
             <p><?= $publication['message'] ?></p>
-            <p>publié le <?= $publication['publication'] ?> par <?= $publication['nom'] ?></p>
+            <p class="auteur">publié le <?= $publication['publication'] ?> par <?= $publication['nom'] ?></p>
     </div>
 
 <form class="ajout-com" action="/forum?id=<?= $publication['id_post'] ?>" method="post">
@@ -20,9 +20,9 @@ dump($commentaires);
 
 foreach ($commentaires as $comment) {
     ?>
-    <article>
-        <h2><?= $comment->message ?></h2>
-        <p>par <?= $comment->nom ?></p>
+    <article class="commentaire">
+        <p><?= $comment->message ?></p>
+        <p class="auteur">par <?= $comment->nom ?></p>
     </article>
     <?php
 }

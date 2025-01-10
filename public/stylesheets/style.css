@@ -124,7 +124,8 @@ h3 {
   height: 6vh;
 }
 
-.textToRight {
+.textToRight,
+.auteur {
   color: var(--hdBlue);
   text-align: right;
 }
@@ -226,6 +227,15 @@ h3 {
   justify-content: center;
   position: relative;
   height: 100%;
+}
+
+.forum-container .pub {
+  padding: 20px;
+  background-color: var(--hdBackground);
+  border: 3px solid var(--hdYellow);
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2em;
 }
 
 .forum-container .ajout-pub {

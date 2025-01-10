@@ -730,6 +730,11 @@ footer section:first-of-type {
   font-size: 1.5em;
 }
 
+.centered-404 {
+  display: flex;
+  justify-content: center;
+}
+
 .container-404 {
   display: flex;
   flex-direction: column;
@@ -776,8 +781,10 @@ footer section:first-of-type {
 }
 
 .message-404 a {
-  color: var(--hdOrange);
+  color: var(--hdYellow);
   text-decoration: none;
+  font-weight: 900;
+  font-size: 1.25em;
 }
 
 /* page des planetes */

@@ -2,7 +2,7 @@
 $jsonData = file_get_contents('assets/json/Planet.json'); 
 $planets = json_decode($jsonData, true);
 
-$searchQuery = isset($_GET['search']) ? trim($_GET['search']) : ''; 
+$searchQuery = isset($_GET['search']) ? strtolower($_GET['search']) : ''; 
 $filteredPlanets = [];
 
 

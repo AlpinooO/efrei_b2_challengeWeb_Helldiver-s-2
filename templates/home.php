@@ -1,6 +1,6 @@
 <div class="home-title-container">
-<h1 class="title-home">Bienvenue sur DiversHelper!</h1>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+<h1 class="title-home">Bienvenue sur DiversHelper   <?= isset($_SESSION['user']['nom']) ? htmlspecialchars($_SESSION['user']['nom']) : "" ?>!</h1>
+<p>Le site des véritables Helldivers pour pouvoir distribuer la démocratie</p>
 </div>
 
 

@@ -13,6 +13,10 @@ function fetchMajorOrders($url) {
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HTTPGET, true);
 
+    // Désactiver la vérification SSL (ATTENTION : à n'utiliser que si c'est nécessaire)
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
     // Exécute la requête et stocke la réponse
     $response = curl_exec($curl);
 
@@ -44,7 +48,7 @@ if ($majorOrders) {
 } else {
     echo "<p>Pas d'ordre prioritaire pour le moment.</p>";
     echo "<br>";
-    echo "<img src='https://www.weareplaystation.fr/api/upload/media/post/0004/17/thumb_316916_post_big.jpg' alt='Helldivers Logo'width='1000'/>";
+    echo "<img src='https://www.weareplaystation.fr/api/upload/media/post/0004/17/thumb_316916_post_big.jpg' alt='Helldivers Logo' width='1000'/>";
 }
 
 ?>

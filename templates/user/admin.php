@@ -1,6 +1,3 @@
-<?php
-dump($data);
-?>
 <section>
     <form action="/admin" method="post">
         <input type="hidden" name="ban" value="ban">

@@ -10,7 +10,6 @@ class MainController extends CoreController
     // Page d'accueil
     public function home()
     {
-
         $this->render('home');
     }
 

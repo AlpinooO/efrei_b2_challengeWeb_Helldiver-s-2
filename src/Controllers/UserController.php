@@ -37,7 +37,6 @@ class UserController extends CoreController
         } else {
             $user = new UserModel($email, $password, );
             $user->isUser();
-
             if (empty($user->isUser())) {
                 $error = "Utilisateur inconnu";
                 $this->render('user/log', ['error' => $error]);

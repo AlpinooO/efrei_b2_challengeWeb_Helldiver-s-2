@@ -56,7 +56,7 @@ class userModel
     // enregistre les information de l'utilisateur
     public function register()
     {
-        // $hashed_password = password_hash($this->MDP, PASSWORD_DEFAULT);
+        $hashed_password = password_hash($this->MDP, PASSWORD_DEFAULT);
         $pdo = Database::getPDO();
         $membre = 2;
         $sqlQuery = "INSERT INTO users(nom, email, mdp, id_role) values(:name, :email, :mdp, $membre)";
@@ -64,8 +64,7 @@ class userModel
         $stmt->execute([
             'name' => $this->name,
             'email' => $this->email,
-            // 'MDP' => $hashed_password,
-            'mdp' => $this->MDP,
+            'mdp' => $hashed_password
         ]);
         return $this->getUser();
     }
@@ -74,20 +73,12 @@ class userModel
     public function login()
     {
         $pdo = Database::getPDO();
-        $sqlQuery = "SELECT mdp FROM users WHERE email = :email";
+        $sqlQuery = "SELECT * FROM users WHERE email = :email";
         $stmt = $pdo->prepare($sqlQuery);
-        $stmt->execute([
-            'email' => $this->email
-        ]);
-        $user = $stmt->fetch();
-        // TODO: A décommenter lorsque le hashage des mots de passe sera effectif meme pour l'admin
-        // if ($user && password_verify($this->MDP, $user['MDP'])) {
-        //     return $user;
-        // } else {
-        //     return false;
-        // }
+        $stmt->execute(['email' => $this->email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && $this->MDP == $user['mdp']) {
+        if ($user && password_verify($this->MDP, $user['mdp'])) {
             return $user;
         } else {
             return false;

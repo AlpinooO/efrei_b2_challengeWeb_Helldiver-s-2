@@ -58,4 +58,4 @@ if (isset($data['success'])) {
 ?>
 
 
-<script src="/javascripts/script.js"></script>
+<script src="/javascripts/log.js"></script>

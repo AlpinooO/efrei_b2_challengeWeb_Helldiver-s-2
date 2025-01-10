@@ -42,13 +42,16 @@ class MainController extends CoreController
     {
         $this->render('map');
     }
+    public function post()
+    {
+        $this->render('post');
+    }
 
     public function publier()
     {
-        $parent = $_POST['parent'];
-
+        $this->isConnected();
         $publication = new PublicationController();
-        if (isset($parent)) {
+        if (isset($_POST['parent'])) {
             $publication->commenter();
         } else {
             $publication->publier();

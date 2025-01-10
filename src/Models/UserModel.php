@@ -33,7 +33,7 @@ class userModel
     public function getUser()
     {
         $pdo = Database::getPDO();
-        $sqlQuery = "SELECT id_user,nom,email,titre FROM roles INNER JOIN users ON roles.id_role = users.id_role WHERE id_user = :id_user;";
+        $sqlQuery = "SELECT id_user,nom,email,titre_role FROM roles INNER JOIN users ON roles.id_role = users.id_role WHERE id_user = :id_user;";
         $userID = $this->getUserId()['id_user'];
         $stmt = $pdo->prepare($sqlQuery);
         $stmt->execute([

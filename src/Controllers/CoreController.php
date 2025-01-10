@@ -33,8 +33,8 @@ class CoreController
 
     public function isConnected()
     {
-        if (!$_SESSION['user']) {
-            header('Location: /login');
+        if (!isset($_SESSION['user'])) {
+            header('Location: /log');
             exit();
         }
     }

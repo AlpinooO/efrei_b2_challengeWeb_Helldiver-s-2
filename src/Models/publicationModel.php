@@ -26,9 +26,9 @@ class PublicationModel
     {
         $date = date('Y-m-d H:i:s');
         $pdo = Database::getPDO();
-        $sql = "INSERT INTO publication (message, auteur, titre, date) VALUES (:message, :auteur, :titre, $date)";
-        $query = $pdo->prepare($sql);
-        $query->execute([
+        $sql = "INSERT INTO publication (message, auteur, titre_post, publication) VALUES (:message, :auteur, :titre, '$date')";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
             ':message' => $this->message,
             ':auteur' => $this->auteur,
             ':titre' => $this->titre
@@ -39,49 +39,53 @@ class PublicationModel
     {
         $date = date('Y-m-d H:i:s');
         $pdo = Database::getPDO();
-        $sql = "INSERT INTO publication (message, auteur, date, parent) VALUES (:message, :auteur, $date , :parent)";
-        $query = $pdo->prepare($sql);
-        $query->execute([
+        $sql = "INSERT INTO publication (message, auteur, publication, parent) VALUES (:message, :auteur, '$date' , :parent)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
             ':message' => $this->message,
-            ':titre' => $this->titre,
             ':auteur' => $this->auteur,
             ':parent' => $this->parent
         ]);
     }
 
-    public function getAll()
+    public function getAllPubli()
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM publication";
-        $query = $pdo->query($sql);
-        $publications = $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\publicationModel');
+        $sql = "SELECT titre_post,message,publication,id_post,nom,id_user FROM publication
+            INNER JOIN users ON publication.auteur = users.id_user
+            INNER JOIN roles ON users.id_role = roles.id_role where parent is null";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $publications = $stmt->fetchAll(PDO::FETCH_CLASS);
         return $publications;
     }
 
     public function getOne()
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM publication WHERE id = :id";
-        $query = $pdo->prepare($sql);
-        $query->execute([':id' => $this->id]);
-        $publication = $query->fetchObject('App\Models\publicationModel');
+        $sql = "SELECT titre_post,message,publication,id_post,nom,id_user FROM publication
+            INNER JOIN users ON publication.auteur = users.id_user
+            INNER JOIN roles ON users.id_role = roles.id_role WHERE id_post = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $this->id]);
+        $publication = $stmt->fetch();
         return $publication;
     }
 
     public function delete()
     {
         $pdo = Database::getPDO();
-        $sql = "DELETE FROM publication WHERE id = :id";
-        $query = $pdo->prepare($sql);
-        $query->execute([':id' => $this->id]);
+        $sql = "DELETE FROM publication WHERE id_post = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $this->id]);
     }
 
     public function update()
     {
         $pdo = Database::getPDO();
         $sql = "UPDATE publication SET message = :message, auteur = :auteur WHERE id = :id";
-        $query = $pdo->prepare($sql);
-        $query->execute([
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
             ':message' => $this->message,
             ':id' => $this->id
         ]);
@@ -90,10 +94,12 @@ class PublicationModel
     public function getCommentaires()
     {
         $pdo = Database::getPDO();
-        $sql = "SELECT * FROM publication WHERE parent = :id";
-        $query = $pdo->prepare($sql);
-        $query->execute([':id' => $this->id]);
-        $commentaires = $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\publicationModel');
+        $sql = "SELECT titre_post,message,publication,id_post,nom,id_user FROM publication
+            INNER JOIN users ON publication.auteur = users.id_user
+            INNER JOIN roles ON users.id_role = roles.id_role WHERE parent = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $this->id]);
+        $commentaires = $stmt->fetchAll(PDO::FETCH_CLASS);
         return $commentaires;
     }
 }

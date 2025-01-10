@@ -9,8 +9,8 @@ class PublicationController extends CoreController
     public function publication()
     {
         $publication = new publicationModel();
-        $publications = $publication->getAll();
-        $this->render('forum', ['publications' => $publications]);
+        $publications = $publication->getAllPubli();
+        $this->render('forum/forum', ['publications' => $publications]);
     }
 
     public function aPublication()
@@ -19,29 +19,37 @@ class PublicationController extends CoreController
         $publication = new PublicationModel($id);
         $publications = $publication->getOne();
         $comments = $publication->getCommentaires();
-        $data = ['publications' => $publications];
-        $data = ['comments' => $comments];
-        $this->render('publication', $data);
+        $data = ['publication' => $publications, 'comments' => $comments];
+        $this->render('forum/publication', $data);
     }
 
     public function publier()
     {
         $message = htmlspecialchars($_POST['message']);
-        $auteur = $_SESSION['user']['id'];
+        $auteur = $_SESSION['user']['id_user'];
         $titre = htmlspecialchars($_POST['titre']);
 
-        $messageModel = new PublicationModel(null, $message, $auteur, $titre);
-        $messageModel->create();
+        $PublicationModel = new PublicationModel(null, $message, $auteur, $titre);
+        $PublicationModel->create();
         header('Location: /forum');
     }
 
     public function commenter()
     {
         $message = htmlspecialchars($_POST['message']);
-        $auteur = $_SESSION['user']['id'];
+        $parent = htmlspecialchars($_POST['parent']);
+        $auteur = $_SESSION['user']['id_user'];
 
-        $messageModel = new PublicationModel(null, $message, $auteur);
-        $messageModel->commentaire();
+        $PublicationModel = new PublicationModel(null, $message, $auteur, null, $parent);
+        $PublicationModel->commentaire();
+        header('Location: /forum?id=' . $parent);
+    }
+
+    public function supprimer()
+    {
+        $id = $_GET['id'];
+        $publication = new PublicationModel($id);
+        $publication->delete();
         header('Location: /forum');
     }
 }

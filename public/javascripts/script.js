@@ -1,17 +1,3 @@
-const container = document.getElementById("container");
-document.addEventListener("DOMContentLoaded", () => {
-  const registerBtn = document.getElementById("register");
-  const loginBtn = document.getElementById("login");
-
-  registerBtn.addEventListener("click", () => {
-    container.classList.add("active");
-  });
-
-  loginBtn.addEventListener("click", () => {
-    container.classList.remove("active");
-  });
-});
-
 async function fetchNewsData() {
   try {
     const response = await fetch(

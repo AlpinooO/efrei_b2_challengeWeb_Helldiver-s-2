@@ -6,6 +6,8 @@ use App\Models\PublicationModel;
 
 class PublicationController extends CoreController
 {
+
+    // page Forum ou on afficher toutes les publications sans parent
     public function publication()
     {
         $publication = new publicationModel();
@@ -13,6 +15,7 @@ class PublicationController extends CoreController
         $this->render('forum/forum', ['publications' => $publications]);
     }
 
+    // page publication ou on affiche une publication avec ses commentaires
     public function aPublication()
     {
         $id = $_GET['id'];
@@ -23,6 +26,7 @@ class PublicationController extends CoreController
         $this->render('forum/publication', $data);
     }
 
+    // method pour publier une publication
     public function publier()
     {
         $message = htmlspecialchars($_POST['message']);
@@ -34,6 +38,7 @@ class PublicationController extends CoreController
         header('Location: /forum');
     }
 
+    // method pour commenter une publication
     public function commenter()
     {
         $message = htmlspecialchars($_POST['message']);
@@ -45,6 +50,7 @@ class PublicationController extends CoreController
         header('Location: /forum?id=' . $parent);
     }
 
+    // method pour supprimer une publication
     public function supprimer()
     {
         $id = $_GET['id'];
@@ -52,7 +58,6 @@ class PublicationController extends CoreController
         $publication = new PublicationModel($id);
         $publication->delete();
         if ($comments != 0) {
-            $parent = $publication->getParent();
             header('Location: /forum?id=' . $comments);
             exit();
         }

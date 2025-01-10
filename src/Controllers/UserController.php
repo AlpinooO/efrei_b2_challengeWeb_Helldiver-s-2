@@ -37,15 +37,19 @@ class UserController extends CoreController
         } else {
             $user = new UserModel($email, $password, );
             $user->isUser();
+
+            // Vérification si l'utilisateur existe déjà dans la base de données
             if (empty($user->isUser())) {
                 $error = "Utilisateur inconnu";
                 $this->render('user/log', ['error' => $error]);
             }
+            // Vérification de si l'utilisateur est banni
             if ($user->isBanned()) {
                 $error = "vous êtes banni";
                 $this->render('user/log', ['error' => $error]);
             }
 
+            // Vérification du mot de passe de l'utilisateur
             $loggedUser = $user->login();
             if ($loggedUser) {
                 $_SESSION['user'] = $user->getUser();
@@ -72,10 +76,12 @@ class UserController extends CoreController
             $this->render('user/log', ['error' => $error]);
         } else {
             $user = new UserModel($email, $password, $username);
+            // Vérification si l'utilisateur existe déjà dans la base de données
             if ($user->isUser()) {
                 $error = "Utilisateur déjà existant";
                 $this->render('user/log', ['error' => $error]);
             } else {
+                // Enregistrement de l'utilisateur
                 if ($user->register()) {
                     $_SESSION['user'] = $user->getUser();
                     header('Location: /');
@@ -88,13 +94,10 @@ class UserController extends CoreController
     public function admin()
     {
         $this->isAdmin();
-        $user = new UserModel();
-        $ban = $user->getBan();
-        $admins = $user->getAdmins();
-        $data = ['ban' => $ban, 'admins' => $admins];
-        $this->render('user/admin', $data);
+        $this->render('user/admin');
     }
 
+    // Méthodes pour les actions admin de base
     private function adminBase()
     {
         $this->isAdmin();
@@ -113,6 +116,7 @@ class UserController extends CoreController
         return $user;
     }
 
+    // Méthode pour vérifier si l'utilisateur est banni
     private function isBan($user)
     {
         if ($user->isBanned()) {

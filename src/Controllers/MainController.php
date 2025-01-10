@@ -25,6 +25,7 @@ class MainController extends CoreController
         $this->render('species');
     }
 
+    // method pour la page de connexion pour savoir quel methode appeler (register ou login)
     public function log()
     {
         $register = $_POST['register'];
@@ -41,10 +42,9 @@ class MainController extends CoreController
     {
         $this->render('map');
     }
-    public function post()
-    {
-        $this->render('post');
-    }
+
+
+    // method pour la page de connexion pour savoir quel methode appeler (commenter ou publier)
 
     public function publier()
     {
@@ -57,6 +57,8 @@ class MainController extends CoreController
         }
     }
 
+    // method pour la page de connexion pour savoir quel view a afficher (forum ou Publication)
+
     public function publication()
     {
         $publication = new PublicationController();
@@ -67,6 +69,7 @@ class MainController extends CoreController
         }
     }
 
+    // method pour la page de connexion pour savoir quel methode appeler (ban ou unban ou admin)
     public function banOrAdmin()
     {
         $this->isAdmin();

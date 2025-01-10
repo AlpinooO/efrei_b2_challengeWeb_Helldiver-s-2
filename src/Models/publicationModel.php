@@ -22,8 +22,10 @@ class PublicationModel
         $this->titre = $titre;
         $this->parent = $parent;
     }
+
     public function create()
     {
+        // récupération de la date actuelle en format SQL
         $date = date('Y-m-d H:i:s');
         $pdo = Database::getPDO();
         $sql = "INSERT INTO publication (message, auteur, titre_post, publication) VALUES (:message, :auteur, :titre, '$date')";
@@ -51,6 +53,7 @@ class PublicationModel
     public function getAllPubli()
     {
         $pdo = Database::getPDO();
+        // récupération des publications sans parent (donc les publications principales)
         $sql = "SELECT titre_post,message,publication,id_post,nom,id_user FROM publication
             INNER JOIN users ON publication.auteur = users.id_user
             INNER JOIN roles ON users.id_role = roles.id_role where parent is null";
@@ -62,6 +65,7 @@ class PublicationModel
 
     public function getOne()
     {
+        // récupération de la publication sélectionner
         $pdo = Database::getPDO();
         $sql = "SELECT titre_post,message,publication,id_post,nom,id_user FROM publication
             INNER JOIN users ON publication.auteur = users.id_user
@@ -80,19 +84,9 @@ class PublicationModel
         $stmt->execute([':id' => $this->id]);
     }
 
-    public function update()
-    {
-        $pdo = Database::getPDO();
-        $sql = "UPDATE publication SET message = :message, auteur = :auteur WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-            ':message' => $this->message,
-            ':id' => $this->id
-        ]);
-    }
-
     public function getCommentaires()
     {
+        // récupération des commentaires de la publication sélectionner
         $pdo = Database::getPDO();
         $sql = "SELECT titre_post,message,publication,id_post,nom,id_user FROM publication
             INNER JOIN users ON publication.auteur = users.id_user
@@ -103,13 +97,4 @@ class PublicationModel
         return $commentaires;
     }
 
-    public function getParent()
-    {
-        $pdo = Database::getPDO();
-        $sql = "SELECT parent FROM publication WHERE id_post = :id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([':id' => $this->id]);
-        $parent = $stmt->fetch();
-        return $parent;
-    }
 }

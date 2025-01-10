@@ -29,7 +29,7 @@ class userModel
         return $stmt->fetch();
     }
 
-    // récupère le role de l'utilisateur
+    // récupère les informations de l'utilisateur
     public function getUser()
     {
         $pdo = Database::getPDO();
@@ -42,6 +42,7 @@ class userModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    // cherche dans la db si l'utilisateur existe
     public function isUser()
     {
         $pdo = Database::getPDO();
@@ -111,6 +112,7 @@ class userModel
         return $stmt->fetch();
     }
 
+    // change le role de l'utilisateur en BAN
     public function banUser()
     {
         $pdo = Database::getPDO();
@@ -124,6 +126,7 @@ class userModel
         );
     }
 
+    // change le role de l'utilisateur en USER
     public function unbanUser()
     {
         $pdo = Database::getPDO();
@@ -137,32 +140,7 @@ class userModel
         );
     }
 
-    public function getAdmins()
-    {
-        $pdo = Database::getPDO();
-        $admin = 1;
-        $sqlQuery = "SELECT * FROM users WHERE id_role = $admin";
-        $stmt = $pdo->query($sqlQuery);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function getBan()
-    {
-        $pdo = Database::getPDO();
-        $ban = 3;
-        $sqlQuery = "SELECT * FROM users WHERE id_role = $ban";
-        $stmt = $pdo->query($sqlQuery);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function getRole()
-    {
-        $pdo = Database::getPDO();
-        $sqlQuery = "SELECT id_role FROM users";
-        $stmt = $pdo->query($sqlQuery);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
+    // regarde si l'utilisateur est banni
     public function isBanned()
     {
         $pdo = Database::getPDO();
@@ -175,6 +153,7 @@ class userModel
         return $stmt->fetch();
     }
 
+    // regarde si l'utilisateur est admin
     public function isAdmin()
     {
         $pdo = Database::getPDO();

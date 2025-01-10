@@ -14,7 +14,9 @@
     $publications = $data['publications'];
     foreach ($publications as $publication) { ?>
     <article class="pub">
-        <h2><?= $publication->titre_post ?></h2>
+        <a href="/forum?id=<?= $publication->id_post ?>">
+            <h2><?= $publication->titre_post ?></h2>
+        </a>
         <p><?= $publication->message ?></p>
         <p class="auteur">publié le <?= $publication->publication ?> par <?= $publication->nom ?></p>
         <span><strong><a href="/forum?id=<?= $publication->id_post ?>">Voir la publication</a></strong>

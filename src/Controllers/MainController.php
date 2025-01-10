@@ -10,7 +10,6 @@ class MainController extends CoreController
     // Page d'accueil
     public function home()
     {
-
         $this->render('home');
     }
 
@@ -67,4 +66,19 @@ class MainController extends CoreController
             $publication->publication();
         }
     }
+
+    public function banOrAdmin()
+    {
+        $this->isAdmin();
+        $user = new UserController();
+        $ban = $_POST['ban'];
+        if (isset($ban) && $ban == 'ban') {
+            $user->ban();
+        } else if (isset($ban) && $ban == 'unban') {
+            $user->unban();
+        } else {
+            $user->adminUser();
+        }
+    }
+
 }

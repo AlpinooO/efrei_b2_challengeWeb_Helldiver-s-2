@@ -20,13 +20,7 @@ foreach ($planets as $planet) {
     }
 }
 ?>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script src="javascripts/script.js"></script>
-</head>
-<body>
+
 <div>
 <h1>Rechercher une planète</h1>
     <form method="get">

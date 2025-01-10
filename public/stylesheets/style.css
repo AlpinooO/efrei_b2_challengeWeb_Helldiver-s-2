@@ -395,7 +395,12 @@ h3 {
 .ajout-pub input:hover,
 .ajout-pub input:focus,
 .ajout-pub textarea:hover,
-.ajout-pub textarea:focus {
+.ajout-pub textarea:focus,
+.admin-container form input:hover,
+.admin-container form input:focus,
+.ajout-pub textarea:focus,
+.admin-container form input:hover,
+.admin-container form input:focus {
   border: solid 1px #fff;
 }
 
@@ -419,6 +424,61 @@ h3 {
   text-align: right;
   width: 95%;
   text-decoration: none;
+}
+
+/* Admin Page */
+
+.admin-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+}
+
+.admin-container form {
+  padding: 0 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--hdBackground);
+  width: 80%;
+  height: 10vh;
+  border: 3px solid var(--hdYellow);
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin-bottom: 1em;
+}
+
+.admin-container form input {
+  background-color: var(--hdBlack);
+  color: #fff;
+  border: 1px solid transparent;
+  margin-right: 1em;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 55%;
+  outline: none;
+}
+
+.admin-container form .submit {
+  background-color: var(--hdYellow);
+  color: black;
+  font-size: 12px;
+  padding: 10px 20px;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 40%;
+}
+
+.admin-container form .submit:hover {
+  border: 3px solid #fff;
 }
 
 /* Login/Register Page */
@@ -458,7 +518,8 @@ h3 {
   background-color: var(--hdYellow);
   color: black;
   font-size: 12px;
-  padding: 10px 20px;
+  padding: 10px 45px;
+  padding: 10px 45px;
   border: 1px solid transparent;
   border-radius: 8px;
   font-weight: 600;
@@ -852,12 +913,12 @@ footer section:first-of-type {
 .search {
   background-color: #fff;
   color: var(--hdBlack);
-  border: none;
-  margin: 8px 0;
+  border: 1px solid transparent;
+  margin-right: 1em;
   padding: 10px 15px;
   font-size: 13px;
   border-radius: 8px;
-  width: 50%;
+  width: 55%;
   outline: none;
 }
 
@@ -970,6 +1031,25 @@ footer section:first-of-type {
   text-transform: uppercase;
   margin-top: 10px;
   cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--hdBlue);
+}
+
+.link-container {
+  background-color: var(--hdYellow);
+  color: black;
+  font-size: 12px;
+  padding: 10px 25px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 1rem;
 }
 
 .hidden-planet {

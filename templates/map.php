@@ -30,8 +30,8 @@ foreach ($planets as $planet) {
 <div>
 <h1>Rechercher une planète</h1>
     <form method="get">
-        <input type="text" name="search" placeholder="Rechercher une planète..." value="<?= htmlspecialchars($searchQuery) ?>">
-        <button type="submit">Rechercher</button>
+        <input class="search" type="text" name="search" placeholder="Rechercher une planète..." value="<?= htmlspecialchars($searchQuery) ?>">
+        <button class="search-button" type="submit">Rechercher</button>
     </form>
 
     <ul>
@@ -102,9 +102,9 @@ foreach ($planets as $planet) {
 
 
     
-    <h1>La carte intéractive remplacant fait par le ministère de la vérité</h1>
-<div>
-    <a href="https://hd2galaxy.com/">La carte intéractive démocrate.</a></h2>
+<h1>La carte intéractive faite par le ministère de la vérité</h1>
+<div class="link-container">
+    <a class="link" href="https://hd2galaxy.com/">La carte intéractive démocrate.</a>
 </div>
 <script src="javascripts/script.js"></script>
 </body>

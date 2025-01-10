@@ -69,10 +69,15 @@ class UserController extends CoreController
             $this->render('user/log', ['error' => $error]);
         } else {
             $user = new UserModel($email, $password, $username);
-            if ($user->register()) {
-                $_SESSION['user'] = $user->getUser();
-                header('Location: /');
-                exit();
+            if ($user->isUser()) {
+                $error = "Utilisateur déjà existant";
+                $this->render('user/log', ['error' => $error]);
+            } else {
+                if ($user->register()) {
+                    $_SESSION['user'] = $user->getUser();
+                    header('Location: /');
+                    exit();
+                }
             }
         }
     }

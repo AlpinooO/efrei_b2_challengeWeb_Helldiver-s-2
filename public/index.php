@@ -23,6 +23,8 @@ $router->addRoute('POST', '/forum', MainController::class . '@publier', 'publier
 $router->addRoute('GET', '/forum/supprimer', PublicationController::class . '@supprimer', 'supprimerPublication');
 $router->addRoute('GET', '/stratagem', MainController::class . '@stratagem', 'stratagem');
 $router->addRoute('GET', '/species', MainController::class . '@species', 'species');
+$router->addRoute('GET', '/order', MainController::class . '@order', 'order');
+$router->addRoute('GET', '/map', MainController::class . '@map', 'map');
 
 
 $route = $router->match(Request::getMethodFromGlobals(), Request::getPathFromGlobals());

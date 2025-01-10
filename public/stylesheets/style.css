@@ -1019,19 +1019,28 @@ footer section:first-of-type {
   color: black;
 }
 
-.see-more {
+.planet-button {
   background-color: var(--hdYellow);
   color: black;
   font-size: 12px;
-  padding: 10px 45px;
-  border: 1px solid transparent;
+  padding: 10px 20px;
+  border: 3px solid transparent;
   border-radius: 8px;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  margin-top: 10px;
   cursor: pointer;
+  align-self: center;
+  width: 20%;
 }
+
+.planet-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1.5em 0 ;
+}
+
 
 .link {
   text-decoration: none;

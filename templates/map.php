@@ -90,10 +90,13 @@ foreach ($planets as $planet) {
     <?php endif; ?>
 
     <!-- Boutons pour afficher plus ou moins de planètes -->
+     <div class="planet-button-container">
     <?php if (!empty($remainingPlanets)): ?>
-        <button id="show-more-btn" onclick="showMorePlanets()">Voir plus de planètes</button>
-        <button id="show-less-btn" onclick="showLessPlanets()" style="display: none;">Voir moins de planètes</button>
+        <button class="planet-button" id="show-more-btn" onclick="showMorePlanets()">Voir plus de planètes</button>
+        <button class="planet-button" id="show-less-btn" onclick="showLessPlanets()" style="display: none;">Voir moins de planètes</button>
     <?php endif; ?>
+    </div>
+
 </ul>
 
 

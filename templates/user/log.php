@@ -9,11 +9,11 @@
                 <a href="#" class="icon"><i class="fa-brands fa-steam"></i></a>
             </div>
             <span>ou utiliser votre email pour créer votre compte</span>
-            <input type="hidden" name="register" value="s'enregistrer" />
+            <input type="hidden" name="register" value="register" />
             <input type="email" name="email" placeholder="email" />
             <input type="text" name="name" placeholder="nom" />
             <input type="password" name="password" placeholder="mot de passe" />
-            <input type="password" name="password2" placeholder="mot de passe" />
+            <input type="password" name="password2" placeholder="confirmer votre mot de passe" />
             <input type="submit" class="submit" value="S'enregistrer" />
         </form>
     </div>
@@ -27,7 +27,7 @@
                 <a href="#" class="icon"><i class="fa-brands fa-steam"></i></a>
             </div>
             <span>ou utiliser votre email et mot de passe</span>
-            <input type="hidden" name="register" value="connexion" />
+            <input type="hidden" name="register" value="login" />
             <input type="email" name="email" placeholder="email" />
             <input type="password" name="password" placeholder="mot de passe" />
             <a href="#">Mot de passe oublié?</a>

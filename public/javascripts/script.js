@@ -1,21 +1,6 @@
-const container = document.getElementById("container");
-document.addEventListener("DOMContentLoaded", () => {
-  const registerBtn = document.getElementById("register");
-  const loginBtn = document.getElementById("login");
-
-  registerBtn.addEventListener("click", () => {
-    container.classList.add("active");
-  });
-
-  loginBtn.addEventListener("click", () => {
-    container.classList.remove("active");
-  });
-});
 async function fetchNewsData() {
   try {
-    const response = await fetch(
-      "https://helldiverstrainingmanual.com/api/v1/war/news"
-    );
+    const response = await fetch("https://helldiverstrainingmanual.com/api/v1/war/news");
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -67,8 +52,7 @@ async function fetchNewsData() {
     console.error("Error fetching news data:", error);
     const campaignContainer = document.getElementById("campaign-container");
     if (campaignContainer) {
-      campaignContainer.innerHTML =
-        "<h3>Error loading news. Please try again later.</h3>";
+      campaignContainer.innerHTML = "<h3>Error loading news. Please try again later.</h3>";
     }
   }
 }

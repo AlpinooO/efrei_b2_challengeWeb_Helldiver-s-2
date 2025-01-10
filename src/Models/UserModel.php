@@ -119,4 +119,80 @@ class userModel
         ]);
         return $stmt->fetch();
     }
+
+    public function banUser()
+    {
+        $pdo = Database::getPDO();
+        $ban = 3;
+        $sqlQuery = "UPDATE users SET id_role = $ban WHERE email = :email;";
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute(
+            [
+                'email' => $this->email
+            ]
+        );
+    }
+
+    public function unbanUser()
+    {
+        $pdo = Database::getPDO();
+        $utilisateur = 2;
+        $sqlQuery = "UPDATE users SET id_role = $utilisateur WHERE email = :email;";
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute(
+            [
+                'email' => $this->email
+            ]
+        );
+    }
+
+    public function getAdmins()
+    {
+        $pdo = Database::getPDO();
+        $admin = 1;
+        $sqlQuery = "SELECT * FROM users WHERE id_role = $admin";
+        $stmt = $pdo->query($sqlQuery);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getBan()
+    {
+        $pdo = Database::getPDO();
+        $ban = 3;
+        $sqlQuery = "SELECT * FROM users WHERE id_role = $ban";
+        $stmt = $pdo->query($sqlQuery);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getRole()
+    {
+        $pdo = Database::getPDO();
+        $sqlQuery = "SELECT id_role FROM users";
+        $stmt = $pdo->query($sqlQuery);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function isBanned()
+    {
+        $pdo = Database::getPDO();
+        $ban = 3;
+        $sqlQuery = "SELECT * FROM users WHERE email = :email AND id_role = $ban";
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute([
+            'email' => $this->email
+        ]);
+        return $stmt->fetch();
+    }
+
+    public function isAdmin()
+    {
+        $pdo = Database::getPDO();
+        $admin = 1;
+        $sqlQuery = "SELECT * FROM users WHERE email = :email AND id_role = $admin";
+        $stmt = $pdo->prepare($sqlQuery);
+        $stmt->execute([
+            'email' => $this->email
+        ]);
+        return $stmt->fetch();
+    }
 }

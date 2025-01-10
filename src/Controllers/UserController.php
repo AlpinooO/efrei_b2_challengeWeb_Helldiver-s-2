@@ -42,6 +42,10 @@ class UserController extends CoreController
                 $error = "Utilisateur inconnu";
                 $this->render('user/log', ['error' => $error]);
             }
+            if ($user->isBanned()) {
+                $error = "vous êtes banni";
+                $this->render('user/log', ['error' => $error]);
+            }
 
             $loggedUser = $user->login();
             if ($loggedUser) {
@@ -80,5 +84,68 @@ class UserController extends CoreController
                 }
             }
         }
+    }
+
+    public function admin()
+    {
+        $this->isAdmin();
+        $user = new UserModel();
+        $ban = $user->getBan();
+        $admins = $user->getAdmins();
+        $data = ['ban' => $ban, 'admins' => $admins];
+        $this->render('user/admin', $data);
+    }
+
+    private function adminBase()
+    {
+        $this->isAdmin();
+        $email = htmlspecialchars($_POST['email']);
+        $user = new UserModel($email);
+        if (!$user->isUser()) {
+            $error = "Utilisateur inconnu";
+            $this->render('user/admin', ['error' => $error]);
+            exit();
+        }
+        if ($user->isAdmin()) {
+            $error = "cet utilisateur est admin";
+            $this->render('user/admin', ['error' => $error]);
+            exit();
+        }
+        return $user;
+    }
+
+    private function isBan($user)
+    {
+        if ($user->isBanned()) {
+            $error = "Utilisateur banni";
+            $this->render('user/admin', ['error' => $error]);
+            exit();
+        }
+    }
+
+    public function ban()
+    {
+        $user = $this->adminBase();
+        $this->isBan($user);
+        $user->banUser();
+        $success = "Utilisateur banni";
+        $this->render('user/admin', ['succes' => $success]);
+    }
+
+    public function unban()
+    {
+        $user = $this->adminBase();
+        $user->unbanUser();
+        $success = "Utilisateur débanni";
+        $this->render('user/admin', ['succes' => $success]);
+    }
+
+    public function adminUser()
+    {
+        $user = $this->adminBase();
+        $this->isBan($user);
+        $user->addAdmin();
+        $success = "Utilisateur promu admin";
+        $this->render('user/admin', ['succes' => $success]);
     }
 }

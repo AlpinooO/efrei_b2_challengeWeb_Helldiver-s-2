@@ -42,11 +42,10 @@ class CoreController
     public function isAdmin()
     {
         $this->isConnected();
-        if (!($_SESSION['user']['titre'] == 'admin')) {
+        if (!($_SESSION['user']['titre_role'] == 'admin')) {
             header('Location: /');
             exit();
         }
-
     }
 
 }

@@ -14,7 +14,6 @@
   --hdBackground: #6868686b;
 }
 
-
 body {
   background: repeating-linear-gradient(
     45deg,
@@ -26,28 +25,34 @@ body {
   background-attachment: fixed;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   min-height: 100vh;
-  
 }
 ::-webkit-scrollbar {
   width: 1em;
   background: var(--hdGrey);
-  background: linear-gradient(var(--hdBlack), var(--hdBlack), var(--hdBlack), var(--hdOrange), var(--hdYellow), var(--hdBlue));
+  background: linear-gradient(
+    var(--hdBlack),
+    var(--hdBlack),
+    var(--hdBlack),
+    var(--hdOrange),
+    var(--hdYellow),
+    var(--hdBlue)
+  );
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 8px;
-  background: 
-    linear-gradient(transparent,rgb(236, 108, 48)), /* Dégradé de couleur */
-    url('https://cdn.discordapp.com/attachments/1160949561502748823/1326926387210358857/Design_sans_titre-removebg-preview.png?ex=678133ff&is=677fe27f&hm=d03e707ca848634247987ef4eb9f7d7fde3175b5893ac97ee4c8b5b01d99c360&'); /* Your image */
+  background: linear-gradient(transparent, rgb(236, 108, 48)),
+    /* Dégradé de couleur */
+      url("https://cdn.discordapp.com/attachments/1160949561502748823/1326926387210358857/Design_sans_titre-removebg-preview.png?ex=678133ff&is=677fe27f&hm=d03e707ca848634247987ef4eb9f7d7fde3175b5893ac97ee4c8b5b01d99c360&"); /* Your image */
   background-repeat: no-repeat; /* No repeat */
   background-size: 46px 46px; /* Keep proportion */
-  background-position: bottom 
+  background-position: bottom;
 }
 
-p {
+p,
+span {
   color: #fff;
 }
 
@@ -119,7 +124,8 @@ h3 {
   height: 6vh;
 }
 
-.textToRight {
+.textToRight,
+.auteur {
   color: var(--hdBlue);
   text-align: right;
 }
@@ -208,6 +214,161 @@ h3 {
   color: #777;
   display: block;
   margin-top: 10px;
+}
+
+/* Forum Page */
+
+.forum-container {
+  width: 90%;
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
+.forum-container .pub {
+  padding: 20px;
+  background-color: var(--hdBackground);
+  border: 3px solid var(--hdYellow);
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2em;
+}
+
+.forum-container .ajout-pub {
+  padding: 0 1em;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--hdBackground);
+  width: 35%;
+  border: 3px solid var(--hdYellow);
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin: 1, 5em 3em;
+}
+
+.forum-container .ajout-pub input,
+.forum-container .ajout-pub textarea {
+  background-color: var(--hdBlack);
+  color: #fff;
+  border: none;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+}
+
+.forum-container .ajout-pub .submit {
+  background-color: var(--hdYellow);
+  color: black;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 40%;
+}
+
+.forum-container article {
+  width: 40%;
+  margin-bottom: 1em;
+}
+
+.forum-container p {
+  margin-bottom: 1em;
+}
+
+.forum-container article a {
+  text-decoration: none;
+  color: var(--hdBrown);
+}
+
+.toggleButton {
+  position: fixed;
+  bottom: 4%;
+  right: 4%;
+  z-index: 999;
+  padding: 10px;
+  background-color: var(--hdOrange);
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  height: 5vw;
+  width: 5vw;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+/* Publication Page */
+
+.publication-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+}
+
+.publication-container .publication {
+  border: 3px solid var(--hdYellow);
+  border-radius: 6px;
+  background-color: var(--hdBackground);
+  padding: 2em;
+  margin-bottom: 1em;
+}
+
+.ajout-com {
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--hdBackground);
+  width: 35%;
+  border: 3px solid var(--hdYellow);
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin: 1, 5em 3em;
+}
+
+.ajout-com input,
+.ajout-com textarea {
+  background-color: var(--hdBlack);
+  color: #fff;
+  border: none;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+}
+
+.ajout-com .submit {
+  background-color: var(--hdYellow);
+  color: black;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+  width: 60%;
 }
 
 /* Login/Register Page */
@@ -528,8 +689,6 @@ h3 {
   display: flex;
   padding: 1rem;
   margin-bottom: 2rem;
-  border: var(--hdBackground) 3px solid;
-
 }
 
 .Enemies-image {
@@ -553,7 +712,7 @@ footer {
   justify-content: space-evenly;
   text-align-last: center;
   flex-wrap: wrap;
-  margin-top: 1em;
+  margin-top: auto;
   position: relative;
   bottom: 0;
   left: 0;
@@ -579,6 +738,11 @@ footer section:first-of-type {
 .rouge {
   color: red;
   font-size: 1.5em;
+}
+
+.centered-404 {
+  display: flex;
+  justify-content: center;
 }
 
 .container-404 {
@@ -627,16 +791,24 @@ footer section:first-of-type {
 }
 
 .message-404 a {
-  color: var(--hdOrange);
+  color: var(--hdYellow);
   text-decoration: none;
+  font-weight: 900;
+  font-size: 1.25em;
 }
 
 /* page des planetes */
 
-
+#map-container {
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 10px;
+}
 .planet-list {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .planet-item {
@@ -645,60 +817,61 @@ footer section:first-of-type {
   padding: 10px;
   border-radius: 5px;
   display: flex;
-  flex-direction: column; /* Les informations sont empilées */
-  background-color: #fff; /* Fond blanc */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour donner un effet de cadre */
-  color: black; /* Texte noir pour tout le contenu de l'élément */
+  flex-direction: column; 
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  color: black; 
+  width: 100%; 
+  box-sizing: border-box;
 }
 
 .planet-item p {
-
   color: black;
 }
 
 .planet-header {
   display: flex;
-  justify-content: space-between; /* Aligne les éléments sur une ligne */
+  justify-content: space-between; 
   align-items: center;
-  border-bottom: 1px solid #ddd; /* Ligne séparatrice */
+  border-bottom: 1px solid #ddd; 
   padding-bottom: 5px;
   margin-bottom: 10px;
-  color: black; /* Texte noir pour l'en-tête */
+  color: black; 
 }
 
 .planet-header h4 {
   margin: 0;
   font-size: 1.2em;
   font-weight: bold;
-  color: black; /* Texte noir pour le titre */
+  color: black; 
 }
 
 .planet-header .planet-sector {
   font-size: 0.9em;
-  color: black; /* Texte noir pour les secteurs */
+  color: black; 
 }
 
 .planet-body {
   display: flex;
-  flex-direction: column; /* Par défaut, on empile les éléments */
-  gap: 10px; /* Espacement entre les éléments */
-  color: black; /* Texte noir pour le contenu principal */
+  flex-direction: column; 
+  gap: 10px; 
+  color: black; 
 }
 
 .planet-environmentals {
   margin-top: 10px;
-  color: black; /* Texte noir pour les dangers environnementaux */
+  color: black; 
 }
 
 .planet-environmentals h5 {
   margin: 0 0 5px;
   font-size: 1em;
   font-weight: bold;
-  color: black; /* Texte noir pour le sous-titre */
+  color: black;
 }
 
 .planet-environmentals ul {
-  color: black; /* Texte noir pour la liste des dangers */
+  color: black;
 }
 
 .planet-image {
@@ -707,5 +880,23 @@ footer section:first-of-type {
   margin-left: auto;
   border-radius: 5px;
   border: 1px solid #ddd;
-  color: black; /* Même si ce n'est pas nécessaire ici */
+  color: black;
+}
+
+.see-more{
+  background-color: var(--hdYellow);
+  color: black;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }

@@ -1,17 +1,3 @@
-const container = document.getElementById("container");
-document.addEventListener("DOMContentLoaded", () => {
-  const registerBtn = document.getElementById("register");
-  const loginBtn = document.getElementById("login");
-
-  registerBtn.addEventListener("click", () => {
-    container.classList.add("active");
-  });
-
-  loginBtn.addEventListener("click", () => {
-    container.classList.remove("active");
-  });
-});
-
 async function fetchNewsData() {
   try {
     const response = await fetch(
@@ -95,50 +81,62 @@ document.addEventListener("DOMContentLoaded", function () {
       const planets = Object.values(planetsData);
 
       if (planets && planets.length > 0) {
-        mapContainer.innerHTML += `
-          <ul class="planet-list">
-            ${planets
-              .map(
-                (planet) => `
-                  <li class="planet-item">
-                    <h4>${planet.name}</h4>
-                    <p><strong>Sector:</strong> ${planet.sector}</p>
-                    ${
-                      planet.biome
-                        ? `<p><strong>Biome:</strong> ${planet.biome.description}</p>`
-                        : ""
-                    }
-                    ${
-                      planet.environmentals.length > 0
-                        ? `
-                      <ul>
-                        ${planet.environmentals
-                          .map(
-                            (env) =>
-                              `<li><strong>${env.name}</strong>: ${env.description}</li>`
-                          )
-                          .join("")}
-                      </ul>
-                    `
-                        : ""
-                    }
-                    ${
-                      planet.image
-                        ? `<img src="${planet.image}" alt="${planet.name} image" class="planet-image">`
-                        : ""
-                    }
-                  </li>
-                `
-              )
-              .join("")}
-          </ul>
-        `;
+        const planetListHTML = planets
+          .map(
+            (planet, index) => `
+              <li class="planet-item">
+                <h4>${planet.name}</h4>
+                <p><strong>Sector:</strong> ${planet.sector}</p>
+                <button class="see-more" data-index="${index}">Voir plus</button>
+                <div class="description hidden" id="desc-${index}">
+                  <p><strong>Biome:</strong> ${
+                    planet.biome?.description || "Aucun biome disponible."
+                  }</p>
+                  ${
+                    planet.environmentals.length > 0
+                      ? `
+                        <h5>Environmentals:</h5>
+                        <ul>
+                          ${planet.environmentals
+                            .map(
+                              (env) => `
+                                <li>
+                                  <strong>${env.name}:</strong> ${env.description}
+                                </li>
+                              `
+                            )
+                            .join("")}
+                        </ul>
+                      `
+                      : "<p>Aucun facteur environnemental disponible.</p>"
+                  }
+                </div>
+              </li>
+            `
+          )
+          .join("");
+
+        mapContainer.innerHTML += `<ul class="planet-list">${planetListHTML}</ul>`;
+
+        // Ajout des événements pour les boutons "Voir plus"
+        const seeMoreButtons = document.querySelectorAll(".see-more");
+        seeMoreButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const index = this.getAttribute("data-index");
+            const description = document.getElementById(`desc-${index}`);
+            if (description) {
+              const isHidden = description.classList.contains("hidden");
+              description.classList.toggle("hidden");
+              this.textContent = isHidden ? "Voir moins" : "Voir plus";
+            }
+          });
+        });
       } else {
         console.warn("No data available to display.");
         mapContainer.innerHTML = "<h3>No data available</h3>";
       }
     } catch (error) {
-      console.error("An error occurred:", error);
+      console.error("Une erreur s'est produite :", error);
       const mapContainer = document.getElementById("map-container");
       if (mapContainer) {
         mapContainer.innerHTML =
@@ -149,45 +147,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fetchPlanets();
 });
-
-function planetSearch() {
-  return {
-    planets: [], // Liste des planètes
-    searchQuery: "", // Requête de recherche
-    filteredPlanets: [], // Résultats filtrés
-
-    async fetchPlanets() {
-      try {
-        const response = await fetch(
-          "https://helldiverstrainingmanual.com/api/v1/planets"
-        );
-        if (!response.ok) {
-          throw new Error(`Erreur HTTP : ${response.status}`);
-        }
-
-        // Charger les données et les convertir en tableau
-        const data = await response.json();
-        this.planets = Object.values(data);
-        this.filteredPlanets = this.planets; // Initialiser les résultats
-      } catch (error) {
-        console.error("Erreur lors du chargement des planètes :", error);
-      }
-    },
-
-    search() {
-      const query = this.searchQuery.toLowerCase();
-      this.filteredPlanets = this.planets.filter(
-        (planet) =>
-          planet.name.toLowerCase().includes(query) ||
-          planet.sector.toLowerCase().includes(query)
-      );
-    },
-
-    init() {
-      this.fetchPlanets(); // Charger les planètes lors de l'initialisation
-    },
-  };
-}
 const apiUrl = "https://helldiverstrainingmanual.com/api/v1/war/major-orders";
 
 // Fonction pour récupérer les données de l'API

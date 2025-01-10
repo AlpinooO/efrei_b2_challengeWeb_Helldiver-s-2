@@ -23,7 +23,7 @@ foreach ($planets as $planet) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    
     <script src="javascripts/script.js"></script>
 </head>
 <body>
@@ -60,9 +60,17 @@ foreach ($planets as $planet) {
     </ul>
 </div>
 
-    <div id="map-container">
-        <h3>Le programmeur est parti se battre pour la démocratie</h3>
-    </div>
+<div id="map-container">
+  <h3>Planets List</h3>
+  <ul class="planet-list">
+    <li class="planet-item">
+      <h4>Nom de la planète</h4>
+      <p><strong>Sector:</strong> Secteur de la planète</p>
+      <button class="see-more" data-index="0">Voir plus</button>
+      <p class="description hidden" id="desc-0">Description de la planète</p>
+    </li>
+  </ul>
+</div>
 
     
     <h1>La carte intéractive remplacant fait par le ministère de la vérité</h1>

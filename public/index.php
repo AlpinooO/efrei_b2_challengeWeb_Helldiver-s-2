@@ -18,12 +18,14 @@ $router->addRoute('GET', '/', MainController::class . '@home', 'home');
 $router->addRoute('GET', '/log', UserController::class . '@log', 'log');
 $router->addRoute('POST', '/log', MainController::class . '@log', 'logPost');
 $router->addRoute('GET', '/logout', UserController::class . '@logout', 'logout');
-
-$router->addRoute('GET', '/forum', PostsController::class . '@post', 'post');
-$router->addRoute('POST', '/forum', PostsController::class . '@poster', 'postPost');
-$router->addRoute('GET', '/map', MainController::class . '@map', 'map');
-$router->addRoute('GET', '/order', MainController::class . '@order', 'order');
+$router->addRoute('GET', '/forum', MainController::class . '@publication', 'publication');
+$router->addRoute('POST', '/forum', MainController::class . '@publier', 'publier ');
+$router->addRoute('GET', '/forum/supprimer', PublicationController::class . '@supprimer', 'supprimerPublication');
+$router->addRoute('GET', '/stratagem', MainController::class . '@stratagem', 'stratagem');
 $router->addRoute('GET', '/species', MainController::class . '@species', 'species');
+$router->addRoute('GET', '/order', MainController::class . '@order', 'order');
+$router->addRoute('GET', '/map', MainController::class . '@map', 'map');
+
 
 $route = $router->match(Request::getMethodFromGlobals(), Request::getPathFromGlobals());
 // dump($match);

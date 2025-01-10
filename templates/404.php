@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <title>DiversHelper - 404 Page Not Found</title>
 </head>
-<body>
+<body class="centered-404">
 <section class="container-404">
     <h1><i class="fa-solid fa-triangle-exclamation rouge"></i> Nouveau message reçu <i class="fa-solid fa-triangle-exclamation rouge"></i></h1>
     <div class="message-404">

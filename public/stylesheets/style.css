@@ -397,6 +397,9 @@ h3 {
 .ajout-pub textarea:hover,
 .ajout-pub textarea:focus,
 .admin-container form input:hover,
+.admin-container form input:focus,
+.ajout-pub textarea:focus,
+.admin-container form input:hover,
 .admin-container form input:focus {
   border: solid 1px #fff;
 }
@@ -515,6 +518,7 @@ h3 {
   background-color: var(--hdYellow);
   color: black;
   font-size: 12px;
+  padding: 10px 45px;
   padding: 10px 45px;
   border: 1px solid transparent;
   border-radius: 8px;

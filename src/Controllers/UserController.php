@@ -65,7 +65,8 @@ class UserController extends CoreController
 
         // Vérification des champs vides
         if (empty($email) || empty($password)) {
-            echo "Veuillez remplir tous les champs";
+            $error = "Veuillez remplir tous les champs";
+            $this->render('user/log', ['error' => $error]);
         } else {
             $user = new UserModel($email, $password, $username);
             if ($user->register()) {

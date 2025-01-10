@@ -1,19 +1,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="javascripts/script.js"></script>
 </head>
 <body>
-<div x-data="planetSearch()" x-init="init()" class="search-container">
+<div x-data="sectorSearch">
         <input 
             type="text" 
-            placeholder="Rechercher une planète ou un secteur..." 
-            x-model="searchQuery"
-            class="search-input"
-        />
-        <button @click="search()" class="search-button">Rechercher</button>
+            placeholder="Rechercher un secteur..." 
+            x-model="searchQuery" 
+            @input="filterSectors" />
 
+        <ul>
+            <template x-if="filteredSectors.length > 0">
+                <template x-for="sector in filteredSectors" :key="sector.id">
+                    <li x-text="sector.name + ' - ' + sector.description"></li>
+                </template>
+            </template>
+            <template x-if="filteredSectors.length === 0">
+                <li>Aucun secteur trouvé.</li>
+            </template>
+        </ul>
+    </div>
 
 
          <ul class="planet-list">

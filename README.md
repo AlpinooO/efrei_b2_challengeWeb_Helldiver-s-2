@@ -76,4 +76,3 @@ password : adminadmin
 - [Leo MALGONNE](https://github.com/AlpinooO)
 - [Harold LAJOUS](https://github.com/Lajous-Harold)
 - [Lucas ROSIER](https://github.com/LucasR65)
-````

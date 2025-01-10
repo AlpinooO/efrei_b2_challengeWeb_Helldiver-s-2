@@ -88,29 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h4>${planet.name}</h4>
                 <p><strong>Sector:</strong> ${planet.sector}</p>
                 <button class="see-more" data-index="${index}">Voir plus</button>
-                <div class="description hidden" id="desc-${index}">
-                  <p><strong>Biome:</strong> ${
-                    planet.biome?.description || "Aucun biome disponible."
-                  }</p>
-                  ${
-                    planet.environmentals.length > 0
-                      ? `
-                        <h5>Environmentals:</h5>
-                        <ul>
-                          ${planet.environmentals
-                            .map(
-                              (env) => `
-                                <li>
-                                  <strong>${env.name}:</strong> ${env.description}
-                                </li>
-                              `
-                            )
-                            .join("")}
-                        </ul>
-                      `
-                      : "<p>Aucun facteur environnemental disponible.</p>"
-                  }
-                </div>
+                <p class="description hidden" id="desc-${index}">
+                  ${planet.description || "Pas de description disponible."}
+                </p>
               </li>
             `
           )
@@ -118,38 +98,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
         mapContainer.innerHTML += `<ul class="planet-list">${planetListHTML}</ul>`;
 
-        // Ajout des événements pour les boutons "Voir plus"
+        // Gestionnaire pour les boutons "Voir plus"
         const seeMoreButtons = document.querySelectorAll(".see-more");
+
         seeMoreButtons.forEach((button) => {
           button.addEventListener("click", function () {
-            const index = this.getAttribute("data-index");
+            const index = button.getAttribute("data-index");
             const description = document.getElementById(`desc-${index}`);
+
             if (description) {
-              const isHidden = description.classList.contains("hidden");
               description.classList.toggle("hidden");
-              this.textContent = isHidden ? "Voir moins" : "Voir plus";
             }
           });
         });
       } else {
-        console.warn("No data available to display.");
-        mapContainer.innerHTML = "<h3>No data available</h3>";
+        mapContainer.innerHTML += `<p>Aucune planète trouvée.</p>`;
       }
     } catch (error) {
-      console.error("Une erreur s'est produite :", error);
-      const mapContainer = document.getElementById("map-container");
-      if (mapContainer) {
-        mapContainer.innerHTML =
-          "<h3>Erreur lors du chargement des données. Veuillez réessayer plus tard.</h3>";
-      }
+      console.error("Erreur lors de la récupération des planètes:", error);
     }
   }
 
   fetchPlanets();
 });
+
+document.getElementById("show-more").addEventListener("click", function () {
+  const hiddenPlanets = document.querySelectorAll(".hidden-planet");
+  hiddenPlanets.forEach(function (planet) {
+    planet.style.display = "list-item";
+  });
+  this.style.display = "none";
+});
+
 const apiUrl = "https://helldiverstrainingmanual.com/api/v1/war/major-orders";
 
-// Fonction pour récupérer les données de l'API
 async function fetchMajorOrders() {
   try {
     const response = await fetch(apiUrl);

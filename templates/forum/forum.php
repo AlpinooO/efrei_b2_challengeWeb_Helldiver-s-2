@@ -13,10 +13,10 @@
     <?php
     $publications = $data['publications'];
     foreach ($publications as $publication) { ?>
-        <article>
+        <article class="pub">
             <h2><?= $publication->titre_post ?></h2>
             <p><?= $publication->message ?></p>
-            <p>publié le <?= $publication->publication ?> par <?= $publication->nom ?></p>
+            <p class="auteur">publié le <?= $publication->publication ?> par <?= $publication->nom ?></p>
             <span><strong><a href="/forum?id=<?= $publication->id_post ?>">Voir la publication</a></strong>
             <?php
             if (isset($_SESSION['user'])) {

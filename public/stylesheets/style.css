@@ -25,7 +25,6 @@ body {
   background-attachment: fixed;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   min-height: 100vh;
 }
@@ -125,7 +124,8 @@ h3 {
   height: 6vh;
 }
 
-.textToRight {
+.textToRight,
+.auteur {
   color: var(--hdBlue);
   text-align: right;
 }
@@ -229,6 +229,15 @@ h3 {
   height: 100%;
 }
 
+.forum-container .pub {
+  padding: 20px;
+  background-color: var(--hdBackground);
+  border: 3px solid var(--hdYellow);
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2em;
+}
+
 .forum-container .ajout-pub {
   padding: 0 1em;
   display: none;
@@ -294,10 +303,72 @@ h3 {
   color: #fff;
   font-size: 30px;
   font-weight: 800;
-  height: 15vh;
-  width: 7vw;
-  border-radius: 50%;
+  height: 5vw;
+  width: 5vw;
+  border: none;
+  border-radius: 100%;
   cursor: pointer;
+}
+
+/* Publication Page */
+
+.publication-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+}
+
+.publication-container .publication {
+  border: 3px solid var(--hdYellow);
+  border-radius: 6px;
+  background-color: var(--hdBackground);
+  padding: 2em;
+  margin-bottom: 1em;
+}
+
+.ajout-com {
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--hdBackground);
+  width: 35%;
+  border: 3px solid var(--hdYellow);
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin: 1, 5em 3em;
+}
+
+.ajout-com input,
+.ajout-com textarea {
+  background-color: var(--hdBlack);
+  color: #fff;
+  border: none;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+}
+
+.ajout-com .submit {
+  background-color: var(--hdYellow);
+  color: black;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+  width: 60%;
 }
 
 /* Login/Register Page */
@@ -641,7 +712,7 @@ footer {
   justify-content: space-evenly;
   text-align-last: center;
   flex-wrap: wrap;
-  margin-top: 1em;
+  margin-top: auto;
   position: relative;
   bottom: 0;
   left: 0;
@@ -667,6 +738,11 @@ footer section:first-of-type {
 .rouge {
   color: red;
   font-size: 1.5em;
+}
+
+.centered-404 {
+  display: flex;
+  justify-content: center;
 }
 
 .container-404 {
@@ -715,8 +791,10 @@ footer section:first-of-type {
 }
 
 .message-404 a {
-  color: var(--hdOrange);
+  color: var(--hdYellow);
   text-decoration: none;
+  font-weight: 900;
+  font-size: 1.25em;
 }
 
 /* page des planetes */

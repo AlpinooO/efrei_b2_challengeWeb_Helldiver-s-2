@@ -122,14 +122,18 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchPlanets();
 });
 
-document.getElementById("show-more").addEventListener("click", function () {
-  const hiddenPlanets = document.querySelectorAll(".hidden-planet");
-  hiddenPlanets.forEach(function (planet) {
-    planet.style.display = "list-item";
-  });
-  this.style.display = "none";
-});
-
+// Voir plus de planetes
+function showMorePlanets() {
+  document.getElementById("remaining-planets").style.display = "block";
+  document.getElementById("show-more-btn").style.display = "none";
+  document.getElementById("show-less-btn").style.display = "inline-block";
+}
+// Voir moins de planetes
+function showLessPlanets() {
+  document.getElementById("remaining-planets").style.display = "none";
+  document.getElementById("show-more-btn").style.display = "inline-block";
+  document.getElementById("show-less-btn").style.display = "none";
+}
 const apiUrl = "https://helldiverstrainingmanual.com/api/v1/war/major-orders";
 
 async function fetchMajorOrders() {

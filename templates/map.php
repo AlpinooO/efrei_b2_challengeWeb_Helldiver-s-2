@@ -2,12 +2,11 @@
 $jsonData = file_get_contents('assets/json/Planet.json'); 
 $planets = json_decode($jsonData, true);
 
-$searchQuery = isset($_GET['search']) ? trim($_GET['search']) : ''; 
+$searchQuery = isset($_GET['search']) ? strtolower($_GET['search']) : ''; 
 $filteredPlanets = [];
 
 
-if ($searchQuery !== '') {
-    foreach ($planets as $planet) {
+foreach ($planets as $planet) {
     if (
         strpos(strtolower($planet['name']), $searchQuery) !== false ||
         strpos(strtolower($planet['sector']), $searchQuery) !== false ||
@@ -20,8 +19,6 @@ if ($searchQuery !== '') {
         $filteredPlanets[] = $planet;
     }
 }
-}
-
 ?>
 <head>
     <meta charset="UTF-8">
@@ -33,15 +30,21 @@ if ($searchQuery !== '') {
 <div>
 <h1>Rechercher une planète</h1>
     <form method="get">
-        <input class="search" type="text" name="search" placeholder="Rechercher une planète..." value="<?= htmlspecialchars($searchQuery) ?>">
-        <button class="search-button" type="submit">Rechercher</button>
+        <input type="text" name="search" placeholder="Rechercher une planète..." value="<?= htmlspecialchars($searchQuery) ?>">
+        <button type="submit">Rechercher</button>
     </form>
 
     <ul>
-    <ul id="planet-list">
-    <?php if (!empty($filteredPlanets)): ?>
-        <?php foreach ($filteredPlanets as $index => $planet): ?>
-            <li class="planet-item <?= $index >= 5 ? 'hidden-planet' : '' ?>">
+    <?php 
+    // Limiter à 5 premières planètes
+    $limitedPlanets = array_slice($filteredPlanets, 0, 5);
+    $remainingPlanets = array_slice($filteredPlanets, 5);
+    ?>
+
+    <!-- Affichage des 5 premières planètes -->
+    <?php if (!empty($limitedPlanets)): ?>
+        <?php foreach ($limitedPlanets as $planet): ?>
+            <li class="planet-item">
                 <strong><?= htmlspecialchars($planet['name']) ?></strong> 
                 <p><strong>Sector : </strong><?= htmlspecialchars($planet['sector']) ?></p>
                 <?php if (!empty($planet['biome'])): ?>
@@ -57,16 +60,43 @@ if ($searchQuery !== '') {
                     </ul>
                 <?php endif; ?>
             </li>
-        <?php endforeach; ?>    
+        <?php endforeach; ?>
     <?php else: ?>
         <li>Aucune planète trouvée.</li>
     <?php endif; ?>
+
+    <!-- Affichage des planètes restantes, masquées par défaut -->
+    <?php if (!empty($remainingPlanets)): ?>
+        <ul id="remaining-planets" style="display: none;">
+            <?php foreach ($remainingPlanets as $planet): ?>
+                <li class="planet-item">
+                    <strong><?= htmlspecialchars($planet['name']) ?></strong> 
+                    <p><strong>Sector : </strong><?= htmlspecialchars($planet['sector']) ?></p>
+                    <?php if (!empty($planet['biome'])): ?>
+                        <p><strong>Biome : </strong><?= htmlspecialchars($planet['biome']['slug']) ?></p>
+                    <?php endif; ?>
+                    <?php if (!empty($planet['environmentals'])): ?>
+                        <ul>
+                            <?php foreach ($planet['environmentals'] as $env): ?>
+                                <li>
+                                    <strong><?= htmlspecialchars($env['name']) ?></strong>: <?= htmlspecialchars($env['description']) ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+
+    <!-- Boutons pour afficher plus ou moins de planètes -->
+    <?php if (!empty($remainingPlanets)): ?>
+        <button id="show-more-btn" onclick="showMorePlanets()">Voir plus de planètes</button>
+        <button id="show-less-btn" onclick="showLessPlanets()" style="display: none;">Voir moins de planètes</button>
+    <?php endif; ?>
 </ul>
 
-<?php if (count($filteredPlanets) > 5): ?>
-    <button id="show-more">Voir plus</button>
-<?php endif; ?>
-    </ul>
+
 </div>
 
 

@@ -1,18 +1,18 @@
-<section>
+<section class="admin-container">
     <form action="/admin" method="post">
         <input type="hidden" name="ban" value="ban">
         <input type="text" name="email" placeholder="Email">
-        <input type="submit" value="bannir l'utilisateur">
+        <input type="submit" class="submit" value="bannir l'utilisateur">
     </form>
     <form action="/admin" method="post">
         <input type="hidden" name="ban" value="unban">
         <input type="text" name="email" placeholder="Email">
-        <input type="submit" value="débannir l'utilisateur">
+        <input type="submit" class="submit" value="débannir l'utilisateur">
     </form>
     <form action="/admin" method="post">
         <input type="hidden" name="ban" value="admin">
         <input type="text" name="email" placeholder="Email">
-        <input type="submit" value="faire de l'utilisateur un admin">
+        <input type="submit" class="submit" value="faire de l'utilisateur un admin">
     </form>
     <?php
     if (isset($data['error'])) {

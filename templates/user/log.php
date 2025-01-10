@@ -8,11 +8,12 @@
         <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
         <a href="#" class="icon"><i class="fa-brands fa-steam"></i></a>
       </div>
-      <span>ou utiliser votre email pour céer votre compte</span>
-      <input type="hidden" name="register" value="register" />
+      <span>ou utiliser votre email pour créer votre compte</span>
+      <input type="hidden" name="register" value="s'enregistrer" />
       <input type="email" name="email" placeholder="email" />
-      <input type="text" name="name" placeholder="name" />
-      <input type="password" name="password" placeholder="password" />
+      <input type="text" name="name" placeholder="nom" />
+      <input type="password" name="password" placeholder="mot de passe" />
+      <input type="password" name="password2" placeholder="mot de passe" />
       <input type="submit" class="submit" value="S'enregistrer" />
     </form>
   </div>
@@ -26,9 +27,9 @@
         <a href="#" class="icon"><i class="fa-brands fa-steam"></i></a>
       </div>
       <span>ou utiliser votre email et mot de passe</span>
-      <input type="hidden" name="register" value="login" />
+      <input type="hidden" name="register" value="connexion" />
       <input type="email" name="email" placeholder="email" />
-      <input type="password" name="password" placeholder="password" />
+      <input type="password" name="password" placeholder="mot de passe" />
       <a href="#">Mot de passe oublié?</a>
       <input type="submit" class="submit" value="Se connecter" />
     </form>
@@ -46,6 +47,7 @@
         <button class="hidden" id="register">S'enregistrer</button>
       </div>
     </div>
+  </div>
 </div>
 <?php if (isset($data['error'])) {
   echo '<p class="error">' . $data['error'] . '</p>';

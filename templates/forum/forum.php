@@ -13,23 +13,23 @@
     <?php
     $publications = $data['publications'];
     foreach ($publications as $publication) { ?>
-        <article class="pub">
-            <h2><?= $publication->titre_post ?></h2>
-            <p><?= $publication->message ?></p>
-            <p class="auteur">publié le <?= $publication->publication ?> par <?= $publication->nom ?></p>
-            <span><strong><a href="/forum?id=<?= $publication->id_post ?>">Voir la publication</a></strong>
+    <article class="pub">
+        <h2><?= $publication->titre_post ?></h2>
+        <p><?= $publication->message ?></p>
+        <p class="auteur">publié le <?= $publication->publication ?> par <?= $publication->nom ?></p>
+        <span><strong><a href="/forum?id=<?= $publication->id_post ?>">Voir la publication</a></strong>
             <?php
-            if (isset($_SESSION['user'])) {
-                $userRole = $_SESSION['user']['titre_role'];
-                $userId = $_SESSION['user']['id_user'];
-                if ($userRole === 'admin' || $userId == $publication->id_user) { ?>
-                     | <a href="/forum/supprimer?id=<?= $publication->id_post ?>">supprimer</a>
-                <?php }
-            }
-            ?>
-            </span>
+                if (isset($_SESSION['user'])) {
+                    $userRole = $_SESSION['user']['titre_role'];
+                    $userId = $_SESSION['user']['id_user'];
+                    if ($userRole === 'admin' || $userId == $publication->id_user) { ?>
+            | <a href="/forum/supprimer?id=<?= $publication->id_post ?>&comments=0">supprimer</a>
+            <?php }
+                }
+                ?>
+        </span>
 
-        </article>
+    </article>
     <?php } ?>
     <script src="/javascripts/show.js"></script>
 </section>

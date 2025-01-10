@@ -102,4 +102,14 @@ class PublicationModel
         $commentaires = $stmt->fetchAll(PDO::FETCH_CLASS);
         return $commentaires;
     }
+
+    public function getParent()
+    {
+        $pdo = Database::getPDO();
+        $sql = "SELECT parent FROM publication WHERE id_post = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $this->id]);
+        $parent = $stmt->fetch();
+        return $parent;
+    }
 }

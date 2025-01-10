@@ -48,8 +48,15 @@ class PublicationController extends CoreController
     public function supprimer()
     {
         $id = $_GET['id'];
+        $comments = $_GET['comments'];
         $publication = new PublicationModel($id);
         $publication->delete();
+        if ($comments != 0) {
+            $parent = $publication->getParent();
+            header('Location: /forum?id=' . $comments);
+            exit();
+        }
         header('Location: /forum');
+        exit();
     }
 }

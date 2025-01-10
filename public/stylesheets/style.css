@@ -359,6 +359,11 @@ h3 {
   width: 60%;
 }
 
+.publication-container .commentaire a {
+  color: var(--hdBrown);
+  text-decoration: none;
+}
+
 .ajout-com {
   padding: 0 1em;
   display: flex;
@@ -407,6 +412,13 @@ h3 {
   cursor: pointer;
   text-align: center;
   width: 30%;
+}
+
+.retour {
+  display: flex;
+  text-align: right;
+  width: 95%;
+  text-decoration: none;
 }
 
 /* Login/Register Page */

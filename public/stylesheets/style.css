@@ -972,6 +972,25 @@ footer section:first-of-type {
   cursor: pointer;
 }
 
+.link {
+  text-decoration: none;
+  color: var(--hdBlue);
+}
+
+.link-container {
+  background-color: var(--hdYellow);
+  color: black;
+  font-size: 12px;
+  padding: 10px 25px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 1rem;
+}
+
 .hidden-planet {
   display: none;
 }

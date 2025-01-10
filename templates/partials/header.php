@@ -31,7 +31,7 @@ if (isset($_SESSION['user'])) {
                     <a href="/map">Carte</a>
                 </li>
                 <li>
-                    <a href="/species">Species</a>
+                    <a href="/species">Bestiaire</a>
                 </li>
                 <li>
                     <a href="/forum">Forums</a>
@@ -53,7 +53,7 @@ if (isset($_SESSION['user'])) {
                     </li>
                 <?php } else { ?>
                     <li>
-                        <a href="/log">Login</a>
+                        <a href="/log">Se connecter</a>
                     </li>
                 <?php } ?>
 

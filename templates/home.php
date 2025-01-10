@@ -1,6 +1,8 @@
-<h1>Bienvenue sur DiversHelper!</h1>
-
+<div class="home-title-container">
+<h1 class="title-home">Bienvenue sur DiversHelper!</h1>
 <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+</div>
+
 
 <div class="container-main">
     <div class="container-col">
